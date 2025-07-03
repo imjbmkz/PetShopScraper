@@ -35,11 +35,8 @@ if __name__ == "__main__":
     task = args.task
     shop = args.shop
 
-    con = Connection()
-
     if task == "get_links":
         client = run_etl(shop)
-        con.execute_query("TRUNCATE TABLE stg_urls;")
         client.get_links_by_category("stg_urls")
 
     end_time = dt.datetime.now()

@@ -43,6 +43,8 @@ class PetProductsETL(ABC):
             raise e
 
     def get_links_by_category(self, table_name: str):
+        self.connection.execute_query(f"TRUNCATE TABLE {table_name};")
+
         BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
         file_path = os.path.join(
             BASE_DIR, 'data', 'categories', f'{self.SHOP.lower()}.json')
