@@ -1,0 +1,76 @@
+2025-07-02 22:21:50.851 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-02 22:21:50.852 | INFO     | __main__:<module>:47 - Pet Products Scraper (shop=ASDAGroceries) has ended. Elapsed: 0:00:00.137506
+2025-07-04 00:50:46.276 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 00:50:46.278 | SUCCESS  | functions.connection:_create_engine:44 - Connected to MYSQL with SQLAlchemy!
+2025-07-04 00:50:46.279 | INFO     | functions.connection:execute_query:55 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:50:46.348 | ERROR    | functions.connection:execute_query:62 - Query execution failed: 'Connection' object has no attribute 'commit'
+2025-07-04 00:51:18.148 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 00:51:18.149 | SUCCESS  | functions.connection:_create_engine:44 - Connected to MYSQL with SQLAlchemy!
+2025-07-04 00:51:18.149 | INFO     | functions.connection:execute_query:55 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:51:18.221 | ERROR    | functions.connection:execute_query:62 - Query execution failed: 'Connection' object has no attribute 'commit'
+2025-07-04 00:51:57.306 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 00:51:57.307 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:51:57.359 | ERROR    | functions.connection:execute_query:61 - Query execution failed: 'Connection' object has no attribute 'commit'
+2025-07-04 00:52:58.468 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 00:52:58.469 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:52:58.522 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:53:31.328 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 00:53:31.329 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:53:31.394 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:55:38.777 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 00:55:38.777 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:55:38.840 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:55:52.945 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 00:55:52.946 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:55:53.015 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:56:19.804 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 00:56:19.805 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:56:19.913 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:57:02.589 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 00:57:02.589 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:57:02.639 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:57:08.165 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/dental-treats-health-treats/1215662103573-1215680107518-1215680108312-1215684181111
+2025-07-04 00:57:22.214 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 00:57:22.305 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 00:57:31.281 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 00:57:31.481 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/dental-treats-health-treats/1215662103573-1215680107518-1215680108312-1215684181111
+2025-07-04 00:57:36.689 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/dental-treats-health-treats/1215662103573-1215680107518-1215680108312-1215684181111?page=1
+2025-07-04 00:57:41.207 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 00:58:12.026 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 00:58:12.026 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:58:39.688 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 00:58:39.688 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 00:58:40.350 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product-category/dog-food/
+2025-07-04 00:59:25.864 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #content
+2025-07-04 00:59:25.916 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 00:59:34.368 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 00:59:34.469 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product-category/dog-food/
+2025-07-04 00:59:40.048 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product-category/dog-food//page/2
+2025-07-04 00:59:46.989 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 01:00:11.731 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 01:00:11.731 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 01:00:12.483 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product-category/dog-food/
+2025-07-04 01:01:07.165 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 01:01:07.198 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 01:01:19.832 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 01:01:20.004 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product-category/dog-food/
+2025-07-04 01:01:25.440 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product-category/dog-food//page/2
+2025-07-04 01:01:50.036 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 01:01:53.424 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 01:01:53.425 | INFO     | functions.connection:execute_query:54 - Running query: TRUNCATE TABLE stg_urls;
+2025-07-04 01:01:54.223 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product-category/dog-food
+2025-07-04 01:02:46.459 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 01:02:46.495 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 01:02:56.295 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 01:02:56.390 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product-category/dog-food
+2025-07-04 01:02:59.568 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product-category/dog-food/page/2
+2025-07-04 01:03:30.046 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 01:03:30.082 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 01:03:39.204 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 01:03:39.264 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product-category/dog-food/page/2
+2025-07-04 01:03:43.264 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product-category/dog-food/page/3
+2025-07-04 01:03:55.036 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/3: HTTP 404 error for https://www.bernpetfoods.co.uk/product-category/dog-food/page/3
+2025-07-04 01:03:57.102 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product-category/dog-food/page/3
+2025-07-04 01:04:01.035 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/3: HTTP 404 error for https://www.bernpetfoods.co.uk/product-category/dog-food/page/3
+2025-07-04 01:04:03.104 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product-category/dog-food/page/3
+2025-07-04 01:04:09.810 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed

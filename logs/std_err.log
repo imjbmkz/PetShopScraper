@@ -1,0 +1,9 @@
+2025-07-04 00:50:46.348 | ERROR    | functions.connection:execute_query:62 - Query execution failed: 'Connection' object has no attribute 'commit'
+2025-07-04 00:51:18.221 | ERROR    | functions.connection:execute_query:62 - Query execution failed: 'Connection' object has no attribute 'commit'
+2025-07-04 00:51:57.359 | ERROR    | functions.connection:execute_query:61 - Query execution failed: 'Connection' object has no attribute 'commit'
+2025-07-04 00:57:41.207 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 00:59:46.989 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 01:01:50.036 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 01:03:55.036 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/3: HTTP 404 error for https://www.bernpetfoods.co.uk/product-category/dog-food/page/3
+2025-07-04 01:04:01.035 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/3: HTTP 404 error for https://www.bernpetfoods.co.uk/product-category/dog-food/page/3
+2025-07-04 01:04:09.810 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
