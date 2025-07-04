@@ -4967,3 +4967,272 @@ WHERE id=23
 2025-07-04 22:06:35.531 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/
 2025-07-04 22:06:42.861 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
 2025-07-04 22:06:42.914 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:06:53.233 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:06:53.399 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-biscuit-treats/1215662103573-1215680108192-1215680109365-1215680112761?page=1
+2025-07-04 22:06:58.178 | SUCCESS  | functions.etl:load:41 - Successfully loaded 68 records to the stg_asdagroceries_temp.
+2025-07-04 22:06:58.836 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-sticks-liquid-treats/1215662103573-1215680108192-1215680109365-1215685241502
+2025-07-04 22:07:02.706 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 22:07:02.750 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:07:05.832 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:07:05.888 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:07:13.446 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:07:13.512 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/
+2025-07-04 22:07:13.893 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:07:13.957 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-sticks-liquid-treats/1215662103573-1215680108192-1215680109365-1215685241502
+2025-07-04 22:07:18.722 | SUCCESS  | functions.etl:load:41 - Successfully loaded 23 records to the stg_asdagroceries_temp.
+2025-07-04 22:07:19.540 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/natural-dental-health-treats/1215662103573-1215680108192-1215680109365-1215686353956
+2025-07-04 22:07:25.848 | SUCCESS  | functions.etl:load:41 - Successfully loaded 3 records to the stg_bernpetfoods_temp_products.
+2025-07-04 22:07:25.848 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 22:06:34'
+WHERE id=24
+2025-07-04 22:07:26.526 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-wild-prairie-dog/
+2025-07-04 22:07:29.258 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:07:29.300 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:07:38.048 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:07:38.102 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/natural-dental-health-treats/1215662103573-1215680108192-1215680109365-1215686353956
+2025-07-04 22:07:40.334 | SUCCESS  | functions.etl:load:41 - Successfully loaded 12 records to the stg_asdagroceries_temp.
+2025-07-04 22:07:41.158 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-kitten-milk/1215662103573-1215680108192-1215680109365-1215680113065
+2025-07-04 22:07:44.891 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 22:07:44.924 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:07:55.343 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:07:55.428 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-wild-prairie-dog/
+2025-07-04 22:07:57.983 | SUCCESS  | functions.etl:load:41 - Successfully loaded 3 records to the stg_bernpetfoods_temp_products.
+2025-07-04 22:07:57.983 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 22:07:25'
+WHERE id=25
+2025-07-04 22:07:58.576 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-grasslands-dog/
+2025-07-04 22:08:09.261 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:08:09.300 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:08:15.736 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 22:08:15.767 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:08:19.620 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:08:19.654 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-kitten-milk/1215662103573-1215680108192-1215680109365-1215680113065
+2025-07-04 22:08:21.805 | SUCCESS  | functions.etl:load:41 - Successfully loaded 4 records to the stg_asdagroceries_temp.
+2025-07-04 22:08:22.509 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-tins/1215662103573-1215680108192-1215685241913-1215685292478
+2025-07-04 22:08:24.958 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:08:25.019 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-grasslands-dog/
+2025-07-04 22:08:29.408 | SUCCESS  | functions.etl:load:41 - Successfully loaded 3 records to the stg_bernpetfoods_temp_products.
+2025-07-04 22:08:29.409 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 22:07:57'
+WHERE id=26
+2025-07-04 22:08:30.242 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-pacifica-dog/
+2025-07-04 22:08:34.456 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:08:34.507 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:08:43.053 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:08:43.151 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-tins/1215662103573-1215680108192-1215685241913-1215685292478
+2025-07-04 22:08:46.838 | SUCCESS  | functions.etl:load:41 - Successfully loaded 33 records to the stg_asdagroceries_temp.
+2025-07-04 22:08:47.556 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-pouches-trays/1215662103573-1215680108192-1215685241913-1215685292477
+2025-07-04 22:08:53.583 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 22:08:53.632 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:09:01.364 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:09:01.411 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:09:02.950 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:09:03.037 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-pacifica-dog/
+2025-07-04 22:09:05.584 | SUCCESS  | functions.etl:load:41 - Successfully loaded 3 records to the stg_bernpetfoods_temp_products.
+2025-07-04 22:09:05.584 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 22:08:29'
+WHERE id=27
+2025-07-04 22:09:06.240 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/orijen-small-breed/
+2025-07-04 22:09:11.117 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:09:11.287 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-pouches-trays/1215662103573-1215680108192-1215685241913-1215685292477
+2025-07-04 22:09:14.426 | SUCCESS  | functions.etl:load:41 - Successfully loaded 65 records to the stg_asdagroceries_temp.
+2025-07-04 22:09:15.148 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/premium-wet-cat-food/1215662103573-1215680108192-1215685971312-1215685971315
+2025-07-04 22:09:16.447 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 22:09:16.481 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:09:24.554 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:09:24.621 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/orijen-small-breed/
+2025-07-04 22:09:27.278 | SUCCESS  | functions.etl:load:41 - Successfully loaded 2 records to the stg_bernpetfoods_temp_products.
+2025-07-04 22:09:27.279 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 22:09:05'
+WHERE id=28
+2025-07-04 22:09:27.982 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/orijen-small-breed-puppy/
+2025-07-04 22:09:30.139 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:09:30.186 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:09:39.122 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:09:39.361 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/premium-wet-cat-food/1215662103573-1215680108192-1215685971312-1215685971315
+2025-07-04 22:09:41.878 | SUCCESS  | functions.etl:load:41 - Successfully loaded 65 records to the stg_asdagroceries_temp.
+2025-07-04 22:09:42.704 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029
+2025-07-04 22:09:51.046 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:09:51.117 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:09:55.718 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 22:09:55.756 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:10:01.289 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:10:01.470 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029
+2025-07-04 22:10:03.452 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:10:03.508 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/orijen-small-breed-puppy/
+2025-07-04 22:10:05.796 | SUCCESS  | functions.etl:load:41 - Successfully loaded 2 records to the stg_bernpetfoods_temp_products.
+2025-07-04 22:10:05.796 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 22:09:27'
+WHERE id=29
+2025-07-04 22:10:06.501 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/
+2025-07-04 22:10:06.731 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029?page=1
+2025-07-04 22:10:30.413 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 22:10:30.686 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:10:36.025 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:10:36.302 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029?page=1
+2025-07-04 22:10:41.263 | SUCCESS  | functions.etl:load:41 - Successfully loaded 72 records to the stg_asdagroceries_temp.
+2025-07-04 22:10:42.041 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812
+2025-07-04 22:10:53.087 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:10:53.139 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:11:04.564 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:11:04.745 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812
+2025-07-04 22:11:06.517 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 22:11:08.592 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/
+2025-07-04 22:11:08.880 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1
+2025-07-04 22:11:23.332 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 22:11:23.389 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:11:34.337 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:11:34.539 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1
+2025-07-04 22:11:37.907 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=2
+2025-07-04 22:11:46.826 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 22:11:46.882 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:11:59.201 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:11:59.492 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=2
+2025-07-04 22:12:04.603 | SUCCESS  | functions.etl:load:41 - Successfully loaded 144 records to the stg_asdagroceries_temp.
+2025-07-04 22:12:05.323 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/dry-cat-food-biscuits/1215662103573-1215680108192-1215685971317
+2025-07-04 22:12:08.601 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 22:12:10.666 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/
+2025-07-04 22:12:28.517 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:12:28.583 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:12:37.186 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:12:37.384 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/dry-cat-food-biscuits/1215662103573-1215680108192-1215685971317
+2025-07-04 22:12:40.788 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/dry-cat-food-biscuits/1215662103573-1215680108192-1215685971317?page=1
+2025-07-04 22:12:50.463 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 22:12:50.520 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:12:56.192 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:12:56.429 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/dry-cat-food-biscuits/1215662103573-1215680108192-1215685971317?page=1
+2025-07-04 22:13:00.406 | SUCCESS  | functions.etl:load:41 - Successfully loaded 66 records to the stg_asdagroceries_temp.
+2025-07-04 22:13:01.208 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/natural-cat-food/1215662103573-1215680108192-1215685992231
+2025-07-04 22:13:10.670 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 22:13:14.745 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/
+2025-07-04 22:13:18.337 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:13:18.378 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:13:26.012 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:13:26.137 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/natural-cat-food/1215662103573-1215680108192-1215685992231
+2025-07-04 22:13:29.869 | SUCCESS  | functions.etl:load:41 - Successfully loaded 35 records to the stg_asdagroceries_temp.
+2025-07-04 22:13:30.531 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/advanced-nutrition-cat-food/1215662103573-1215680108192-1215685971321
+2025-07-04 22:13:39.137 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:13:39.180 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:13:46.358 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:13:46.516 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/advanced-nutrition-cat-food/1215662103573-1215680108192-1215685971321
+2025-07-04 22:13:50.860 | SUCCESS  | functions.etl:load:41 - Successfully loaded 43 records to the stg_asdagroceries_temp.
+2025-07-04 22:13:51.578 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-healthcare-accessories/flea-worming-treatments/1215662103573-1215680108192-1215680112665-1215680118634
+2025-07-04 22:14:08.542 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:14:08.578 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:14:14.751 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 22:14:18.599 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:14:18.646 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-healthcare-accessories/flea-worming-treatments/1215662103573-1215680108192-1215680112665-1215680118634
+2025-07-04 22:14:19.818 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/
+2025-07-04 22:14:21.137 | SUCCESS  | functions.etl:load:41 - Successfully loaded 13 records to the stg_asdagroceries_temp.
+2025-07-04 22:14:21.817 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-healthcare-accessories/cat-care-accessories/1215662103573-1215680108192-1215680112665-1215680114894
+2025-07-04 22:14:29.144 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:14:29.183 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:14:37.499 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:14:37.563 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-healthcare-accessories/cat-care-accessories/1215662103573-1215680108192-1215680112665-1215680114894
+2025-07-04 22:14:39.897 | SUCCESS  | functions.etl:load:41 - Successfully loaded 12 records to the stg_asdagroceries_temp.
+2025-07-04 22:14:40.496 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/cat-litter/1215662103573-1215680108192-1215680112617
+2025-07-04 22:14:53.636 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:14:53.756 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:15:03.760 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:15:03.848 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/cat-litter/1215662103573-1215680108192-1215680112617
+2025-07-04 22:15:06.447 | SUCCESS  | functions.etl:load:41 - Successfully loaded 29 records to the stg_asdagroceries_temp.
+2025-07-04 22:15:07.107 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-food-cat-litter-bigger-packs/cat-litter-bigger-packs/1215662103573-1215680108192-1215680112713-1215680119049
+2025-07-04 22:15:14.996 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:15:15.032 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:15:19.830 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 22:15:23.441 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:15:23.486 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-food-cat-litter-bigger-packs/cat-litter-bigger-packs/1215662103573-1215680108192-1215680112713-1215680119049
+2025-07-04 22:15:25.914 | SUCCESS  | functions.etl:load:41 - Successfully loaded 10 records to the stg_asdagroceries_temp.
+2025-07-04 22:15:26.610 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-food-cat-litter-bigger-packs/cat-food-bigger-packs/1215662103573-1215680108192-1215680112713-1215680118851
+2025-07-04 22:15:35.014 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:15:35.064 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:15:41.234 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:15:41.405 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-food-cat-litter-bigger-packs/cat-food-bigger-packs/1215662103573-1215680108192-1215680112713-1215680118851
+2025-07-04 22:15:44.967 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-food-cat-litter-bigger-packs/cat-food-bigger-packs/1215662103573-1215680108192-1215680112713-1215680118851?page=1
+2025-07-04 22:16:07.701 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 22:16:07.752 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:16:14.715 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:16:15.100 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-food-cat-litter-bigger-packs/cat-food-bigger-packs/1215662103573-1215680108192-1215680112713-1215680118851?page=1
+2025-07-04 22:16:18.604 | SUCCESS  | functions.etl:load:41 - Successfully loaded 72 records to the stg_asdagroceries_temp.
+2025-07-04 22:16:19.487 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/senior-cat-food-7-years/1215662103573-1215680108192-1215680109466
+2025-07-04 22:16:31.359 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:16:31.415 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:16:39.557 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:16:39.667 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/senior-cat-food-7-years/1215662103573-1215680108192-1215680109466
+2025-07-04 22:16:43.960 | SUCCESS  | functions.etl:load:41 - Successfully loaded 37 records to the stg_asdagroceries_temp.
+2025-07-04 22:16:44.585 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/kitten-food-0-1-years/1215662103573-1215680108192-1215680109568
+2025-07-04 22:16:46.004 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-04 22:16:46.004 | INFO     | functions.connection:execute_query:54 - Running query: DROP TABLE IF EXISTS stg_bernpetfoods_temp_products;
+2025-07-04 22:16:46.098 | INFO     | functions.connection:execute_query:54 - Running query: CREATE TABLE stg_bernpetfoods_temp_products (
+    shop varchar(50) CHARACTER SET utf8mb4,
+    name varchar(255) CHARACTER SET utf8mb4,
+    rating varchar(50) CHARACTER SET utf8mb4,
+    description text CHARACTER SET utf8mb4,
+    url varchar(255) CHARACTER SET utf8mb4,
+    variant varchar(255) CHARACTER SET utf8mb4,
+    image_urls varchar(1000) CHARACTER SET utf8mb4,
+    price decimal(10, 4),
+    discounted_price decimal(10, 4),
+    discount_percentage decimal(10, 4)
+);
+2025-07-04 22:16:46.150 | INFO     | functions.etl:_temp_table:127 - Temporary table stg_bernpetfoods_temp_products created.
+2025-07-04 22:16:46.808 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/
+2025-07-04 22:17:04.047 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:17:04.092 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:17:15.003 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:17:15.088 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/kitten-food-0-1-years/1215662103573-1215680108192-1215680109568
+2025-07-04 22:17:19.482 | SUCCESS  | functions.etl:load:41 - Successfully loaded 26 records to the stg_asdagroceries_temp.
+2025-07-04 22:17:20.119 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/asda-tiger-cat-food-treats/asda-tiger-cat-treats/1215662103573-1215680108192-1215686355825-1215686355827
+2025-07-04 22:17:31.778 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:17:31.815 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:17:42.608 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:17:42.672 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/asda-tiger-cat-food-treats/asda-tiger-cat-treats/1215662103573-1215680108192-1215686355825-1215686355827
+2025-07-04 22:17:45.464 | SUCCESS  | functions.etl:load:41 - Successfully loaded 13 records to the stg_asdagroceries_temp.
+2025-07-04 22:17:46.074 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/asda-tiger-cat-food-treats/asda-tiger-cat-food/1215662103573-1215680108192-1215686355825-1215686355826
+2025-07-04 22:17:46.816 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 22:17:48.882 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/
+2025-07-04 22:17:58.886 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:17:58.937 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:18:03.588 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:18:03.769 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/asda-tiger-cat-food-treats/asda-tiger-cat-food/1215662103573-1215680108192-1215686355825-1215686355826
+2025-07-04 22:18:06.294 | SUCCESS  | functions.etl:load:41 - Successfully loaded 25 records to the stg_asdagroceries_temp.
+2025-07-04 22:18:06.297 | INFO     | functions.connection:execute_query:54 - Running query: INSERT INTO urls (
+    shop
+    ,url
+    ,updated_date
+)
+SELECT DISTINCT
+	a.shop
+    ,a.url
+    ,a.updated_date
+FROM stg_asdagroceries_temp a 
+LEFT JOIN urls b ON b.url=a.url
+WHERE b.id IS NULL;
+2025-07-04 22:18:06.370 | INFO     | functions.etl:_temp_table:127 - Temporary table stg_asdagroceries_temp data inserted.
+2025-07-04 22:18:06.371 | INFO     | functions.connection:execute_query:54 - Running query: DROP TABLE stg_asdagroceries_temp;
+2025-07-04 22:18:06.407 | INFO     | functions.etl:_temp_table:127 - Temporary table stg_asdagroceries_temp deleted.
+2025-07-04 22:18:06.407 | INFO     | __main__:<module>:48 - Pet Products Scraper (shop=ASDAGroceries) has ended. Elapsed: 0:50:16.346805

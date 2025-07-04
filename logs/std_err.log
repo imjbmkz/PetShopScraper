@@ -682,3 +682,27 @@ Call log:
 Call log:
   - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/", waiting until "networkidle"
 
+2025-07-04 22:11:06.517 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 22:12:08.601 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 22:13:10.670 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 22:14:14.751 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 22:15:19.830 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 22:17:46.816 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
