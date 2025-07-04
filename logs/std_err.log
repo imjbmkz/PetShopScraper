@@ -715,3 +715,114 @@ Call log:
 Call log:
   - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food/page/1/", waiting until "networkidle"
 
+2025-07-04 22:26:01.561 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/1/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food/page/1/", waiting until "networkidle"
+
+2025-07-04 22:35:52.787 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-puppy/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-puppy/", waiting until "networkidle"
+
+2025-07-04 22:37:54.454 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/asda-hero-dog-food-treats/asda-hero-dog-treats/1215662103573-1215680107518-1215686355822-1215686355824: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".layout__main") to be visible
+
+2025-07-04 22:42:13.483 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-free-run-duck/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-free-run-duck/", waiting until "networkidle"
+
+2025-07-04 22:51:20.205 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 23:07:50.632 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/product/natural-treats/adventuros-dog-treat-boar-wild-flavour-nuggets-90-g/910001751990: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("#primary") to be visible
+
+2025-07-04 23:08:27.904 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/product/natural-treats/adventuros-dog-treat-boar-wild-flavour-nuggets-90-g/910001751990: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("#primary") to be visible
+
+2025-07-04 23:08:48.941 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 23:10:03.781 | ERROR    | functions.connection:execute_query:60 - Error executing query: (pymysql.err.OperationalError) (1050, "Table 'stg_asdagroceries_temp_products' already exists")
+[SQL: CREATE TABLE stg_asdagroceries_temp_products (
+    shop varchar(50) CHARACTER SET utf8mb4,
+    name varchar(255) CHARACTER SET utf8mb4,
+    rating varchar(50) CHARACTER SET utf8mb4,
+    description text CHARACTER SET utf8mb4,
+    url varchar(255) CHARACTER SET utf8mb4,
+    variant varchar(255) CHARACTER SET utf8mb4,
+    image_urls varchar(1000) CHARACTER SET utf8mb4,
+    price decimal(10, 4),
+    discounted_price decimal(10, 4),
+    discount_percentage decimal(10, 4)
+);]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2025-07-04 23:17:53.961 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/product/natural-treats/forthglade-calming-natural-soft-bite-treats-90-g/1000372542409: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("main.product-detail-page") to be visible
+
+2025-07-04 23:34:29.235 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/product/rewarding-treats/peamutt-6-balls-45-g/1000383224846: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("main.product-detail-page") to be visible
+
+2025-07-04 23:35:23.128 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/product/rewarding-treats/hero-by-asda-2-sticks-rich-in-chicken-2-x-15-g/910001064857: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("main.product-detail-page") to be visible
+
+2025-07-05 00:03:44.937 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/product/meaty-treats/pedigree-ranchos-superfoods-chicken-dog-treat-with-sweet-potato-wholegrains-7-x-70-g/1000383232125: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator("main.product-detail-page") to be visible
+
+2025-07-05 00:20:15.896 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/product/dog-food-trays-pouches/butchers-succulent-recipes-grain-free-adult-dog-food-trays/1000024154860: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/product/dog-food-trays-pouches/butchers-succulent-recipes-grain-free-adult-dog-food-trays/1000024154860", waiting until "networkidle"
+
+2025-07-05 00:21:17.984 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/product/dog-food-trays-pouches/butchers-succulent-recipes-grain-free-adult-dog-food-trays/1000024154860: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/product/dog-food-trays-pouches/butchers-succulent-recipes-grain-free-adult-dog-food-trays/1000024154860", waiting until "networkidle"
+
+2025-07-05 00:22:20.104 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/product/dog-food-trays-pouches/butchers-succulent-recipes-grain-free-adult-dog-food-trays/1000024154860: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/product/dog-food-trays-pouches/butchers-succulent-recipes-grain-free-adult-dog-food-trays/1000024154860", waiting until "networkidle"
+
+2025-07-05 00:23:24.199 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/product/dog-food-trays-pouches/butchers-succulent-recipes-grain-free-adult-dog-food-trays/1000024154860: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/product/dog-food-trays-pouches/butchers-succulent-recipes-grain-free-adult-dog-food-trays/1000024154860", waiting until "networkidle"
+
+2025-07-05 00:24:29.285 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/product/dog-food-trays-pouches/butchers-succulent-recipes-grain-free-adult-dog-food-trays/1000024154860: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/product/dog-food-trays-pouches/butchers-succulent-recipes-grain-free-adult-dog-food-trays/1000024154860", waiting until "networkidle"
+
+2025-07-05 00:24:56.661 | ERROR    | functions.connection:execute_query:60 - Error executing query: (pymysql.err.OperationalError) (1050, "Table 'stg_asdagroceries_temp_products' already exists")
+[SQL: CREATE TABLE stg_asdagroceries_temp_products (
+    shop varchar(50) CHARACTER SET utf8mb4,
+    name varchar(255) CHARACTER SET utf8mb4,
+    rating varchar(50) CHARACTER SET utf8mb4,
+    description text CHARACTER SET utf8mb4,
+    url varchar(255) CHARACTER SET utf8mb4,
+    variant varchar(255) CHARACTER SET utf8mb4,
+    image_urls varchar(1000) CHARACTER SET utf8mb4,
+    price decimal(10, 4),
+    discounted_price decimal(10, 4),
+    discount_percentage decimal(10, 4)
+);]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2025-07-05 00:25:03.011 | ERROR    | functions.connection:execute_query:60 - Error executing query: (pymysql.err.OperationalError) (1050, "Table 'stg_asdagroceries_temp_products' already exists")
+[SQL: CREATE TABLE stg_asdagroceries_temp_products (
+    shop varchar(50) CHARACTER SET utf8mb4,
+    name varchar(255) CHARACTER SET utf8mb4,
+    rating varchar(50) CHARACTER SET utf8mb4,
+    description text CHARACTER SET utf8mb4,
+    url varchar(255) CHARACTER SET utf8mb4,
+    variant varchar(255) CHARACTER SET utf8mb4,
+    image_urls varchar(1000) CHARACTER SET utf8mb4,
+    price decimal(10, 4),
+    discounted_price decimal(10, 4),
+    discount_percentage decimal(10, 4)
+);]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2025-07-05 00:27:07.012 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/product/dog-food-trays-pouches/butchers-succulent-recipes-grain-free-adult-dog-food-trays/1000024154860: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/product/dog-food-trays-pouches/butchers-succulent-recipes-grain-free-adult-dog-food-trays/1000024154860", waiting until "networkidle"
+

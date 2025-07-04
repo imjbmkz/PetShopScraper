@@ -1,4 +1,4 @@
-CREATE TABLE {table_name} (
+CREATE TABLE IF NOT EXISTS {table_name} (
     shop varchar(50) CHARACTER SET utf8mb4,
     name varchar(255) CHARACTER SET utf8mb4,
     rating varchar(50) CHARACTER SET utf8mb4,

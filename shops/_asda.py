@@ -12,7 +12,7 @@ class AsdaETL(PetProductsETL):
         super().__init__()
         self.SHOP = "ASDAGroceries"
         self.BASE_URL = "https://groceries.asda.com"
-        self.SELECTOR_SCRAPE_PRODUCT_INFO = '#primary'
+        self.SELECTOR_SCRAPE_PRODUCT_INFO = 'main.product-detail-page'
 
     def extract(self, category):
         category_link = f"{self.BASE_URL}{category}"
