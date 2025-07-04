@@ -47,7 +47,6 @@ class PetProductsETL(ABC):
 
     def get_product_infos(self):
         temp_table = f"stg_{self.SHOP.lower()}_temp_products"
-        self.connection.execute_query(f"DROP TABLE IF EXISTS {temp_table};")
         create_temp_sql = self.connection.get_sql_from_file(
             'create_temp_table_product_info.sql')
         create_temp_sql = create_temp_sql.format(
@@ -92,7 +91,6 @@ class PetProductsETL(ABC):
 
     def get_links_by_category(self):
         temp_table = f"stg_{self.SHOP.lower()}_temp"
-        self.connection.execute_query(f"DROP TABLE IF EXISTS {temp_table};")
 
         create_temp_sql = self.connection.get_sql_from_file(
             'create_temp_table_get_links.sql')

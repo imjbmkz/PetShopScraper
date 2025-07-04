@@ -706,3 +706,8 @@ Call log:
 Call log:
   - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
 
+2025-07-04 22:22:05.948 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 22:24:18.304 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/dental-treats-health-treats/1215662103573-1215680107518-1215680108312-1215684181111: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".layout__main") to be visible
+
