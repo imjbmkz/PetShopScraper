@@ -711,3 +711,7 @@ Call log:
 Call log:
   - waiting for locator(".layout__main") to be visible
 
+2025-07-04 22:24:59.499 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/1/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food/page/1/", waiting until "networkidle"
+

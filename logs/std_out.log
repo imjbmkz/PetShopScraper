@@ -5329,3 +5329,14 @@ Call log:
 2025-07-04 22:24:40.808 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
 2025-07-04 22:24:40.960 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/dental-treats-health-treats/1215662103573-1215680107518-1215680108312-1215684181111
 2025-07-04 22:24:44.339 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/dental-treats-health-treats/1215662103573-1215680107518-1215680108312-1215684181111?page=1
+2025-07-04 22:24:50.626 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 22:24:50.658 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:24:59.499 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/1/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food/page/1/", waiting until "networkidle"
+
+2025-07-04 22:25:01.556 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product-category/dog-food/page/1/
+2025-07-04 22:25:01.617 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:25:01.638 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/dental-treats-health-treats/1215662103573-1215680107518-1215680108312-1215684181111?page=1
+2025-07-04 22:25:04.383 | SUCCESS  | functions.etl:load:41 - Successfully loaded 0 records to the stg_asdagroceries_temp.
+2025-07-04 22:25:04.980 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/natural-treats/1215662103573-1215680107518-1215680108312-1215684181112
