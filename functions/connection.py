@@ -75,10 +75,19 @@ class Connection:
             status=status, timestamp=timestamp, pkey=pkey)
         self.execute_query(formatted_sql)
 
-    def df_to_sql(self, data: pd.DataFrame, db_conn: Engine, table_name: str):
+    def extract_from_sql(self, sql: str) -> pd.DataFrame:
+        try:
+            return pd.read_sql(sql, self.engine)
+
+        except Exception as e:
+            logger.error(e)
+            raise e
+
+    def df_to_sql(self, data: pd.DataFrame, table_name: str):
         try:
             n = data.shape[0]
-            data.to_sql(table_name, db_conn, if_exists="append", index=False)
+            data.to_sql(table_name, self.engine,
+                        if_exists="append", index=False)
             logger.info(
                 f"Successfully loaded {n} records to the {table_name}.")
 

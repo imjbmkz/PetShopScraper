@@ -7,3 +7,642 @@
 2025-07-04 01:03:55.036 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/3: HTTP 404 error for https://www.bernpetfoods.co.uk/product-category/dog-food/page/3
 2025-07-04 01:04:01.035 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/3: HTTP 404 error for https://www.bernpetfoods.co.uk/product-category/dog-food/page/3
 2025-07-04 01:04:09.810 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 14:37:38.061 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-foodpage/1/: HTTP 404 error for https://www.bernpetfoods.co.uk/product-category/dog-foodpage/1/
+2025-07-04 14:37:41.910 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 14:48:12.667 | ERROR    | functions.connection:execute_query:60 - Error executing query: (pymysql.err.OperationalError) (1054, "Unknown column 'shop_id' in 'field list'")
+[SQL: INSERT INTO urls (
+    shop_id
+    ,url
+    ,updated_date
+)
+SELECT DISTINCT
+    s.id AS shop_id,
+    a.url,
+    a.updated_date
+FROM stg_urls a
+JOIN shops s ON s.name = a.shop
+LEFT JOIN urls b ON b.url = a.url
+WHERE b.id IS NULL;]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2025-07-04 15:46:09.979 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-fit-trim/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.001 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-original/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.009 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-tundra/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.018 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-six-fish-dog/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.026 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-regional-red-dog/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.032 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-senior-dog/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.040 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-puppy/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.047 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-puppy-large/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.058 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-large-breed-recipe/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.066 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-small-breed-recipe/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.074 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-puppy-large-breed-recipe/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.080 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.087 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-senior-recipe/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.094 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.100 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-puppy-small-breed-recipe/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.106 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-free-run-duck/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.113 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.121 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-red-meat/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.128 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-wild-coast/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.135 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-prairie-poultry/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.140 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.149 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.156 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.163 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.171 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-wild-prairie-dog/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.180 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-grasslands-dog/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.187 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-pacifica-dog/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.188 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.202 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-puppy/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.210 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.217 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/new-orijen-large-breed-adult/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.223 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-fit-trim-cat/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.230 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-tundra-cat/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.239 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-regional-red-cat/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.244 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-six-fish-cat/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.251 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-original-cat/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.260 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-bountiful-catch-cat/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.266 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-first-feast-kitten/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.273 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-grasslands-cat-new/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.280 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-homestead-harvest-cat/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.286 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-indoor-entree-cat/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.290 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-pacifica-cat-new/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.301 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-wild-prairie-cat-new/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.308 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-premium-cat-pate-chicken-fish-for-adult-cats-24x85g/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.314 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-guardian-8/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.323 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-kitten/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.329 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-kitten/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.335 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/new-acana-indoor-cat/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.341 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-premium-cat-pate-beef-adult-cats-24x85g/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.349 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-premium-cat-pate-lamb-for-adult-cats-24x85g/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.352 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-premium-cat-pate-salmon-with-chicken-for-adult-cats-24x85g/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.362 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/acana-premium-cat-pate-chicken-adult-cats-24x85g/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.369 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/intersand-odourlock/: 'coroutine' object has no attribute 'find'
+2025-07-04 15:46:10.378 | ERROR    | functions.connection:execute_query:60 - Error executing query: (pymysql.err.ProgrammingError) (1146, "Table 'PetScrape.stg_products' doesn't exist")
+[SQL: INSERT INTO pet_products (
+    shop_id
+    ,name
+    ,rating
+    ,description
+    ,url
+)
+SELECT DISTINCT
+	b.id
+    ,a.name 
+    ,a.rating
+    ,a.description
+    ,a.url
+FROM stg_products a 
+LEFT JOIN shops b ON b.name=a.shop
+LEFT JOIN pet_products c ON c.url=a.url AND c.shop_id=b.id
+WHERE c.id IS NULL]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2025-07-04 15:47:26.260 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-fit-trim/: All arrays must be of the same length
+2025-07-04 15:47:48.944 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-original/: All arrays must be of the same length
+2025-07-04 15:48:10.349 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-tundra/: All arrays must be of the same length
+2025-07-04 15:48:32.704 | ERROR    | shops._bernpetfoods:transform:121 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-six-fish-dog/: All arrays must be of the same length
+2025-07-04 15:48:34.653 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 16:03:26.542 | ERROR    | shops._bernpetfoods:transform:115 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-fit-trim/: All arrays must be of the same length
+2025-07-04 16:03:30.744 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 16:16:50.129 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 16:26:51.134 | ERROR    | functions.connection:execute_query:60 - Error executing query: (pymysql.err.ProgrammingError) (1146, "Table 'PetScrape.stg_products' doesn't exist")
+[SQL: INSERT INTO pet_products (
+    shop_id
+    ,name
+    ,rating
+    ,description
+    ,url
+)
+SELECT DISTINCT
+	b.id
+    ,a.name 
+    ,a.rating
+    ,a.description
+    ,a.url
+FROM stg_products a 
+LEFT JOIN shops b ON b.name=a.shop
+LEFT JOIN pet_products c ON c.url=a.url AND c.shop_id=b.id
+WHERE c.id IS NULL]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2025-07-04 16:37:46.753 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/cat-food/page/2/: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-04 16:56:22.849 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-small-breed-marine-fish/", waiting until "networkidle"
+
+2025-07-04 17:10:05.831 | ERROR    | functions.connection:execute_query:60 - Error executing query: (pymysql.err.ProgrammingError) (1146, "Table 'PetScrape.product_variants' doesn't exist")
+[SQL: INSERT INTO product_variants (
+    product_id
+    ,shop_id
+    ,url
+    ,variant
+    ,image_urls
+)
+SELECT DISTINCT 
+    b.id
+    ,b.shop_id
+    ,a.url
+    ,a.variant
+    ,a.image_urls
+FROM stg_products a 
+LEFT JOIN products b ON b.url=a.url
+LEFT JOIN pproduct_variants c 
+	ON c.url=a.url 
+    	-- Replace nulls with empty string to avoid issues with concatenating
+    	AND IFNULL(c.variant,'')=IFNULL(a.variant,'')
+		AND c.shop_id=b.shop_id
+WHERE c.id IS NULL ]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2025-07-04 17:14:56.913 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 17:26:16.227 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-six-fish-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-six-fish-dog/", waiting until "networkidle"
+
+2025-07-04 17:27:18.320 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-six-fish-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-six-fish-dog/", waiting until "networkidle"
+
+2025-07-04 17:29:57.299 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dry-dog-food/small-dog-dry-food/1215662103573-1215680107518-1215685971326-1215685971335: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".layout__main") to be visible
+
+2025-07-04 17:32:21.695 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-large-breed-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-large-breed-recipe/", waiting until "networkidle"
+
+2025-07-04 17:36:16.087 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/", waiting until "networkidle"
+
+2025-07-04 17:37:05.524 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/aisle/pet-food-accessories/dog-food-accessories/dog-toys/1215662103573-1215680107518-1215684881632: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".layout__main") to be visible
+
+2025-07-04 17:37:18.199 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/", waiting until "networkidle"
+
+2025-07-04 17:38:20.274 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/", waiting until "networkidle"
+
+2025-07-04 17:39:24.390 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/", waiting until "networkidle"
+
+2025-07-04 17:40:29.477 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/", waiting until "networkidle"
+
+2025-07-04 17:45:39.600 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/natural-cat-food/1215662103573-1215680108192-1215685992231: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/natural-cat-food/1215662103573-1215680108192-1215685992231", waiting until "networkidle"
+
+2025-07-04 17:46:41.694 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/natural-cat-food/1215662103573-1215680108192-1215685992231: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/natural-cat-food/1215662103573-1215680108192-1215685992231", waiting until "networkidle"
+
+2025-07-04 17:47:58.163 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-puppy-small-breed-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-puppy-small-breed-recipe/", waiting until "networkidle"
+
+2025-07-04 17:51:05.177 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/", waiting until "networkidle"
+
+2025-07-04 17:52:07.258 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/", waiting until "networkidle"
+
+2025-07-04 17:53:09.367 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/", waiting until "networkidle"
+
+2025-07-04 17:54:13.443 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/", waiting until "networkidle"
+
+2025-07-04 17:55:18.531 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/", waiting until "networkidle"
+
+2025-07-04 17:55:54.167 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-biscuit-treats/1215662103573-1215680108192-1215680109365-1215680112761?page=1: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-biscuit-treats/1215662103573-1215680108192-1215680109365-1215680112761?page=1", waiting until "networkidle"
+
+2025-07-04 17:56:24.195 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/", waiting until "networkidle"
+
+2025-07-04 17:57:26.292 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/", waiting until "networkidle"
+
+2025-07-04 17:58:38.950 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/natural-dental-health-treats/1215662103573-1215680108192-1215680109365-1215686353956: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/natural-dental-health-treats/1215662103573-1215680108192-1215680109365-1215686353956", waiting until "networkidle"
+
+2025-07-04 17:59:55.905 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-wild-coast/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-wild-coast/", waiting until "networkidle"
+
+2025-07-04 18:01:21.828 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-pouches-trays/1215662103573-1215680108192-1215685241913-1215685292477: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-pouches-trays/1215662103573-1215680108192-1215685241913-1215685292477", waiting until "networkidle"
+
+2025-07-04 18:02:11.044 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-prairie-poultry/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-prairie-poultry/", waiting until "networkidle"
+
+2025-07-04 18:02:23.939 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-pouches-trays/1215662103573-1215680108192-1215685241913-1215685292477: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-pouches-trays/1215662103573-1215680108192-1215685241913-1215685292477", waiting until "networkidle"
+
+2025-07-04 18:03:13.130 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-prairie-poultry/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-prairie-poultry/", waiting until "networkidle"
+
+2025-07-04 18:04:15.210 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-prairie-poultry/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-prairie-poultry/", waiting until "networkidle"
+
+2025-07-04 18:04:48.114 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029", waiting until "networkidle"
+
+2025-07-04 18:05:44.449 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/", waiting until "networkidle"
+
+2025-07-04 18:05:50.201 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029", waiting until "networkidle"
+
+2025-07-04 18:06:46.528 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/", waiting until "networkidle"
+
+2025-07-04 18:06:52.309 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029", waiting until "networkidle"
+
+2025-07-04 18:07:48.604 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/", waiting until "networkidle"
+
+2025-07-04 18:07:56.378 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029", waiting until "networkidle"
+
+2025-07-04 18:08:52.672 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/", waiting until "networkidle"
+
+2025-07-04 18:09:55.984 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029?page=1: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029?page=1", waiting until "networkidle"
+
+2025-07-04 18:09:57.751 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/", waiting until "networkidle"
+
+2025-07-04 18:11:42.490 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812", waiting until "networkidle"
+
+2025-07-04 18:12:10.877 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/", waiting until "networkidle"
+
+2025-07-04 18:13:12.957 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/", waiting until "networkidle"
+
+2025-07-04 18:13:34.429 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1", waiting until "networkidle"
+
+2025-07-04 18:14:15.031 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/", waiting until "networkidle"
+
+2025-07-04 18:14:36.503 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1", waiting until "networkidle"
+
+2025-07-04 18:15:38.575 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1", waiting until "networkidle"
+
+2025-07-04 18:16:18.455 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/", waiting until "networkidle"
+
+2025-07-04 18:16:42.651 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1", waiting until "networkidle"
+
+2025-07-04 18:17:20.515 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/", waiting until "networkidle"
+
+2025-07-04 18:17:47.734 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1", waiting until "networkidle"
+
+2025-07-04 18:18:22.608 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/", waiting until "networkidle"
+
+2025-07-04 18:19:26.689 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/", waiting until "networkidle"
+
+2025-07-04 18:20:31.767 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/", waiting until "networkidle"
+
+2025-07-04 18:21:33.514 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/dental-treats-health-treats/1215662103573-1215680107518-1215680108312-1215684181111: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/dental-treats-health-treats/1215662103573-1215680107518-1215680108312-1215684181111", waiting until "networkidle"
+
+2025-07-04 18:21:36.862 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/", waiting until "networkidle"
+
+2025-07-04 18:22:35.610 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/dental-treats-health-treats/1215662103573-1215680107518-1215680108312-1215684181111: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/dental-treats-health-treats/1215662103573-1215680107518-1215680108312-1215684181111", waiting until "networkidle"
+
+2025-07-04 18:22:37.949 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 18:22:38.937 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/", waiting until "networkidle"
+
+2025-07-04 18:22:40.603 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 18:24:36.848 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/natural-treats/1215662103573-1215680107518-1215680108312-1215684181112: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/natural-treats/1215662103573-1215680107518-1215680108312-1215684181112", waiting until "networkidle"
+
+2025-07-04 18:24:38.662 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/", waiting until "networkidle"
+
+2025-07-04 18:25:31.846 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/natural-treats/1215662103573-1215680107518-1215680108312-1215684181112: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".layout__main") to be visible
+
+2025-07-04 18:25:40.736 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/", waiting until "networkidle"
+
+2025-07-04 18:26:42.834 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/", waiting until "networkidle"
+
+2025-07-04 18:27:29.959 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1", waiting until "networkidle"
+
+2025-07-04 18:27:46.908 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/", waiting until "networkidle"
+
+2025-07-04 18:27:54.179 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1", waiting until "networkidle"
+
+2025-07-04 18:28:24.458 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1: Page.goto: net::ERR_CONNECTION_TIMED_OUT at https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1", waiting until "networkidle"
+
+2025-07-04 18:28:51.989 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/", waiting until "networkidle"
+
+2025-07-04 18:29:28.531 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1", waiting until "networkidle"
+
+2025-07-04 18:30:33.605 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113?page=1", waiting until "networkidle"
+
+2025-07-04 18:31:40.210 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/", waiting until "networkidle"
+
+2025-07-04 18:32:42.286 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/", waiting until "networkidle"
+
+2025-07-04 18:34:10.405 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 18:34:10.416 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113", waiting until "networkidle"
+
+2025-07-04 18:35:12.486 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113", waiting until "networkidle"
+
+2025-07-04 18:35:12.486 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 18:35:14.987 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 18:35:16.012 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 19:29:11.713 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 19:30:13.800 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 19:31:10.558 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113", waiting until "networkidle"
+
+2025-07-04 19:31:15.876 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 19:31:35.187 | ERROR    | shops._bernpetfoods:transform:114 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: 'NoneType' object has no attribute 'get_text'
+2025-07-04 19:32:12.646 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dog-treats-chews-biscuits/rewarding-treats/1215662103573-1215680107518-1215680108312-1215684181113", waiting until "networkidle"
+
+2025-07-04 19:32:29.498 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 19:32:35.818 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-wild-prairie-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-wild-prairie-dog/", waiting until "networkidle"
+
+2025-07-04 19:32:37.671 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 19:33:41.329 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 19:34:43.413 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 19:35:45.495 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 19:36:30.609 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 19:37:33.401 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 19:38:35.485 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 19:39:37.563 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 19:40:41.636 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 19:41:46.716 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/", waiting until "networkidle"
+
+2025-07-04 20:11:15.367 | ERROR    | functions.connection:execute_query:60 - Error executing query: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE stg_stg_urls_temp (\n    shop varchar(50) CHARACTER SET utf8mb4\n    ' at line 2")
+[SQL: DROP TABLE IF EXISTS stg_stg_urls_temp;
+CREATE TABLE stg_stg_urls_temp (
+    shop varchar(50) CHARACTER SET utf8mb4
+    ,url varchar(255) CHARACTER SET utf8mb4
+    ,updated_date datetime
+);]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2025-07-04 20:13:23.851 | ERROR    | functions.connection:execute_query:60 - Error executing query: (pymysql.err.ProgrammingError) (1064, "You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'CREATE TABLE stg_BernPetFoods_temp (\n    shop varchar(50) CHARACTER SET utf8mb4\n' at line 2")
+[SQL: DROP TABLE IF EXISTS stg_BernPetFoods_temp;
+CREATE TABLE stg_BernPetFoods_temp (
+    shop varchar(50) CHARACTER SET utf8mb4
+    ,url varchar(255) CHARACTER SET utf8mb4
+    ,updated_date datetime
+);]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2025-07-04 20:18:56.129 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 20:20:07.829 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 20:22:43.778 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food", waiting until "networkidle"
+
+2025-07-04 20:23:45.857 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food", waiting until "networkidle"
+
+2025-07-04 20:23:47.208 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 20:24:10.761 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 20:25:14.818 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food", waiting until "networkidle"
+
+2025-07-04 20:26:16.888 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food", waiting until "networkidle"
+
+2025-07-04 20:26:52.758 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 20:29:53.176 | ERROR    | functions.scraper:close:208 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 20:30:44.573 | ERROR    | functions.scraper:close:208 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 20:31:47.921 | ERROR    | functions.scraper:extract_scrape_content:190 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food", waiting until "networkidle"
+
+2025-07-04 20:32:30.327 | ERROR    | functions.scraper:close:208 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 20:33:34.082 | ERROR    | functions.scraper:extract_scrape_content:190 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food", waiting until "networkidle"
+
+2025-07-04 20:35:45.101 | ERROR    | functions.scraper:extract_scrape_content:190 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/1/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food/page/1/", waiting until "networkidle"
+
+2025-07-04 20:37:45.610 | ERROR    | functions.scraper:extract_scrape_content:190 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/2/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food/page/2/", waiting until "networkidle"
+
+2025-07-04 20:39:59.504 | ERROR    | functions.scraper:extract_scrape_content:190 - Error scraping https://www.bernpetfoods.co.uk/product-category/cat-food: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/cat-food", waiting until "networkidle"
+
+2025-07-04 20:44:22.876 | ERROR    | functions.scraper:extract_scrape_content:190 - Error scraping https://www.bernpetfoods.co.uk/product-category/cat-litter/page/1/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/cat-litter/page/1/", waiting until "networkidle"
+
+2025-07-04 21:06:57.057 | ERROR    | functions.scraper:close:208 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 21:12:58.940 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-fit-trim/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-fit-trim/", waiting until "networkidle"
+
+2025-07-04 21:13:28.152 | ERROR    | functions.etl:load:45 - (pymysql.err.DataError) (1406, "Data too long for column 'description' at row 1")
+[SQL: INSERT INTO stg_bernpetfoods_temp_products (image_urls, shop, name, rating, description, url, variant, price, discounted_price, discount_percentage) VALUES (%(image_urls)s, %(shop)s, %(name)s, %(rating)s, %(description)s, %(url)s, %(variant)s, %(price)s, %(discounted_price)s, %(discount_percentage)s)]
+[parameters: ({'image_urls': 'https://www.bernpetfoods.co.uk/wp-content/uploads/2022/07/NS-CANADA-EMEA-APAC-ORIJEN-Fit-Trim-Dog-Front-Right-11.4kg.png, https://www.bernpetfoods.co.uk/wp-content/uploads/2022/07/NS-CANADA-EMEA-APAC-ORIJEN-Fit-Trim-Dog-Back-Right-11.4kg.png', 'shop': 'BernPetFoods', 'name': 'ORIJEN Fit Trim', 'rating': '0/5', 'description': 'Help your dog thrive with the power of protein-rich recipes that provide peak nourishment. Dogs are ancestral carnivores, so they need a Biologically ... (1039 characters truncated) ...  ingredients. **Our fresh ingredients use refrigeration as the sole method of preservation and our raw ingredients are frozen at their peak freshness', 'url': '/product/orijen-fit-trim/', 'variant': '2 kg', 'price': 28.99, 'discounted_price': None, 'discount_percentage': None}, {'image_urls': 'https://www.bernpetfoods.co.uk/wp-content/uploads/2022/07/NS-CANADA-EMEA-APAC-ORIJEN-Fit-Trim-Dog-Front-Right-11.4kg.png, https://www.bernpetfoods.co.uk/wp-content/uploads/2022/07/NS-CANADA-EMEA-APAC-ORIJEN-Fit-Trim-Dog-Back-Right-11.4kg.png', 'shop': 'BernPetFoods', 'name': 'ORIJEN Fit Trim', 'rating': '0/5', 'description': 'Help your dog thrive with the power of protein-rich recipes that provide peak nourishment. Dogs are ancestral carnivores, so they need a Biologically ... (1039 characters truncated) ...  ingredients. **Our fresh ingredients use refrigeration as the sole method of preservation and our raw ingredients are frozen at their peak freshness', 'url': '/product/orijen-fit-trim/', 'variant': '6 kg', 'price': 61.99, 'discounted_price': None, 'discount_percentage': None}, {'image_urls': 'https://www.bernpetfoods.co.uk/wp-content/uploads/2022/07/NS-CANADA-EMEA-APAC-ORIJEN-Fit-Trim-Dog-Front-Right-11.4kg.png, https://www.bernpetfoods.co.uk/wp-content/uploads/2022/07/NS-CANADA-EMEA-APAC-ORIJEN-Fit-Trim-Dog-Back-Right-11.4kg.png', 'shop': 'BernPetFoods', 'name': 'ORIJEN Fit Trim', 'rating': '0/5', 'description': 'Help your dog thrive with the power of protein-rich recipes that provide peak nourishment. Dogs are ancestral carnivores, so they need a Biologically ... (1039 characters truncated) ...  ingredients. **Our fresh ingredients use refrigeration as the sole method of preservation and our raw ingredients are frozen at their peak freshness', 'url': '/product/orijen-fit-trim/', 'variant': '11.4 kg', 'price': 100.99, 'discounted_price': None, 'discount_percentage': None})]
+(Background on this error at: https://sqlalche.me/e/14/9h9h)
+2025-07-04 21:17:52.090 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-tundra/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-tundra/", waiting until "networkidle"
+
+2025-07-04 21:25:06.473 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/", waiting until "networkidle"
+
+2025-07-04 21:25:20.078 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 21:26:31.171 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 21:26:33.867 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 21:27:03.534 | ERROR    | functions.connection:execute_query:60 - Error executing query: (pymysql.err.OperationalError) (2013, 'Lost connection to MySQL server during query')
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2025-07-04 21:29:41.293 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/1/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food/page/1/", waiting until "networkidle"
+
+2025-07-04 21:31:09.051 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/dog-food/page/2/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/dog-food/page/2/", waiting until "networkidle"
+
+2025-07-04 21:32:53.057 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/cat-food: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/cat-food", waiting until "networkidle"
+
+2025-07-04 21:33:55.123 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/cat-food: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/cat-food", waiting until "networkidle"
+
+2025-07-04 21:34:57.214 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/cat-food: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/cat-food", waiting until "networkidle"
+
+2025-07-04 21:35:53.584 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dry-dog-food/dry-dog-food/1215662103573-1215680107518-1215685971326-1215685971332?page=1: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/dry-dog-food/dry-dog-food/1215662103573-1215680107518-1215685971326-1215685971332?page=1", waiting until "networkidle"
+
+2025-07-04 21:36:01.296 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product-category/cat-food: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product-category/cat-food", waiting until "networkidle"
+
+2025-07-04 21:36:48.196 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-04 21:37:59.368 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/aisle/pet-food-accessories/dog-food-accessories/advanced-nutrition-dog-food/1215662103573-1215680107518-1215686353954: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/aisle/pet-food-accessories/dog-food-accessories/advanced-nutrition-dog-food/1215662103573-1215680107518-1215686353954", waiting until "networkidle"
+
+2025-07-04 21:43:26.220 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-fit-trim/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-fit-trim/", waiting until "networkidle"
+
+2025-07-04 21:43:44.218 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/small-dog-food/small-dog-wet-food/1215662103573-1215680107518-1215686354594-1215685971331: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/small-dog-food/small-dog-wet-food/1215662103573-1215680107518-1215686354594-1215685971331", waiting until "networkidle"
+
+2025-07-04 21:46:16.635 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/orijen-regional-red-dog/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/orijen-regional-red-dog/", waiting until "networkidle"
+

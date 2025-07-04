@@ -99,8 +99,9 @@ CREATE TABLE pet_products (
     ,shop_id int NOT NULL
     ,name varchar(255) CHARACTER SET utf8mb4
     ,rating varchar(50) CHARACTER SET utf8mb4
-    ,description varchar(1000) CHARACTER SET utf8mb4
+    ,description text CHARACTER SET utf8mb4
     ,url varchar(255) CHARACTER SET utf8mb4
+    ,image_urls varchar(1000) CHARACTER SET utf8mb4
 );
 
 ALTER TABLE pet_products 

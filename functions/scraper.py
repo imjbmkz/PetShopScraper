@@ -15,7 +15,7 @@ from tenacity import (
 from loguru import logger
 nest_asyncio.apply()
 
-MAX_RETRIES = 10
+MAX_RETRIES = 5
 MAX_WAIT_BETWEEN_REQ = 5
 MIN_WAIT_BETWEEN_REQ = 2
 REQUEST_TIMEOUT = 30000
@@ -44,7 +44,7 @@ class WebScraper:
             "User-Agent": self.ua.random,
             "Priority": "u=0, i",
             "Upgrade-Insecure-Requests": "1",
-            "Sec-Ch-Ua": '"Not.A/Brand";v="99", "Opera GX";v="118", "Chromium";v="133"',
+            "Sec-Ch-Ua": '"Not.A/Brand";v="24", "Opera GX";v="118", "Chromium";v="134"',
             "Sec-Ch-Ua-Mobile": "?0",
             "Sec-Ch-Ua-Platform": '"Windows"',
             "Sec-Fetch-Dest": "document",

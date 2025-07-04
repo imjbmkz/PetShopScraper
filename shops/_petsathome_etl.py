@@ -6,15 +6,10 @@ class PetsAtHomeETL(PetProductsETL):
         super().__init__()
         self.SHOP = "PetsAtHome"
         self.BASE_URL = "https://www.petsathome.com"
+        self.SELECTOR_SCRAPE_PRODUCT_INFO = ''
 
-    def extract_links(self):
-        print(f"[{self.SHOP}] Extracting data from categories...")
-
-    def extract_product_info(self):
+    def extract(self):
         print(f"[{self.SHOP}] Extracting data from categories...")
 
     def transform(self):
         print(f"[{self.SHOP}] Transforming data...")
-
-    def load(self):
-        print(f"[{self.SHOP}] Loading data into destination...")

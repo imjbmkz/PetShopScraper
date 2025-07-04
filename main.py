@@ -35,9 +35,13 @@ if __name__ == "__main__":
     task = args.task
     shop = args.shop
 
+    client = run_etl(shop)
+
     if task == "get_links":
-        client = run_etl(shop)
-        client.get_links_by_category("stg_urls")
+        client.get_links_by_category()
+
+    elif task == "scrape":
+        client.get_product_infos()
 
     end_time = dt.datetime.now()
     duration = end_time - start_time
