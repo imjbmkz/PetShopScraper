@@ -646,3 +646,39 @@ Call log:
 Call log:
   - navigating to "https://www.bernpetfoods.co.uk/product/orijen-regional-red-dog/", waiting until "networkidle"
 
+2025-07-04 21:48:55.400 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/aisle/pet-food-accessories/dog-food-accessories/dog-toys/1215662103573-1215680107518-1215684881632: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".layout__main") to be visible
+
+2025-07-04 21:50:31.879 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-large-breed-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-large-breed-recipe/", waiting until "networkidle"
+
+2025-07-04 21:52:32.585 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/", waiting until "networkidle"
+
+2025-07-04 21:53:27.331 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-kitten-milk/1215662103573-1215680108192-1215680109365-1215680113065: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-kitten-milk/1215662103573-1215680108192-1215680109365-1215680113065", waiting until "networkidle"
+
+2025-07-04 21:53:34.650 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/", waiting until "networkidle"
+
+2025-07-04 21:54:36.722 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/", waiting until "networkidle"
+
+2025-07-04 21:55:58.812 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-senior-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-senior-recipe/", waiting until "networkidle"
+
+2025-07-04 22:04:56.492 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/", waiting until "networkidle"
+
+2025-07-04 22:05:58.563 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/", waiting until "networkidle"
+

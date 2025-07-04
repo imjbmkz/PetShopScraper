@@ -4577,3 +4577,393 @@ WHERE id=6
 2025-07-04 21:48:25.386 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
 2025-07-04 21:48:45.709 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
 2025-07-04 21:48:45.743 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:48:53.471 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:48:53.547 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/orijen-puppy/
+2025-07-04 21:48:55.400 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/aisle/pet-food-accessories/dog-food-accessories/dog-toys/1215662103573-1215680107518-1215684881632: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".layout__main") to be visible
+
+2025-07-04 21:48:56.825 | SUCCESS  | functions.etl:load:41 - Successfully loaded 4 records to the stg_bernpetfoods_temp_products.
+2025-07-04 21:48:56.828 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 21:48:06'
+WHERE id=7
+2025-07-04 21:48:57.504 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/dog-food-accessories/dog-toys/1215662103573-1215680107518-1215684881632
+2025-07-04 21:48:57.536 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/orijen-puppy-large/
+2025-07-04 21:49:13.341 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 21:49:13.393 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:49:23.845 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:49:23.933 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/orijen-puppy-large/
+2025-07-04 21:49:30.788 | SUCCESS  | functions.etl:load:41 - Successfully loaded 2 records to the stg_bernpetfoods_temp_products.
+2025-07-04 21:49:30.792 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 21:48:56'
+WHERE id=8
+2025-07-04 21:49:31.864 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-adult-large-breed-recipe/
+2025-07-04 21:49:34.054 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:49:34.108 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:49:43.800 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:49:43.898 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/dog-food-accessories/dog-toys/1215662103573-1215680107518-1215684881632
+2025-07-04 21:49:48.207 | SUCCESS  | functions.etl:load:41 - Successfully loaded 23 records to the stg_asdagroceries_temp.
+2025-07-04 21:49:48.834 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/asda-hero-dog-food-treats/asda-hero-dog-food/1215662103573-1215680107518-1215686355822-1215686355823
+2025-07-04 21:49:57.584 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:49:57.627 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:50:09.387 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:50:09.477 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/asda-hero-dog-food-treats/asda-hero-dog-food/1215662103573-1215680107518-1215686355822-1215686355823
+2025-07-04 21:50:12.508 | SUCCESS  | functions.etl:load:41 - Successfully loaded 36 records to the stg_asdagroceries_temp.
+2025-07-04 21:50:13.458 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/asda-hero-dog-food-treats/asda-hero-dog-treats/1215662103573-1215680107518-1215686355822-1215686355824
+2025-07-04 21:50:22.877 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:50:22.926 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:50:31.879 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-large-breed-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-large-breed-recipe/", waiting until "networkidle"
+
+2025-07-04 21:50:32.219 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:50:32.285 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/dog-food-accessories/asda-hero-dog-food-treats/asda-hero-dog-treats/1215662103573-1215680107518-1215686355822-1215686355824
+2025-07-04 21:50:33.957 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-adult-large-breed-recipe/
+2025-07-04 21:50:36.166 | SUCCESS  | functions.etl:load:41 - Successfully loaded 19 records to the stg_asdagroceries_temp.
+2025-07-04 21:50:37.022 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-biscuit-treats/1215662103573-1215680108192-1215680109365-1215680112761
+2025-07-04 21:50:37.727 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 21:50:37.760 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:50:47.219 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:50:47.394 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-adult-large-breed-recipe/
+2025-07-04 21:50:51.464 | SUCCESS  | functions.etl:load:41 - Successfully loaded 1 records to the stg_bernpetfoods_temp_products.
+2025-07-04 21:50:51.467 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 21:49:30'
+WHERE id=9
+2025-07-04 21:50:52.093 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-adult-small-breed-recipe/
+2025-07-04 21:50:57.975 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 21:50:58.006 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:51:06.099 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:51:06.178 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-adult-small-breed-recipe/
+2025-07-04 21:51:11.322 | SUCCESS  | functions.etl:load:41 - Successfully loaded 3 records to the stg_bernpetfoods_temp_products.
+2025-07-04 21:51:11.323 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 21:50:51'
+WHERE id=10
+2025-07-04 21:51:11.904 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-puppy-large-breed-recipe/
+2025-07-04 21:51:16.407 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 21:51:16.437 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:51:28.100 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:51:28.160 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-puppy-large-breed-recipe/
+2025-07-04 21:51:29.330 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:51:29.365 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:51:31.956 | SUCCESS  | functions.etl:load:41 - Successfully loaded 1 records to the stg_bernpetfoods_temp_products.
+2025-07-04 21:51:31.956 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 21:51:11'
+WHERE id=11
+2025-07-04 21:51:32.577 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/
+2025-07-04 21:51:37.405 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:51:37.496 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-biscuit-treats/1215662103573-1215680108192-1215680109365-1215680112761
+2025-07-04 21:51:40.013 | SUCCESS  | functions.etl:load:41 - Successfully loaded 0 records to the stg_asdagroceries_temp.
+2025-07-04 21:51:40.786 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-sticks-liquid-treats/1215662103573-1215680108192-1215680109365-1215685241502
+2025-07-04 21:51:53.231 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:51:53.276 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:52:01.778 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:52:01.848 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-sticks-liquid-treats/1215662103573-1215680108192-1215680109365-1215685241502
+2025-07-04 21:52:04.159 | SUCCESS  | functions.etl:load:41 - Successfully loaded 26 records to the stg_asdagroceries_temp.
+2025-07-04 21:52:04.789 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/natural-dental-health-treats/1215662103573-1215680108192-1215680109365-1215686353956
+2025-07-04 21:52:11.939 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:52:11.976 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:52:22.422 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:52:22.475 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/natural-dental-health-treats/1215662103573-1215680108192-1215680109365-1215686353956
+2025-07-04 21:52:26.704 | SUCCESS  | functions.etl:load:41 - Successfully loaded 12 records to the stg_asdagroceries_temp.
+2025-07-04 21:52:27.324 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-kitten-milk/1215662103573-1215680108192-1215680109365-1215680113065
+2025-07-04 21:52:32.585 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/", waiting until "networkidle"
+
+2025-07-04 21:52:34.645 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/
+2025-07-04 21:53:27.331 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-kitten-milk/1215662103573-1215680108192-1215680109365-1215680113065: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-kitten-milk/1215662103573-1215680108192-1215680109365-1215680113065", waiting until "networkidle"
+
+2025-07-04 21:53:29.402 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-kitten-milk/1215662103573-1215680108192-1215680109365-1215680113065
+2025-07-04 21:53:34.650 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/", waiting until "networkidle"
+
+2025-07-04 21:53:36.710 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/
+2025-07-04 21:53:44.795 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:53:44.835 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:53:56.704 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:53:56.747 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-kitten-milk/1215662103573-1215680108192-1215680109365-1215680113065
+2025-07-04 21:54:00.813 | SUCCESS  | functions.etl:load:41 - Successfully loaded 10 records to the stg_asdagroceries_temp.
+2025-07-04 21:54:01.426 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-pouches-trays/1215662103573-1215680108192-1215685241913-1215685292477
+2025-07-04 21:54:18.998 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:54:19.040 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:54:28.534 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:54:28.554 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-pouches-trays/1215662103573-1215680108192-1215685241913-1215685292477
+2025-07-04 21:54:31.630 | SUCCESS  | functions.etl:load:41 - Successfully loaded 0 records to the stg_asdagroceries_temp.
+2025-07-04 21:54:32.284 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-tins/1215662103573-1215680108192-1215685241913-1215685292478
+2025-07-04 21:54:36.722 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/", waiting until "networkidle"
+
+2025-07-04 21:54:40.795 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/
+2025-07-04 21:54:45.636 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 21:54:45.667 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:54:53.694 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:54:53.768 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-light-fit-recipe/
+2025-07-04 21:54:58.205 | SUCCESS  | functions.etl:load:41 - Successfully loaded 3 records to the stg_bernpetfoods_temp_products.
+2025-07-04 21:54:58.205 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 21:51:31'
+WHERE id=12
+2025-07-04 21:54:58.801 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-senior-recipe/
+2025-07-04 21:55:18.437 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:55:18.480 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:55:27.615 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:55:27.773 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-tins/1215662103573-1215680108192-1215685241913-1215685292478
+2025-07-04 21:55:31.409 | SUCCESS  | functions.etl:load:41 - Successfully loaded 33 records to the stg_asdagroceries_temp.
+2025-07-04 21:55:32.024 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812
+2025-07-04 21:55:56.709 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:55:56.911 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:55:58.812 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-senior-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-senior-recipe/", waiting until "networkidle"
+
+2025-07-04 21:56:00.878 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-senior-recipe/
+2025-07-04 21:56:02.765 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:56:02.958 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812
+2025-07-04 21:56:04.416 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 21:56:04.446 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:56:05.767 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1
+2025-07-04 21:56:13.859 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:56:13.944 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-senior-recipe/
+2025-07-04 21:56:16.652 | SUCCESS  | functions.etl:load:41 - Successfully loaded 3 records to the stg_bernpetfoods_temp_products.
+2025-07-04 21:56:16.652 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 21:54:58'
+WHERE id=13
+2025-07-04 21:56:17.075 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 21:56:17.150 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:56:17.311 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/
+2025-07-04 21:56:22.602 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 21:56:22.651 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:56:26.830 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:56:27.121 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=1
+2025-07-04 21:56:30.158 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=2
+2025-07-04 21:56:33.561 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:56:33.713 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-puppy-recipe/
+2025-07-04 21:56:38.107 | SUCCESS  | functions.etl:load:41 - Successfully loaded 4 records to the stg_bernpetfoods_temp_products.
+2025-07-04 21:56:38.107 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 21:56:16'
+WHERE id=14
+2025-07-04 21:56:38.757 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-puppy-small-breed-recipe/
+2025-07-04 21:56:44.108 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 21:56:44.192 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:56:55.846 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:56:56.139 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-pouches/1215662103573-1215680108192-1215685971312-1215680113812?page=2
+2025-07-04 21:56:59.006 | SUCCESS  | functions.etl:load:41 - Successfully loaded 144 records to the stg_asdagroceries_temp.
+2025-07-04 21:56:59.674 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029
+2025-07-04 21:57:11.297 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:57:11.349 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:57:24.033 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:57:24.167 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/cat-food-tins-trays/1215662103573-1215680108192-1215685971312-1215680114029
+2025-07-04 21:57:27.712 | SUCCESS  | functions.etl:load:41 - Successfully loaded 0 records to the stg_asdagroceries_temp.
+2025-07-04 21:57:28.326 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/premium-wet-cat-food/1215662103573-1215680108192-1215685971312-1215685971315
+2025-07-04 21:57:30.319 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 21:57:30.357 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:57:36.352 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:57:36.443 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-puppy-small-breed-recipe/
+2025-07-04 21:57:39.646 | SUCCESS  | functions.etl:load:41 - Successfully loaded 2 records to the stg_bernpetfoods_temp_products.
+2025-07-04 21:57:39.646 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 21:56:38'
+WHERE id=15
+2025-07-04 21:57:40.180 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:57:40.242 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:57:40.261 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-free-run-duck/
+2025-07-04 21:57:49.555 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:57:49.706 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/wet-cat-food/premium-wet-cat-food/1215662103573-1215680108192-1215685971312-1215685971315
+2025-07-04 21:57:54.513 | SUCCESS  | functions.etl:load:41 - Successfully loaded 65 records to the stg_asdagroceries_temp.
+2025-07-04 21:57:55.122 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/dry-cat-food-biscuits/1215662103573-1215680108192-1215685971317
+2025-07-04 21:58:06.575 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 21:58:06.615 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:58:07.266 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:58:07.355 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:58:13.734 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:58:13.895 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-free-run-duck/
+2025-07-04 21:58:16.214 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:58:16.493 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/dry-cat-food-biscuits/1215662103573-1215680108192-1215685971317
+2025-07-04 21:58:19.093 | SUCCESS  | functions.etl:load:41 - Successfully loaded 2 records to the stg_bernpetfoods_temp_products.
+2025-07-04 21:58:19.093 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 21:57:39'
+WHERE id=16
+2025-07-04 21:58:19.679 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/
+2025-07-04 21:58:21.137 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/dry-cat-food-biscuits/1215662103573-1215680108192-1215685971317?page=1
+2025-07-04 21:58:26.821 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 21:58:26.879 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:58:36.352 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:58:36.374 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/dry-cat-food-biscuits/1215662103573-1215680108192-1215685971317?page=1
+2025-07-04 21:58:40.157 | SUCCESS  | functions.etl:load:41 - Successfully loaded 0 records to the stg_asdagroceries_temp.
+2025-07-04 21:58:40.897 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/natural-cat-food/1215662103573-1215680108192-1215685992231
+2025-07-04 21:59:16.558 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 21:59:16.590 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:59:18.911 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:59:18.970 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:59:25.371 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:59:25.446 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-sport-agility-recipe/
+2025-07-04 21:59:29.638 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:59:29.743 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/natural-cat-food/1215662103573-1215680108192-1215685992231
+2025-07-04 21:59:30.357 | SUCCESS  | functions.etl:load:41 - Successfully loaded 1 records to the stg_bernpetfoods_temp_products.
+2025-07-04 21:59:30.357 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 21:58:19'
+WHERE id=17
+2025-07-04 21:59:31.058 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-red-meat/
+2025-07-04 21:59:33.632 | SUCCESS  | functions.etl:load:41 - Successfully loaded 35 records to the stg_asdagroceries_temp.
+2025-07-04 21:59:34.247 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/advanced-nutrition-cat-food/1215662103573-1215680108192-1215685971321
+2025-07-04 21:59:47.779 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 21:59:47.822 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 21:59:55.466 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 21:59:55.593 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/advanced-nutrition-cat-food/1215662103573-1215680108192-1215685971321
+2025-07-04 21:59:59.701 | SUCCESS  | functions.etl:load:41 - Successfully loaded 43 records to the stg_asdagroceries_temp.
+2025-07-04 22:00:00.365 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/kitten-food-0-1-years/1215662103573-1215680108192-1215680109568
+2025-07-04 22:00:01.195 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 22:00:01.228 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:00:10.246 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:00:10.285 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:00:10.802 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:00:10.879 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-red-meat/
+2025-07-04 22:00:15.643 | SUCCESS  | functions.etl:load:41 - Successfully loaded 2 records to the stg_bernpetfoods_temp_products.
+2025-07-04 22:00:15.644 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 21:59:30'
+WHERE id=18
+2025-07-04 22:00:16.312 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-wild-coast/
+2025-07-04 22:00:21.127 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:00:21.211 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/kitten-food-0-1-years/1215662103573-1215680108192-1215680109568
+2025-07-04 22:00:25.813 | SUCCESS  | functions.etl:load:41 - Successfully loaded 26 records to the stg_asdagroceries_temp.
+2025-07-04 22:00:26.491 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/senior-cat-food-7-years/1215662103573-1215680108192-1215680109466
+2025-07-04 22:00:38.311 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:00:38.354 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:00:49.608 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:00:49.708 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/senior-cat-food-7-years/1215662103573-1215680108192-1215680109466
+2025-07-04 22:00:54.022 | SUCCESS  | functions.etl:load:41 - Successfully loaded 37 records to the stg_asdagroceries_temp.
+2025-07-04 22:00:54.626 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/cat-food-cat-litter-bigger-packs/1215662103573-1215680108192-1215680112713
+2025-07-04 22:00:55.804 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 22:00:55.836 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:01:03.950 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:01:04.001 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:01:05.202 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:01:05.289 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-wild-coast/
+2025-07-04 22:01:09.554 | SUCCESS  | functions.etl:load:41 - Successfully loaded 2 records to the stg_bernpetfoods_temp_products.
+2025-07-04 22:01:09.555 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 22:00:15'
+WHERE id=19
+2025-07-04 22:01:10.187 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-prairie-poultry/
+2025-07-04 22:01:14.182 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:01:14.347 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/cat-food-cat-litter-bigger-packs/1215662103573-1215680108192-1215680112713
+2025-07-04 22:01:18.442 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/cat-food-cat-litter-bigger-packs/1215662103573-1215680108192-1215680112713?page=1
+2025-07-04 22:02:00.675 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 22:02:00.709 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:02:06.593 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 22:02:06.659 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:02:08.028 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:02:08.103 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-prairie-poultry/
+2025-07-04 22:02:12.824 | SUCCESS  | functions.etl:load:41 - Successfully loaded 2 records to the stg_bernpetfoods_temp_products.
+2025-07-04 22:02:12.824 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 22:01:09'
+WHERE id=20
+2025-07-04 22:02:13.557 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/
+2025-07-04 22:02:20.222 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:02:20.440 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/cat-food-cat-litter-bigger-packs/1215662103573-1215680108192-1215680112713?page=1
+2025-07-04 22:02:24.966 | SUCCESS  | functions.etl:load:41 - Successfully loaded 66 records to the stg_asdagroceries_temp.
+2025-07-04 22:02:25.667 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/cat-litter/1215662103573-1215680108192-1215680112617
+2025-07-04 22:02:38.826 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:02:38.864 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:02:45.014 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:02:45.036 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/aisle/pet-food-accessories/cat-food-accessories/cat-litter/1215662103573-1215680108192-1215680112617
+2025-07-04 22:02:46.367 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 22:02:46.403 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:02:48.491 | SUCCESS  | functions.etl:load:41 - Successfully loaded 0 records to the stg_asdagroceries_temp.
+2025-07-04 22:02:49.096 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-healthcare-accessories/cat-care-accessories/1215662103573-1215680108192-1215680112665-1215680114894
+2025-07-04 22:02:55.829 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:02:55.904 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-grass-fed-lamb/
+2025-07-04 22:02:58.712 | SUCCESS  | functions.etl:load:41 - Successfully loaded 3 records to the stg_bernpetfoods_temp_products.
+2025-07-04 22:02:58.712 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 22:02:12'
+WHERE id=21
+2025-07-04 22:02:59.309 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/
+2025-07-04 22:03:11.133 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:03:11.169 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:03:21.871 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:03:21.941 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-healthcare-accessories/cat-care-accessories/1215662103573-1215680108192-1215680112665-1215680114894
+2025-07-04 22:03:26.781 | SUCCESS  | functions.etl:load:41 - Successfully loaded 12 records to the stg_asdagroceries_temp.
+2025-07-04 22:03:27.442 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-healthcare-accessories/flea-worming-treatments/1215662103573-1215680108192-1215680112665-1215680118634
+2025-07-04 22:03:36.724 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:03:36.761 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:03:43.690 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:03:43.757 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-healthcare-accessories/flea-worming-treatments/1215662103573-1215680108192-1215680112665-1215680118634
+2025-07-04 22:03:46.778 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 22:03:46.820 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:03:47.289 | SUCCESS  | functions.etl:load:41 - Successfully loaded 13 records to the stg_asdagroceries_temp.
+2025-07-04 22:03:47.956 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-pouches-trays/1215662103573-1215680108192-1215685241913-1215685292477
+2025-07-04 22:03:52.916 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:03:52.990 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-yorkshire-pork/
+2025-07-04 22:03:55.643 | SUCCESS  | functions.etl:load:41 - Successfully loaded 3 records to the stg_bernpetfoods_temp_products.
+2025-07-04 22:03:55.643 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 22:02:58'
+WHERE id=22
+2025-07-04 22:03:55.851 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:03:55.960 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:03:56.486 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/
+2025-07-04 22:04:04.749 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:04:04.991 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-pouches-trays/1215662103573-1215680108192-1215685241913-1215685292477
+2025-07-04 22:04:07.190 | SUCCESS  | functions.etl:load:41 - Successfully loaded 65 records to the stg_asdagroceries_temp.
+2025-07-04 22:04:08.044 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-tins/1215662103573-1215680108192-1215685241913-1215685292478
+2025-07-04 22:04:17.728 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:04:17.777 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:04:24.284 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:04:24.490 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/premium-cat-food/premium-cat-food-tins/1215662103573-1215680108192-1215685241913-1215685292478
+2025-07-04 22:04:28.535 | SUCCESS  | functions.etl:load:41 - Successfully loaded 33 records to the stg_asdagroceries_temp.
+2025-07-04 22:04:29.218 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/asda-tiger-cat-food-treats/asda-tiger-cat-food/1215662103573-1215680108192-1215686355825-1215686355826
+2025-07-04 22:04:52.503 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:04:52.871 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:04:56.492 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/", waiting until "networkidle"
+
+2025-07-04 22:04:58.560 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/
+2025-07-04 22:05:01.493 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:05:01.598 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/asda-tiger-cat-food-treats/asda-tiger-cat-food/1215662103573-1215680108192-1215686355825-1215686355826
+2025-07-04 22:05:06.351 | SUCCESS  | functions.etl:load:41 - Successfully loaded 25 records to the stg_asdagroceries_temp.
+2025-07-04 22:05:07.086 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/asda-tiger-cat-food-treats/asda-tiger-cat-treats/1215662103573-1215680108192-1215686355825-1215686355827
+2025-07-04 22:05:47.355 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:05:47.392 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:05:56.994 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:05:57.043 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/asda-tiger-cat-food-treats/asda-tiger-cat-treats/1215662103573-1215680108192-1215686355825-1215686355827
+2025-07-04 22:05:58.563 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/", waiting until "networkidle"
+
+2025-07-04 22:05:59.234 | SUCCESS  | functions.etl:load:41 - Successfully loaded 13 records to the stg_asdagroceries_temp.
+2025-07-04 22:06:00.004 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-biscuit-treats/1215662103573-1215680108192-1215680109365-1215680112761
+2025-07-04 22:06:00.630 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/
+2025-07-04 22:06:14.598 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .layout__main
+2025-07-04 22:06:14.674 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:06:19.652 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #primary
+2025-07-04 22:06:19.681 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-04 22:06:23.825 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:06:24.056 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-biscuit-treats/1215662103573-1215680108192-1215680109365-1215680112761
+2025-07-04 22:06:27.490 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://groceries.asda.com/shelf/pet-food-accessories/cat-food-accessories/cat-treats-milk/cat-biscuit-treats/1215662103573-1215680108192-1215680109365-1215680112761?page=1
+2025-07-04 22:06:30.391 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-04 22:06:30.479 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bernpetfoods.co.uk/product/acana-adult-dog-recipe/
+2025-07-04 22:06:34.876 | SUCCESS  | functions.etl:load:41 - Successfully loaded 3 records to the stg_bernpetfoods_temp_products.
+2025-07-04 22:06:34.877 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-04 22:03:55'
+WHERE id=23
+2025-07-04 22:06:35.531 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bernpetfoods.co.uk/product/acana-ranchlands-dog/
+2025-07-04 22:06:42.861 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #main-content
+2025-07-04 22:06:42.914 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
