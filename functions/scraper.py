@@ -221,9 +221,9 @@ class AsyncWebScraper:
         await self.scraper.close()
 
 
-async def scrape_url(url, selector, headers=None, min_sec=2, max_sec=5) -> list:
+async def scrape_url(url, selector, headers=None, wait_for_network=False, min_sec=2, max_sec=5) -> list:
     async with AsyncWebScraper() as scraper:
-        result = await scraper.extract_scrape_content(url, selector, headers=headers)
+        result = await scraper.extract_scrape_content(url, selector, headers=headers, wait_for_network=wait_for_network)
         delay = random.uniform(min_sec, max_sec)
         if delay >= 60:
             minutes = int(delay // 60)
