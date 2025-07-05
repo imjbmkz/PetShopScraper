@@ -22,7 +22,7 @@ class DirectVetETL(PetProductsETL):
         urls = []
 
         soup = asyncio.run(self.scrape(
-            current_url, self.SELECTOR_SCRAPE_PRODUCT_INFO))
+            current_url, self.SELECTOR_SCRAPE_PRODUCT_INFO, wait_for_network=True))
 
         if (soup.find('small', class_="heading-counter").get_text() == 'There are no products in this category.'):
             return None
@@ -35,7 +35,7 @@ class DirectVetETL(PetProductsETL):
             page_url = f"{current_url}?selected_filters=page-{i}"
 
             page_pagination_source = asyncio.run(
-                self.scrape(page_url, self.SELECTOR_SCRAPE_PRODUCT_INFO))
+                self.scrape(page_url, self.SELECTOR_SCRAPE_PRODUCT_INFO, wait_for_network=True))
 
             for link in page_pagination_source.find_all('a', class_="product_img_link"):
                 urls.append(link.get('href'))

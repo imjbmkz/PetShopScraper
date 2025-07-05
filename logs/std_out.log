@@ -29699,3 +29699,667 @@ WHERE id=1216
 2025-07-05 23:08:18.058 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
 2025-07-05 23:08:18.155 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2111-growth?selected_filters=page-1
 2025-07-05 23:08:18.163 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.10 sec
+2025-07-05 23:08:23.056 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2111-growth?selected_filters=page-2
+2025-07-05 23:08:27.769 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .woocommerce-result-count
+2025-07-05 23:08:27.810 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:08:31.267 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:08:31.602 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:08:37.811 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:08:37.962 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:08:37.969 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.07 sec
+2025-07-05 23:08:40.643 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:08:40.778 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2111-growth?selected_filters=page-2
+2025-07-05 23:08:40.787 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.49 sec
+2025-07-05 23:08:41.711 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:08:45.415 | SUCCESS  | functions.etl:load:40 - Successfully loaded 21 records to the stg_directvet_temp.
+2025-07-05 23:08:46.183 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2112-adult
+2025-07-05 23:08:49.161 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:08:49.212 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:08:50.543 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .shop-filters-area
+2025-07-05 23:08:50.600 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:08:58.032 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:08:58.183 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:08:58.190 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.01 sec
+2025-07-05 23:08:59.167 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:08:59.331 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2112-adult
+2025-07-05 23:08:59.343 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.68 sec
+2025-07-05 23:09:01.105 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-2.html
+2025-07-05 23:09:02.680 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2112-adult?selected_filters=page-1
+2025-07-05 23:09:05.450 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:09:05.772 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:09:15.401 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:09:15.519 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2112-adult?selected_filters=page-1
+2025-07-05 23:09:15.527 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.67 sec
+2025-07-05 23:09:19.837 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2112-adult?selected_filters=page-2
+2025-07-05 23:09:29.114 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:09:29.154 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:09:36.746 | SUCCESS  | functions.etl:load:40 - Successfully loaded 2 records to the stg_bitiba_temp_products.
+2025-07-05 23:09:36.746 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-05 23:02:06'
+WHERE id=1217
+2025-07-05 23:09:36.751 | INFO     | functions.etl:get_product_infos:74 - 19 out of 147 URL Scraped
+2025-07-05 23:09:37.234 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:09:37.387 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bitiba.co.uk/shop/dogs/dry_dog_food/iams/adult/383572?activeVariant=383572.6
+2025-07-05 23:09:37.442 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2112-adult?selected_filters=page-2
+2025-07-05 23:09:37.450 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.13 sec
+2025-07-05 23:09:40.221 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2112-adult?selected_filters=page-3
+2025-07-05 23:09:42.985 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:09:43.308 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:09:43.416 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .shop-filters-area
+2025-07-05 23:09:43.452 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:09:51.053 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:09:51.219 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-2.html
+2025-07-05 23:09:51.226 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.47 sec
+2025-07-05 23:09:51.762 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:09:51.857 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2112-adult?selected_filters=page-3
+2025-07-05 23:09:51.866 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.71 sec
+2025-07-05 23:09:54.027 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: main#page-content
+2025-07-05 23:09:54.063 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:09:54.421 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-3.html
+2025-07-05 23:09:54.660 | SUCCESS  | functions.etl:load:40 - Successfully loaded 30 records to the stg_directvet_temp.
+2025-07-05 23:09:55.338 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2113-older-dogs
+2025-07-05 23:09:58.327 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:09:58.806 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:10:04.030 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:10:04.175 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bitiba.co.uk/shop/dogs/dry_dog_food/iams/adult/383572?activeVariant=383572.6
+2025-07-05 23:10:04.181 | INFO     | functions.scraper:scrape_url:231 - Sleep for 7 min 36.60 sec
+2025-07-05 23:10:08.430 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:10:08.536 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2113-older-dogs
+2025-07-05 23:10:08.546 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.46 sec
+2025-07-05 23:10:13.861 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2113-older-dogs?selected_filters=page-1
+2025-07-05 23:10:27.786 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:10:27.826 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:10:35.841 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .shop-filters-area
+2025-07-05 23:10:35.876 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:10:39.031 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:10:39.198 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2113-older-dogs?selected_filters=page-1
+2025-07-05 23:10:39.205 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.05 sec
+2025-07-05 23:10:43.338 | SUCCESS  | functions.etl:load:40 - Successfully loaded 12 records to the stg_directvet_temp.
+2025-07-05 23:10:43.972 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2114-sterilised
+2025-07-05 23:10:44.031 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:10:44.181 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-3.html
+2025-07-05 23:10:44.188 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.87 sec
+2025-07-05 23:10:47.472 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:10:47.524 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:10:48.865 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-4.html
+2025-07-05 23:10:55.371 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:10:55.499 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2114-sterilised
+2025-07-05 23:10:55.509 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.77 sec
+2025-07-05 23:10:59.017 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2114-sterilised?selected_filters=page-1
+2025-07-05 23:11:01.762 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:11:01.804 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:11:10.067 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:11:10.157 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2114-sterilised?selected_filters=page-1
+2025-07-05 23:11:10.165 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.19 sec
+2025-07-05 23:11:13.425 | SUCCESS  | functions.etl:load:40 - Successfully loaded 5 records to the stg_directvet_temp.
+2025-07-05 23:11:14.094 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2115-gestation-lactation
+2025-07-05 23:11:16.920 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:11:17.194 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:11:25.880 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:11:25.978 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2115-gestation-lactation
+2025-07-05 23:11:25.986 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.17 sec
+2025-07-05 23:11:28.942 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2115-gestation-lactation?selected_filters=page-1
+2025-07-05 23:11:37.139 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:11:37.203 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:11:39.577 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .shop-filters-area
+2025-07-05 23:11:39.615 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:11:45.694 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:11:45.802 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2115-gestation-lactation?selected_filters=page-1
+2025-07-05 23:11:45.808 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.90 sec
+2025-07-05 23:11:48.704 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:11:48.807 | SUCCESS  | functions.etl:load:40 - Successfully loaded 10 records to the stg_directvet_temp.
+2025-07-05 23:11:48.926 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-4.html
+2025-07-05 23:11:48.932 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.32 sec
+2025-07-05 23:11:49.412 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2116-active
+2025-07-05 23:11:51.984 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-5.html
+2025-07-05 23:11:52.077 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:11:52.228 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:12:01.925 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:12:02.010 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2116-active
+2025-07-05 23:12:02.018 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.31 sec
+2025-07-05 23:12:07.031 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2116-active?selected_filters=page-1
+2025-07-05 23:12:09.749 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:12:09.783 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:12:19.083 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:12:19.172 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2116-active?selected_filters=page-1
+2025-07-05 23:12:19.178 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.84 sec
+2025-07-05 23:12:22.076 | SUCCESS  | functions.etl:load:40 - Successfully loaded 1 records to the stg_directvet_temp.
+2025-07-05 23:12:22.665 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/1173899-treats-rewards
+2025-07-05 23:12:26.679 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .shop-filters-area
+2025-07-05 23:12:26.715 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:12:32.263 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:12:32.411 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-5.html
+2025-07-05 23:12:32.417 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.36 sec
+2025-07-05 23:12:36.438 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-6.html
+2025-07-05 23:12:39.450 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:12:39.608 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:12:51.779 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:12:51.887 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/1173899-treats-rewards
+2025-07-05 23:12:51.894 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.99 sec
+2025-07-05 23:12:55.549 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/1173899-treats-rewards?selected_filters=page-1
+2025-07-05 23:13:06.775 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .shop-filters-area
+2025-07-05 23:13:06.811 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:13:18.327 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:13:18.527 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-6.html
+2025-07-05 23:13:18.533 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.02 sec
+2025-07-05 23:13:22.236 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-7.html
+2025-07-05 23:13:23.330 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:13:23.368 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:13:32.227 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:13:32.326 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/1173899-treats-rewards?selected_filters=page-1
+2025-07-05 23:13:32.332 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.21 sec
+2025-07-05 23:13:36.608 | SUCCESS  | functions.etl:load:40 - Successfully loaded 12 records to the stg_directvet_temp.
+2025-07-05 23:13:37.212 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2120-osteoarthritis
+2025-07-05 23:13:40.110 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:13:40.328 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:13:46.589 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:13:46.679 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2120-osteoarthritis
+2025-07-05 23:13:46.684 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.47 sec
+2025-07-05 23:13:50.874 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2120-osteoarthritis?selected_filters=page-1
+2025-07-05 23:13:53.685 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:13:53.828 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:14:04.656 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:14:04.805 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2120-osteoarthritis?selected_filters=page-1
+2025-07-05 23:14:04.812 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.99 sec
+2025-07-05 23:14:09.868 | SUCCESS  | functions.etl:load:40 - Successfully loaded 8 records to the stg_directvet_temp.
+2025-07-05 23:14:10.446 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2121-kidneys
+2025-07-05 23:14:16.298 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .shop-filters-area
+2025-07-05 23:14:16.333 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:14:24.913 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:14:25.051 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-7.html
+2025-07-05 23:14:25.059 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.41 sec
+2025-07-05 23:14:26.264 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:14:26.309 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:14:28.557 | SUCCESS  | functions.etl:load:40 - Successfully loaded 163 records to the stg_farmandpetplace_temp.
+2025-07-05 23:14:29.302 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-feeders/placemats/page-1.html
+2025-07-05 23:14:34.383 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:14:34.484 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2121-kidneys
+2025-07-05 23:14:34.490 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.51 sec
+2025-07-05 23:14:37.646 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2121-kidneys?selected_filters=page-1
+2025-07-05 23:14:47.645 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:14:47.687 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:14:56.559 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .woocommerce-result-count
+2025-07-05 23:14:56.595 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:14:57.116 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:14:57.218 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2121-kidneys?selected_filters=page-1
+2025-07-05 23:14:57.226 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.36 sec
+2025-07-05 23:15:00.232 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2121-kidneys?selected_filters=page-2
+2025-07-05 23:15:03.317 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:15:03.354 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:15:04.699 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:15:04.822 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-feeders/placemats/page-1.html
+2025-07-05 23:15:04.829 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.92 sec
+2025-07-05 23:15:08.825 | SUCCESS  | functions.etl:load:40 - Successfully loaded 3 records to the stg_farmandpetplace_temp.
+2025-07-05 23:15:09.474 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/cold-pressed-dog-food/page-1.html
+2025-07-05 23:15:10.745 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:15:10.908 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2121-kidneys?selected_filters=page-2
+2025-07-05 23:15:10.916 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.51 sec
+2025-07-05 23:15:13.506 | SUCCESS  | functions.etl:load:40 - Successfully loaded 13 records to the stg_directvet_temp.
+2025-07-05 23:15:14.120 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2123-heart
+2025-07-05 23:15:17.128 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:15:17.166 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:15:24.928 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:15:25.032 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2123-heart
+2025-07-05 23:15:25.040 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.68 sec
+2025-07-05 23:15:30.422 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2123-heart?selected_filters=page-1
+2025-07-05 23:15:40.117 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:15:40.155 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:15:49.170 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:15:49.267 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2123-heart?selected_filters=page-1
+2025-07-05 23:15:49.276 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.77 sec
+2025-07-05 23:15:53.683 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2123-heart?selected_filters=page-2
+2025-07-05 23:15:55.733 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .woocommerce-result-count
+2025-07-05 23:15:55.767 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:16:02.042 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:16:02.241 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/cold-pressed-dog-food/page-1.html
+2025-07-05 23:16:02.248 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.87 sec
+2025-07-05 23:16:06.199 | SUCCESS  | functions.etl:load:40 - Successfully loaded 6 records to the stg_farmandpetplace_temp.
+2025-07-05 23:16:06.790 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/equine/shampoos-and-conditioners/shampoo/page-1.html
+2025-07-05 23:16:18.407 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:16:18.444 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:16:27.807 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:16:27.950 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2123-heart?selected_filters=page-2
+2025-07-05 23:16:27.957 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.21 sec
+2025-07-05 23:16:31.238 | SUCCESS  | functions.etl:load:40 - Successfully loaded 15 records to the stg_directvet_temp.
+2025-07-05 23:16:31.830 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2124-cancer-convalescence
+2025-07-05 23:16:41.205 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:16:41.242 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:16:47.150 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:16:47.246 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2124-cancer-convalescence
+2025-07-05 23:16:47.254 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.89 sec
+2025-07-05 23:16:52.775 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2124-cancer-convalescence?selected_filters=page-1
+2025-07-05 23:16:55.435 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .woocommerce-result-count
+2025-07-05 23:16:55.472 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:17:01.009 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:17:01.079 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:17:05.855 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:17:06.001 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/equine/shampoos-and-conditioners/shampoo/page-1.html
+2025-07-05 23:17:06.008 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.14 sec
+2025-07-05 23:17:09.245 | SUCCESS  | functions.etl:load:40 - Successfully loaded 11 records to the stg_farmandpetplace_temp.
+2025-07-05 23:17:09.870 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-toys/kong-cat-toys/page-1.html
+2025-07-05 23:17:11.409 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:17:11.518 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2124-cancer-convalescence?selected_filters=page-1
+2025-07-05 23:17:11.525 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.38 sec
+2025-07-05 23:17:16.676 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2124-cancer-convalescence?selected_filters=page-2
+2025-07-05 23:17:32.097 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .woocommerce-result-count
+2025-07-05 23:17:32.137 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:17:38.718 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:17:38.753 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:17:40.571 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:17:40.715 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-toys/kong-cat-toys/page-1.html
+2025-07-05 23:17:40.723 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.68 sec
+2025-07-05 23:17:40.875 | SUCCESS  | functions.etl:load:40 - Successfully loaded 4 records to the stg_bitiba_temp_products.
+2025-07-05 23:17:40.875 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-05 23:09:36'
+WHERE id=1218
+2025-07-05 23:17:40.880 | INFO     | functions.etl:get_product_infos:74 - 20 out of 147 URL Scraped
+2025-07-05 23:17:41.538 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bitiba.co.uk/shop/dogs/dry_dog_food/iams/senior/704653?activeVariant=704653.0
+2025-07-05 23:17:43.492 | SUCCESS  | functions.etl:load:40 - Successfully loaded 15 records to the stg_farmandpetplace_temp.
+2025-07-05 23:17:44.200 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-carriers-and-kennels/runs-and-pens/page-1.html
+2025-07-05 23:17:46.281 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:17:46.442 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2124-cancer-convalescence?selected_filters=page-2
+2025-07-05 23:17:46.450 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.29 sec
+2025-07-05 23:17:50.798 | SUCCESS  | functions.etl:load:40 - Successfully loaded 13 records to the stg_directvet_temp.
+2025-07-05 23:17:51.485 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2125-obesity-diabetes
+2025-07-05 23:17:54.580 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:17:54.726 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:18:04.095 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:18:04.200 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2125-obesity-diabetes
+2025-07-05 23:18:04.207 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.41 sec
+2025-07-05 23:18:06.079 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: main#page-content
+2025-07-05 23:18:06.157 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:18:08.324 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2125-obesity-diabetes?selected_filters=page-1
+2025-07-05 23:18:15.453 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:18:15.576 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bitiba.co.uk/shop/dogs/dry_dog_food/iams/senior/704653?activeVariant=704653.0
+2025-07-05 23:18:15.582 | INFO     | functions.scraper:scrape_url:231 - Sleep for 7 min 33.16 sec
+2025-07-05 23:18:17.935 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:18:18.095 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:18:25.925 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:18:26.031 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2125-obesity-diabetes?selected_filters=page-1
+2025-07-05 23:18:26.037 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.35 sec
+2025-07-05 23:18:31.049 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2125-obesity-diabetes?selected_filters=page-2
+2025-07-05 23:18:33.375 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .woocommerce-result-count
+2025-07-05 23:18:33.408 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:18:41.495 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:18:41.536 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:18:44.765 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:18:44.893 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-carriers-and-kennels/runs-and-pens/page-1.html
+2025-07-05 23:18:44.900 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.89 sec
+2025-07-05 23:18:47.873 | SUCCESS  | functions.etl:load:40 - Successfully loaded 2 records to the stg_farmandpetplace_temp.
+2025-07-05 23:18:48.505 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/farm/farm-feeds/general-purpose-feed/page-1.html
+2025-07-05 23:18:49.300 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:18:49.395 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2125-obesity-diabetes?selected_filters=page-2
+2025-07-05 23:18:49.401 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.96 sec
+2025-07-05 23:18:54.432 | SUCCESS  | functions.etl:load:40 - Successfully loaded 22 records to the stg_directvet_temp.
+2025-07-05 23:18:55.081 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2126-digestion
+2025-07-05 23:18:57.821 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:18:57.859 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:19:05.379 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:19:05.478 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2126-digestion
+2025-07-05 23:19:05.484 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.97 sec
+2025-07-05 23:19:11.124 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2126-digestion?selected_filters=page-1
+2025-07-05 23:19:14.037 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:19:14.073 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:19:25.627 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:19:25.731 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2126-digestion?selected_filters=page-1
+2025-07-05 23:19:25.739 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.21 sec
+2025-07-05 23:19:29.636 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2126-digestion?selected_filters=page-2
+2025-07-05 23:19:32.765 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:19:32.814 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:19:35.402 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .woocommerce-result-count
+2025-07-05 23:19:35.438 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:19:41.436 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:19:41.548 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2126-digestion?selected_filters=page-2
+2025-07-05 23:19:41.556 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.02 sec
+2025-07-05 23:19:44.344 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2126-digestion?selected_filters=page-3
+2025-07-05 23:19:45.713 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:19:45.822 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/farm/farm-feeds/general-purpose-feed/page-1.html
+2025-07-05 23:19:45.829 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.47 sec
+2025-07-05 23:19:47.459 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:19:47.604 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:19:48.363 | SUCCESS  | functions.etl:load:40 - Successfully loaded 4 records to the stg_farmandpetplace_temp.
+2025-07-05 23:19:48.977 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/fish/aquatic/tanks-and-stands/page-1.html
+2025-07-05 23:19:56.636 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:19:56.762 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2126-digestion?selected_filters=page-3
+2025-07-05 23:19:56.769 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.73 sec
+2025-07-05 23:20:00.149 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2126-digestion?selected_filters=page-4
+2025-07-05 23:20:02.877 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:20:03.223 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:20:12.894 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:20:13.006 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2126-digestion?selected_filters=page-4
+2025-07-05 23:20:13.015 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.72 sec
+2025-07-05 23:20:16.801 | SUCCESS  | functions.etl:load:40 - Successfully loaded 48 records to the stg_directvet_temp.
+2025-07-05 23:20:17.405 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2127-allergies-skin-issues
+2025-07-05 23:20:24.318 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: .woocommerce-result-count
+2025-07-05 23:20:38.451 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.direct-vet.co.uk/2127-allergies-skin-issues: Page.goto: net::ERR_CONNECTION_TIMED_OUT at https://www.direct-vet.co.uk/2127-allergies-skin-issues
+Call log:
+  - navigating to "https://www.direct-vet.co.uk/2127-allergies-skin-issues", waiting until "domcontentloaded"
+
+2025-07-05 23:20:38.458 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.59 sec
+2025-07-05 23:20:54.325 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/fish/aquatic/tanks-and-stands/page-1.html: Page.wait_for_selector: Timeout 30000ms exceeded.
+Call log:
+  - waiting for locator(".woocommerce-result-count") to be visible
+
+2025-07-05 23:20:54.331 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.75 sec
+2025-07-05 23:21:58.550 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-05 23:21:58.550 | INFO     | functions.connection:execute_query:54 - Running query: DROP TABLE IF EXISTS stg_farmandpetplace_temp;
+2025-07-05 23:21:58.581 | INFO     | functions.connection:execute_query:54 - Running query: CREATE TABLE IF NOT EXISTS stg_farmandpetplace_temp (
+    shop varchar(50) CHARACTER SET utf8mb4,
+    url varchar(255) CHARACTER SET utf8mb4,
+    updated_date datetime
+);
+2025-07-05 23:21:58.611 | INFO     | functions.etl:_temp_table:123 - Temporary table stg_farmandpetplace_temp created.
+2025-07-05 23:21:59.263 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:22:21.408 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-05 23:23:49.905 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-05 23:23:49.905 | INFO     | functions.connection:execute_query:54 - Running query: DROP TABLE IF EXISTS stg_farmandpetplace_temp;
+2025-07-05 23:23:49.935 | INFO     | functions.connection:execute_query:54 - Running query: CREATE TABLE IF NOT EXISTS stg_farmandpetplace_temp (
+    shop varchar(50) CHARACTER SET utf8mb4,
+    url varchar(255) CHARACTER SET utf8mb4,
+    updated_date datetime
+);
+2025-07-05 23:23:49.966 | INFO     | functions.etl:_temp_table:123 - Temporary table stg_farmandpetplace_temp created.
+2025-07-05 23:23:50.597 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:24:01.676 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-05 23:24:01.676 | INFO     | functions.connection:execute_query:54 - Running query: DROP TABLE IF EXISTS stg_directvet_temp;
+2025-07-05 23:24:01.719 | INFO     | functions.connection:execute_query:54 - Running query: CREATE TABLE IF NOT EXISTS stg_directvet_temp (
+    shop varchar(50) CHARACTER SET utf8mb4,
+    url varchar(255) CHARACTER SET utf8mb4,
+    updated_date datetime
+);
+2025-07-05 23:24:01.754 | INFO     | functions.etl:_temp_table:123 - Temporary table stg_directvet_temp created.
+2025-07-05 23:24:02.385 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2111-growth
+2025-07-05 23:24:02.956 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: body.product-cats
+2025-07-05 23:24:02.990 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:24:09.627 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:24:09.783 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:24:09.789 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.38 sec
+2025-07-05 23:24:10.265 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-05 23:24:12.838 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:24:44.298 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: body.single-product
+2025-07-05 23:24:49.260 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-05 23:24:49.260 | INFO     | functions.connection:execute_query:54 - Running query: DROP TABLE IF EXISTS stg_directvet_temp;
+2025-07-05 23:24:49.289 | INFO     | functions.connection:execute_query:54 - Running query: CREATE TABLE IF NOT EXISTS stg_directvet_temp (
+    shop varchar(50) CHARACTER SET utf8mb4,
+    url varchar(255) CHARACTER SET utf8mb4,
+    updated_date datetime
+);
+2025-07-05 23:24:49.315 | INFO     | functions.etl:_temp_table:123 - Temporary table stg_directvet_temp created.
+2025-07-05 23:24:49.923 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2111-growth
+2025-07-05 23:25:14.970 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:25:15.005 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:25:26.639 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:25:26.759 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2111-growth
+2025-07-05 23:25:26.769 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.57 sec
+2025-07-05 23:25:30.038 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2111-growth?selected_filters=page-1
+2025-07-05 23:25:44.311 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html: Page.wait_for_selector: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator("body.single-product") to be visible
+
+2025-07-05 23:25:44.318 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.39 sec
+2025-07-05 23:25:48.829 | SUCCESS  | functions.etl:load:40 - Successfully loaded 2 records to the stg_bitiba_temp_products.
+2025-07-05 23:25:48.829 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-05 23:17:40'
+WHERE id=1219
+2025-07-05 23:25:48.837 | INFO     | functions.etl:get_product_infos:74 - 21 out of 147 URL Scraped
+2025-07-05 23:25:49.511 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bitiba.co.uk/shop/dogs/dry_dog_food/lukullus/lukullus_naturkost/1004129?activeVariant=1004129.1
+2025-07-05 23:25:52.876 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: main#page-content
+2025-07-05 23:25:53.073 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:26:00.851 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:26:00.885 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:26:01.175 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:26:01.342 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.bitiba.co.uk/shop/dogs/dry_dog_food/lukullus/lukullus_naturkost/1004129?activeVariant=1004129.1
+2025-07-05 23:26:01.349 | INFO     | functions.scraper:scrape_url:231 - Sleep for 8 min 6.98 sec
+2025-07-05 23:26:10.600 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:26:10.707 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2111-growth?selected_filters=page-1
+2025-07-05 23:26:10.716 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.06 sec
+2025-07-05 23:26:13.418 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2111-growth?selected_filters=page-2
+2025-07-05 23:26:22.035 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:26:22.071 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:26:31.833 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:26:32.004 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2111-growth?selected_filters=page-2
+2025-07-05 23:26:32.014 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.47 sec
+2025-07-05 23:26:36.563 | SUCCESS  | functions.etl:load:40 - Successfully loaded 21 records to the stg_directvet_temp.
+2025-07-05 23:26:37.211 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2112-adult
+2025-07-05 23:27:01.227 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:27:01.260 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:27:10.790 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:27:10.899 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2112-adult
+2025-07-05 23:27:10.907 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.44 sec
+2025-07-05 23:27:15.082 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2112-adult?selected_filters=page-1
+2025-07-05 23:27:24.957 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:27:24.992 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:27:29.924 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:27:30.029 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2112-adult?selected_filters=page-1
+2025-07-05 23:27:30.036 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.08 sec
+2025-07-05 23:27:33.766 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2112-adult?selected_filters=page-2
+2025-07-05 23:27:52.135 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:27:52.169 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:28:03.312 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:28:03.470 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2112-adult?selected_filters=page-2
+2025-07-05 23:28:03.479 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.18 sec
+2025-07-05 23:28:08.304 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2112-adult?selected_filters=page-3
+2025-07-05 23:28:20.462 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:28:20.494 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:28:29.038 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:28:29.143 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2112-adult?selected_filters=page-3
+2025-07-05 23:28:29.153 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.38 sec
+2025-07-05 23:28:31.605 | SUCCESS  | functions.etl:load:40 - Successfully loaded 30 records to the stg_directvet_temp.
+2025-07-05 23:28:32.212 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2113-older-dogs
+2025-07-05 23:28:43.502 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:28:43.535 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:28:53.441 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:28:53.544 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2113-older-dogs
+2025-07-05 23:28:53.552 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.37 sec
+2025-07-05 23:28:57.614 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2113-older-dogs?selected_filters=page-1
+2025-07-05 23:29:31.116 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:29:31.152 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:29:35.308 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-05 23:29:35.308 | INFO     | functions.connection:execute_query:54 - Running query: DROP TABLE IF EXISTS stg_farmandpetplace_temp;
+2025-07-05 23:29:35.342 | INFO     | functions.connection:execute_query:54 - Running query: CREATE TABLE IF NOT EXISTS stg_farmandpetplace_temp (
+    shop varchar(50) CHARACTER SET utf8mb4,
+    url varchar(255) CHARACTER SET utf8mb4,
+    updated_date datetime
+);
+2025-07-05 23:29:35.399 | INFO     | functions.etl:_temp_table:123 - Temporary table stg_farmandpetplace_temp created.
+2025-07-05 23:29:36.029 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:29:37.402 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:29:37.578 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2113-older-dogs?selected_filters=page-1
+2025-07-05 23:29:37.586 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.83 sec
+2025-07-05 23:29:42.491 | SUCCESS  | functions.etl:load:40 - Successfully loaded 12 records to the stg_directvet_temp.
+2025-07-05 23:29:43.116 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2114-sterilised
+2025-07-05 23:29:46.647 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-05 23:30:02.892 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:30:02.926 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:30:08.943 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:30:09.042 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2114-sterilised
+2025-07-05 23:30:09.052 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.35 sec
+2025-07-05 23:30:12.105 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2114-sterilised?selected_filters=page-1
+2025-07-05 23:30:19.092 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:30:19.124 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:30:27.367 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:30:27.471 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2114-sterilised?selected_filters=page-1
+2025-07-05 23:30:27.480 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.13 sec
+2025-07-05 23:30:30.693 | SUCCESS  | functions.etl:load:40 - Successfully loaded 5 records to the stg_directvet_temp.
+2025-07-05 23:30:31.277 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2115-gestation-lactation
+2025-07-05 23:30:46.627 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:30:46.661 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:30:58.588 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:30:58.736 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2115-gestation-lactation
+2025-07-05 23:30:58.745 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.97 sec
+2025-07-05 23:31:03.388 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2115-gestation-lactation?selected_filters=page-1
+2025-07-05 23:31:28.178 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:31:28.218 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:31:37.443 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:31:37.550 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2115-gestation-lactation?selected_filters=page-1
+2025-07-05 23:31:37.561 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.97 sec
+2025-07-05 23:31:42.607 | SUCCESS  | functions.etl:load:40 - Successfully loaded 10 records to the stg_directvet_temp.
+2025-07-05 23:31:43.275 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2116-active
+2025-07-05 23:31:50.044 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:31:50.076 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:31:59.593 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:31:59.675 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2116-active
+2025-07-05 23:31:59.684 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.55 sec
+2025-07-05 23:32:04.922 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2116-active?selected_filters=page-1
+2025-07-05 23:32:12.807 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:32:12.842 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:32:19.847 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:32:19.927 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2116-active?selected_filters=page-1
+2025-07-05 23:32:19.936 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.78 sec
+2025-07-05 23:32:24.798 | SUCCESS  | functions.etl:load:40 - Successfully loaded 1 records to the stg_directvet_temp.
+2025-07-05 23:32:25.417 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/1173899-treats-rewards
+2025-07-05 23:32:43.634 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:32:43.676 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:32:52.628 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:32:52.751 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/1173899-treats-rewards
+2025-07-05 23:32:52.759 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.37 sec
+2025-07-05 23:32:57.968 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/1173899-treats-rewards?selected_filters=page-1
+2025-07-05 23:33:06.091 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:33:06.126 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:33:07.191 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-05 23:33:07.191 | INFO     | functions.connection:execute_query:54 - Running query: DROP TABLE IF EXISTS stg_farmandpetplace_temp;
+2025-07-05 23:33:07.220 | INFO     | functions.connection:execute_query:54 - Running query: CREATE TABLE IF NOT EXISTS stg_farmandpetplace_temp (
+    shop varchar(50) CHARACTER SET utf8mb4,
+    url varchar(255) CHARACTER SET utf8mb4,
+    updated_date datetime
+);
+2025-07-05 23:33:07.250 | INFO     | functions.etl:_temp_table:123 - Temporary table stg_farmandpetplace_temp created.
+2025-07-05 23:33:07.976 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:33:14.904 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:33:15.002 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/1173899-treats-rewards?selected_filters=page-1
+2025-07-05 23:33:15.011 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.93 sec
+2025-07-05 23:33:19.020 | SUCCESS  | functions.etl:load:40 - Successfully loaded 12 records to the stg_directvet_temp.
+2025-07-05 23:33:19.610 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2120-osteoarthritis
+2025-07-05 23:33:34.119 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:33:34.153 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:33:42.551 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:33:42.659 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2120-osteoarthritis
+2025-07-05 23:33:42.669 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.43 sec
+2025-07-05 23:33:46.732 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2120-osteoarthritis?selected_filters=page-1
+2025-07-05 23:33:50.125 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: body.product-cats
+2025-07-05 23:33:50.160 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:34:00.740 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:34:00.896 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:34:00.902 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.33 sec
+2025-07-05 23:34:03.907 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:34:08.403 | SUCCESS  | functions.etl:load:40 - Successfully loaded 2 records to the stg_bitiba_temp_products.
+2025-07-05 23:34:08.403 | INFO     | functions.connection:execute_query:54 - Running query: UPDATE urls 
+SET scrape_status='DONE'
+    ,updated_date='2025-07-05 23:25:48'
+WHERE id=1220
+2025-07-05 23:34:08.409 | INFO     | functions.etl:get_product_infos:74 - 22 out of 147 URL Scraped
+2025-07-05 23:34:09.011 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.bitiba.co.uk/shop/dogs/dry_dog_food/markus_muehle/black_angus/584997?activeVariant=584997.1
+2025-07-05 23:34:10.639 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:34:10.672 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:34:18.888 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: main#page-content
+2025-07-05 23:34:18.921 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:34:21.383 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:34:21.527 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2120-osteoarthritis?selected_filters=page-1
+2025-07-05 23:34:21.536 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.05 sec
+2025-07-05 23:34:25.645 | SUCCESS  | functions.etl:load:40 - Successfully loaded 8 records to the stg_directvet_temp.
+2025-07-05 23:34:26.237 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2121-kidneys
+2025-07-05 23:34:28.680 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:34:29.170 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bitiba.co.uk/shop/dogs/dry_dog_food/markus_muehle/black_angus/584997?activeVariant=584997.1: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-05 23:34:29.179 | INFO     | functions.scraper:scrape_url:231 - Sleep for 7 min 52.22 sec
+2025-07-05 23:34:31.116 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: body.single-product
+2025-07-05 23:34:52.778 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:34:52.818 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:35:02.197 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:35:02.299 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2121-kidneys
+2025-07-05 23:35:02.308 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.65 sec
+2025-07-05 23:35:07.644 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2121-kidneys?selected_filters=page-1
+2025-07-05 23:35:19.238 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:35:19.271 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:35:30.324 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:35:30.421 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2121-kidneys?selected_filters=page-1
+2025-07-05 23:35:30.430 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.15 sec
+2025-07-05 23:35:31.126 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html: Page.wait_for_selector: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator("body.single-product") to be visible
+
+2025-07-05 23:35:31.132 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.95 sec
+2025-07-05 23:35:35.229 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2121-kidneys?selected_filters=page-2
+2025-07-05 23:36:07.997 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:36:08.036 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:36:15.800 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:36:15.946 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2121-kidneys?selected_filters=page-2
+2025-07-05 23:36:15.955 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.19 sec
+2025-07-05 23:36:18.226 | SUCCESS  | functions.etl:load:40 - Successfully loaded 13 records to the stg_directvet_temp.
+2025-07-05 23:36:18.806 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2123-heart
+2025-07-05 23:36:37.436 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:36:37.470 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:36:40.251 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-05 23:36:40.251 | INFO     | functions.connection:execute_query:54 - Running query: DROP TABLE IF EXISTS stg_farmandpetplace_temp;
+2025-07-05 23:36:40.295 | INFO     | functions.connection:execute_query:54 - Running query: CREATE TABLE IF NOT EXISTS stg_farmandpetplace_temp (
+    shop varchar(50) CHARACTER SET utf8mb4,
+    url varchar(255) CHARACTER SET utf8mb4,
+    updated_date datetime
+);
+2025-07-05 23:36:40.326 | INFO     | functions.etl:_temp_table:123 - Temporary table stg_farmandpetplace_temp created.
+2025-07-05 23:36:40.933 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:36:46.587 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:36:46.691 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2123-heart
+2025-07-05 23:36:46.700 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.64 sec
+2025-07-05 23:36:50.010 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2123-heart?selected_filters=page-1
+2025-07-05 23:37:09.360 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:37:09.408 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:37:13.363 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-05 23:37:16.844 | INFO     | __main__:<module>:33 - Pet Products Scraper has started
+2025-07-05 23:37:16.844 | INFO     | functions.connection:execute_query:54 - Running query: DROP TABLE IF EXISTS stg_farmandpetplace_temp;
+2025-07-05 23:37:16.876 | INFO     | functions.connection:execute_query:54 - Running query: CREATE TABLE IF NOT EXISTS stg_farmandpetplace_temp (
+    shop varchar(50) CHARACTER SET utf8mb4,
+    url varchar(255) CHARACTER SET utf8mb4,
+    updated_date datetime
+);
+2025-07-05 23:37:16.902 | INFO     | functions.etl:_temp_table:123 - Temporary table stg_farmandpetplace_temp created.
+2025-07-05 23:37:17.522 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:37:18.075 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:37:18.194 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2123-heart?selected_filters=page-1
+2025-07-05 23:37:18.204 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.14 sec
+2025-07-05 23:37:21.070 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2123-heart?selected_filters=page-2
+2025-07-05 23:37:28.095 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:37:28.176 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:37:36.663 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:37:36.824 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2123-heart?selected_filters=page-2
+2025-07-05 23:37:36.833 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.67 sec
+2025-07-05 23:37:39.572 | SUCCESS  | functions.etl:load:40 - Successfully loaded 15 records to the stg_directvet_temp.
+2025-07-05 23:37:40.175 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2124-cancer-convalescence
+2025-07-05 23:37:47.761 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:37:47.807 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:37:57.562 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:37:57.684 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2124-cancer-convalescence
+2025-07-05 23:37:57.692 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.34 sec
+2025-07-05 23:37:59.577 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: body.product-cats
+2025-07-05 23:37:59.610 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:38:01.674 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2124-cancer-convalescence?selected_filters=page-1
+2025-07-05 23:38:08.714 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:38:08.874 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:38:08.881 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.07 sec
+2025-07-05 23:38:09.177 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:38:09.212 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:38:13.746 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+2025-07-05 23:38:16.617 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:38:16.716 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2124-cancer-convalescence?selected_filters=page-1
+2025-07-05 23:38:16.724 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.50 sec
+2025-07-05 23:38:20.866 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2124-cancer-convalescence?selected_filters=page-2
+2025-07-05 23:38:30.269 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:38:30.302 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:38:42.562 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:38:42.719 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2124-cancer-convalescence?selected_filters=page-2
+2025-07-05 23:38:42.728 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.38 sec
+2025-07-05 23:38:45.175 | SUCCESS  | functions.etl:load:40 - Successfully loaded 13 records to the stg_directvet_temp.
+2025-07-05 23:38:45.761 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2125-obesity-diabetes
+2025-07-05 23:39:13.754 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html", waiting until "networkidle"
+
+2025-07-05 23:39:13.759 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.03 sec
+2025-07-05 23:39:16.048 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 23:39:16.085 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 23:39:25.050 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 23:39:25.150 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2125-obesity-diabetes
+2025-07-05 23:39:25.159 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.76 sec
+2025-07-05 23:39:29.712 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2125-obesity-diabetes?selected_filters=page-1

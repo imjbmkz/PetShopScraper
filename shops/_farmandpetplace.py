@@ -14,30 +14,44 @@ class FarmAndPetPlaceETL(PetProductsETL):
         self.SHOP = "FarmAndPetPlace"
         self.BASE_URL = "https://www.farmandpetplace.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '.content-page'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 10
 
     def extract(self, category):
         url = self.BASE_URL+category
         soup = asyncio.run(self.scrape(
-            url, '.woocommerce-result-count', wait_for_network=True))
-        n_product = [int(word) for word in soup.find(
-            'p', class_="woocommerce-result-count").get_text().split() if word.isdigit()][0]
+            url, 'body.product-cats', wait_for_network=True))
+        n_product = (
+            next((int(w) for w in soup.find(
+                'p', class_="woocommerce-result-count").get_text().split() if w.isdigit()), 0)
+            if soup.find('p', class_="woocommerce-result-count") else 0
+        )
         n_pagination = math.ceil(n_product / 24)
 
         urls = []
         if n_pagination == 1:
-            urls.extend([self.BASE_URL + product.find('a').get('href') for product in soup.find(
-                'div', class_="shop-filters-area").find_all('div', class_="product")])
+            shop_area = soup.find('div', class_="shop-filters-area")
+            if shop_area:
+                urls.extend([
+                    self.BASE_URL + a_tag.get('href')
+                    for product in shop_area.find_all('div', class_="product")
+                    if (a_tag := product.find('a')) and a_tag.get('href')
+                ])
         else:
             for i in range(1, n_pagination + 1):
                 base = url.split("page-")[0]
                 new_url = f"{base}page-{i}.html"
                 soup_pagination = asyncio.run(
-                    self.scrape(new_url, '.shop-filters-area', wait_for_network=True))
-
-                urls.extend([self.BASE_URL + product.find('a').get('href') for product in soup_pagination.find(
-                    'div', class_="shop-filters-area").find_all('div', class_="product")])
+                    self.scrape(new_url, 'shop-filters-area')
+                )
+                shop_area = soup_pagination.find(
+                    'div', class_="shop-filters-area")
+                if shop_area:
+                    urls.extend([
+                        self.BASE_URL + a_tag.get('href')
+                        for product in shop_area.find_all('div', class_="product")
+                        if (a_tag := product.find('a')) and a_tag.get('href')
+                    ])
 
         df = pd.DataFrame({"url": urls})
         df.insert(0, "shop", self.SHOP)
