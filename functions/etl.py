@@ -56,7 +56,7 @@ class PetProductsETL(ABC):
         sql = sql.format(shop=self.SHOP)
         df_urls = self.connection.extract_from_sql(sql)
 
-        for _, row in df_urls.iterrows():
+        for i, row in df_urls.iterrows():
             pkey = row["id"]
             url = row["url"]
 
@@ -70,6 +70,8 @@ class PetProductsETL(ABC):
                 self.connection.update_url_scrape_status(pkey, "DONE", now)
             else:
                 self.connection.update_url_scrape_status(pkey, "FAILED", now)
+
+            logger.info(f"{i+1} out of {len(df_urls)} URL(s) Scraped")
 
         for sql_file, label in [
             ('insert_into_pet_products.sql', 'data product inserted'),
