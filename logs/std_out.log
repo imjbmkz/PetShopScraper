@@ -21378,3 +21378,26 @@ WHERE b.id IS NULL;
 2025-07-05 17:49:43.618 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2112-adult?selected_filters=page-1
 2025-07-05 17:49:47.228 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
 2025-07-05 17:49:47.499 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 17:49:54.215 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 17:49:54.364 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2112-adult?selected_filters=page-1
+2025-07-05 17:49:54.374 | INFO     | functions.scraper:scrape_url:233 - Sleep for 2.08 sec
+2025-07-05 17:49:57.470 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2112-adult?selected_filters=page-2
+2025-07-05 17:50:03.236 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 17:50:03.283 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 17:50:12.418 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 17:50:12.772 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2112-adult?selected_filters=page-2
+2025-07-05 17:50:12.787 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.83 sec
+2025-07-05 17:50:17.660 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2112-adult?selected_filters=page-3
+2025-07-05 17:50:25.370 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 17:50:26.011 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 17:50:35.813 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 17:50:35.919 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2112-adult?selected_filters=page-3
+2025-07-05 17:50:35.928 | INFO     | functions.scraper:scrape_url:233 - Sleep for 4.47 sec
+2025-07-05 17:50:40.493 | SUCCESS  | functions.etl:load:40 - Successfully loaded 30 records to the stg_directvet_temp.
+2025-07-05 17:50:41.337 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2113-older-dogs
+2025-07-05 17:50:45.490 | INFO     | functions.scraper:extract_scrape_content:168 - Waiting for selector: #center_column
+2025-07-05 17:50:45.535 | INFO     | functions.scraper:extract_scrape_content:172 - Simulating human behavior...
+2025-07-05 17:50:57.460 | INFO     | functions.scraper:extract_scrape_content:175 - Extracting page content...
+2025-07-05 17:50:57.598 | SUCCESS  | functions.scraper:extract_scrape_content:179 - Successfully extracted content from https://www.direct-vet.co.uk/2113-older-dogs
+2025-07-05 17:50:57.608 | INFO     | functions.scraper:scrape_url:233 - Sleep for 3.21 sec
+2025-07-05 17:51:01.969 | INFO     | functions.scraper:extract_scrape_content:157 - Navigating to: https://www.direct-vet.co.uk/2113-older-dogs?selected_filters=page-1
