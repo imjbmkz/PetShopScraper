@@ -17,16 +17,15 @@ class PetProductsETL(ABC):
         self.BASE_URL = ""
         self.SELECTOR_SCRAPE_PRODUCT_INFO = ''
         self.connection = Connection()
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
 
-    async def scrape(self, url, selector, headers=None):
-        soup = await scrape_url(url, selector, headers)
-        if soup:
-            return soup
-        else:
-            return False
+    async def scrape(self, url, selector, headers=None, min_sec=2, max_sec=5):
+        soup = await scrape_url(url, selector, headers, min_sec=min_sec, max_sec=max_sec)
+        return soup if soup else False
 
     @abstractmethod
-    def extract(self):
+    def extract(self, category):
         pass
 
     @abstractmethod
@@ -57,17 +56,13 @@ class PetProductsETL(ABC):
         sql = sql.format(shop=self.SHOP)
         df_urls = self.connection.extract_from_sql(sql)
 
-        add_headers = {
-            "Upgrade-Insecure-Requests": "1"
-        }
-
         for _, row in df_urls.iterrows():
             pkey = row["id"]
             url = row["url"]
 
             now = dt.now().strftime("%Y-%m-%d %H:%M:%S")
             soup = asyncio.run(self.scrape(
-                url, self.SELECTOR_SCRAPE_PRODUCT_INFO, headers=add_headers))
+                url, self.SELECTOR_SCRAPE_PRODUCT_INFO, min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO))
             df = self.transform(soup, url)
 
             if df is not None:

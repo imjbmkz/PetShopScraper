@@ -134,7 +134,7 @@ class WebScraper:
         url: str,
         selector: str,
         timeout: int = REQUEST_TIMEOUT,
-        wait_for_network: bool = True,
+        wait_for_network: bool = False,
         simulate_behavior: bool = True,
         headers: Optional[Dict[str, str]] = None,
     ) -> Optional[BeautifulSoup]:
@@ -183,11 +183,11 @@ class WebScraper:
         except asyncio.TimeoutError as e:
             logger.error(
                 f"Timeout waiting for selector '{selector}' on {url}: {e}")
-            raise
+            return False
 
         except Exception as e:
             logger.error(f"Error scraping {url}: {str(e)}")
-            raise
+            return False
 
         finally:
             if page:
@@ -221,10 +221,18 @@ class AsyncWebScraper:
         await self.scraper.close()
 
 
-async def scrape_url(url, selector, headers=None) -> list:
+async def scrape_url(url, selector, headers=None, min_sec=2, max_sec=5) -> list:
     async with AsyncWebScraper() as scraper:
         result = await scraper.extract_scrape_content(url, selector, headers=headers)
-        await asyncio.sleep(random.uniform(2, 5))
+        delay = random.uniform(min_sec, max_sec)
+        if delay >= 60:
+            minutes = int(delay // 60)
+            seconds = delay % 60
+            logger.info(f"Sleep for {minutes} min {seconds:.2f} sec")
+        else:
+            logger.info(f"Sleep for {delay:.2f} sec")
+
+        await asyncio.sleep(delay)
         return result
 
 

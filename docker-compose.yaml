@@ -49,7 +49,7 @@ services:
       PGADMIN_DEFAULT_EMAIL: admin@example.com
       PGADMIN_DEFAULT_PASSWORD: adminpass
     ports:
-      - "8080:80"
+      - "5080:80"
     networks:
       - pet_scrape_network
     depends_on:
@@ -65,7 +65,7 @@ services:
       PMA_PORT: 3306
       MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
     ports:
-      - "8082:80"
+      - "5081:80"
     networks:
       - pet_scrape_network
     depends_on:
