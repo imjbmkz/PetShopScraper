@@ -15,9 +15,6 @@ base_category_url = [
     '/shop/products/pet/bird/',
     '/shop/products/pet/reptile/',
     '/shop/products/pet/fish/',
-    '/shop/products/pet/equine/',
-    '/shop/products/pet/poultry/',
-    '/shop/products/pet/farm/',
 ]
 
 category_url_scrape = []

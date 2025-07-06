@@ -14,8 +14,8 @@ class BitibaETL(PetProductsETL):
         self.SHOP = "Bitiba"
         self.BASE_URL = "https://www.bitiba.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = 'main#page-content'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 400
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 500
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 350
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 400
 
     def extract(self, category):
         category_link = f"{self.BASE_URL}{category}"

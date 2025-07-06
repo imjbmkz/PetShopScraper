@@ -24,11 +24,26 @@ class DirectVetETL(PetProductsETL):
         soup = asyncio.run(self.scrape(
             current_url, self.SELECTOR_SCRAPE_PRODUCT_INFO, wait_for_network=True))
 
-        if (soup.find('small', class_="heading-counter").get_text() == 'There are no products in this category.'):
-            return None
+        # Check soup is valid and not a boolean
+        if not soup or isinstance(soup, bool):
+            print(f"[ERROR] Failed to scrape category page: {current_url}")
+            return pd.DataFrame(columns=["shop", "url"])
 
-        product_count = int(re.sub(r"There is |There are | products\.| product.", "",
-                                   soup.find('small', class_="heading-counter").get_text()))
+        # Check if category has no products
+        heading_counter = soup.find('small', class_="heading-counter")
+        if heading_counter and 'There are no products in this category' in heading_counter.get_text():
+            print(f"[INFO] No products found in category: {category}")
+            return pd.DataFrame(columns=["shop", "url"])
+
+        # Parse number of products
+        try:
+            product_text = heading_counter.get_text()
+            product_count = int(
+                re.sub(r"There (is|are) | products\.| product\.", "", product_text))
+        except Exception as e:
+            print(f"[WARN] Could not parse product count: {e}")
+            product_count = 0
+
         pagination_page_num = math.ceil(product_count / 12)
 
         for i in range(1, pagination_page_num + 1):
@@ -37,8 +52,14 @@ class DirectVetETL(PetProductsETL):
             page_pagination_source = asyncio.run(
                 self.scrape(page_url, self.SELECTOR_SCRAPE_PRODUCT_INFO, wait_for_network=True))
 
+            if not page_pagination_source or isinstance(page_pagination_source, bool):
+                print(
+                    f"[WARN] Skipped page {i} due to failed scrape: {page_url}")
+                continue
+
             for link in page_pagination_source.find_all('a', class_="product_img_link"):
-                urls.append(link.get('href'))
+                if link.get('href'):
+                    urls.append(link.get('href'))
 
         df = pd.DataFrame({"url": urls})
         df.insert(0, "shop", self.SHOP)

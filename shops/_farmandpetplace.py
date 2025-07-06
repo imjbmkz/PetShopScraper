@@ -14,21 +14,28 @@ class FarmAndPetPlaceETL(PetProductsETL):
         self.SHOP = "FarmAndPetPlace"
         self.BASE_URL = "https://www.farmandpetplace.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '.content-page'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 5
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 10
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 3
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
 
     def extract(self, category):
-        url = self.BASE_URL+category
+        url = self.BASE_URL + category
         soup = asyncio.run(self.scrape(
             url, 'body.product-cats', wait_for_network=True))
-        n_product = (
-            next((int(w) for w in soup.find(
-                'p', class_="woocommerce-result-count").get_text().split() if w.isdigit()), 0)
-            if soup.find('p', class_="woocommerce-result-count") else 0
-        )
-        n_pagination = math.ceil(n_product / 24)
 
+        if not soup or isinstance(soup, bool):
+            print(f"[ERROR] Failed to scrape category page: {url}")
+            return pd.DataFrame(columns=["shop", "url"])
+
+        result_count = soup.find('p', class_="woocommerce-result-count")
+        if result_count:
+            words = result_count.get_text().split()
+            n_product = next((int(w) for w in words if w.isdigit()), 0)
+        else:
+            n_product = 0
+
+        n_pagination = math.ceil(n_product / 24)
         urls = []
+
         if n_pagination == 1:
             shop_area = soup.find('div', class_="shop-filters-area")
             if shop_area:
@@ -41,9 +48,15 @@ class FarmAndPetPlaceETL(PetProductsETL):
             for i in range(1, n_pagination + 1):
                 base = url.split("page-")[0]
                 new_url = f"{base}page-{i}.html"
+
                 soup_pagination = asyncio.run(
-                    self.scrape(new_url, 'shop-filters-area')
+                    self.scrape(new_url, 'div.shop-filters-area')
                 )
+
+                if not soup_pagination or isinstance(soup_pagination, bool):
+                    print(f"[WARN] Skipped pagination page: {new_url}")
+                    continue
+
                 shop_area = soup_pagination.find(
                     'div', class_="shop-filters-area")
                 if shop_area:

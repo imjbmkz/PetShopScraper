@@ -9,6 +9,7 @@ from .connection import Connection
 from .scraper import scrape_url
 from loguru import logger
 from datetime import datetime as dt
+from bs4 import BeautifulSoup
 
 
 class PetProductsETL(ABC):
@@ -29,7 +30,7 @@ class PetProductsETL(ABC):
         pass
 
     @abstractmethod
-    def transform(self):
+    def transform(self, soup: BeautifulSoup, url: str):
         pass
 
     def load(self, data: pd.DataFrame, table_name: str):

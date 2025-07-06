@@ -1,4 +1,5 @@
 from functions.etl import PetProductsETL
+from bs4 import BeautifulSoup
 
 
 class NaturesMenuETL(PetProductsETL):
@@ -13,5 +14,5 @@ class NaturesMenuETL(PetProductsETL):
     def extract(self, category):
         print(f"[{self.SHOP}] Extracting data from categories...")
 
-    def transform(self):
+    def transform(self, soup: BeautifulSoup, url: str):
         print(f"[{self.SHOP}] Transforming data...")

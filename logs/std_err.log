@@ -1344,3 +1344,138 @@ Call log:
 Call log:
   - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html", waiting until "networkidle"
 
+2025-07-05 23:42:17.955 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html: Page.wait_for_selector: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator("shop-filters-area") to be visible
+
+2025-07-05 23:42:21.471 | ERROR    | shops._bitiba_etl:transform:162 - Error scraping https://www.bitiba.co.uk/shop/dogs/dry_dog_food/markus_muehle/black_angus/584997?activeVariant=584997.1: 'bool' object has no attribute 'select'
+2025-07-05 23:46:28.595 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html: Page.wait_for_selector: Timeout 60000ms exceeded.
+Call log:
+  - waiting for locator("shop-filters-area") to be visible
+
+2025-07-05 23:53:48.950 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-05 23:54:08.875 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-05 23:54:21.066 | ERROR    | functions.scraper:close:207 - Error closing browser: : Connection closed while reading from the driver
+2025-07-06 11:27:55.285 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html", waiting until "networkidle"
+
+2025-07-06 11:28:24.750 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.direct-vet.co.uk/2111-growth: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.direct-vet.co.uk/2111-growth", waiting until "networkidle"
+
+2025-07-06 11:28:28.183 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html: Page.goto: net::ERR_NAME_NOT_RESOLVED at https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html", waiting until "networkidle"
+
+2025-07-06 11:36:29.250 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-chews-and-dog-treats/novelty-dog-treats/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-chews-and-dog-treats/novelty-dog-treats/page-1.html", waiting until "networkidle"
+
+2025-07-06 11:37:19.202 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-06 11:37:47.613 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-06 11:45:34.348 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-food/wet-cat-food/sheba-wet-cat-food/page-1.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 11:45:58.105 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-06 11:48:04.153 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-06 11:48:35.210 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-06 11:51:22.863 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-2.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 11:53:05.026 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-1.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 11:55:39.799 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/wet-dog-food/page-4.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 11:56:05.111 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-06 12:00:13.733 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-toys/kong-cat-toys/page-1.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 12:02:54.717 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-chews-and-dog-treats/novelty-dog-treats/page-1.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 12:08:01.564 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.direct-vet.co.uk/221-pipettes?selected_filters=page-1: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 12:15:37.618 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/raw-dog-food/nutriment-raw/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/raw-dog-food/nutriment-raw/page-1.html", waiting until "networkidle"
+
+2025-07-06 12:43:09.357 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-06 12:52:12.966 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/wags-premium-pet-care/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/wags-premium-pet-care/page-1.html", waiting until "networkidle"
+
+2025-07-06 13:01:31.040 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.direct-vet.co.uk/2129-ageing?selected_filters=page-1: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 13:02:40.648 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/raw-dog-food/nutriment-raw/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/raw-dog-food/nutriment-raw/page-1.html", waiting until "networkidle"
+
+2025-07-06 13:07:35.678 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/pawsome-paws/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/pawsome-paws/page-1.html", waiting until "networkidle"
+
+2025-07-06 13:42:24.231 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-food/cat-food-by-brand/james-wellbeloved-brand-cat-food/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-food/cat-food-by-brand/james-wellbeloved-brand-cat-food/page-1.html", waiting until "networkidle"
+
+2025-07-06 13:55:54.479 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/equine/grooming/tack-and-grooming-boxes/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/equine/grooming/tack-and-grooming-boxes/page-1.html", waiting until "networkidle"
+
+2025-07-06 14:05:49.826 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/dry-dog-food/fish4dogs/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/dry-dog-food/fish4dogs/page-1.html", waiting until "networkidle"
+
+2025-07-06 14:07:44.519 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-toys/nylabone-toys/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-toys/nylabone-toys/page-1.html", waiting until "networkidle"
+
+2025-07-06 14:09:58.582 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-feeders/storage-and-accessories/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-feeders/storage-and-accessories/page-1.html", waiting until "networkidle"
+
+2025-07-06 14:11:58.981 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.direct-vet.co.uk/1173916-diarrhoea: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 14:29:14.100 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-chews-and-dog-treats/natural-dog-treats/page-3.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 14:30:30.923 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-chews-and-dog-treats/natural-dog-treats/page-7.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 14:44:15.257 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-food/cat-food-by-brand/catit-cat-food/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-food/cat-food-by-brand/catit-cat-food/page-1.html", waiting until "networkidle"
+
+2025-07-06 14:51:13.609 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-grooming-and-shampoos/brushes-and-combs/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-grooming-and-shampoos/brushes-and-combs/page-1.html", waiting until "networkidle"
+
+2025-07-06 14:54:05.687 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dotdotpet/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dotdotpet/page-1.html", waiting until "networkidle"
+
+2025-07-06 14:56:14.869 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/farm/farm-feeds/blocks-and-buckets/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/farm/farm-feeds/blocks-and-buckets/page-1.html", waiting until "networkidle"
+
+2025-07-06 15:02:28.840 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.direct-vet.co.uk/digestion/3002-hill-s-prescription-diet-i-d-canine-low-fat-stew-flavoured-with-chicken-and-vegetables-canned-food-52742039862.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 15:02:31.494 | ERROR    | shops._directvet_etl:transform:166 - Error scraping https://www.direct-vet.co.uk/digestion/3002-hill-s-prescription-diet-i-d-canine-low-fat-stew-flavoured-with-chicken-and-vegetables-canned-food-52742039862.html: 'bool' object has no attribute 'find'
+2025-07-06 15:03:22.894 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/twiggy-tags/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/twiggy-tags/page-1.html", waiting until "networkidle"
+
+2025-07-06 15:07:38.400 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-toys/toys/page-3.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 15:23:28.867 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/equine/riding-clothes-and-footwear/wellies/page-1.html: Page.content: Unable to retrieve content because the page is navigating and changing the content.
+2025-07-06 15:30:05.388 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/equine/shampoos-and-conditioners/horse-care/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/equine/shampoos-and-conditioners/horse-care/page-1.html", waiting until "networkidle"
+
+2025-07-06 15:30:58.160 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bitiba.co.uk/shop/dogs/dry_dog_food/hills_prescription/low_calorie/556477?activeVariant=556477.1: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.bitiba.co.uk/shop/dogs/dry_dog_food/hills_prescription/low_calorie/556477?activeVariant=556477.1", waiting until "domcontentloaded"
+
+2025-07-06 15:31:10.574 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-food/dry-cat-food/royal-canin-dry-cat-food/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-food/dry-cat-food/royal-canin-dry-cat-food/page-1.html", waiting until "networkidle"
+
+2025-07-06 15:33:42.260 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-litter-and-trays/cat-litter-accessories/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/cat/cat-litter-and-trays/cat-litter-accessories/page-1.html", waiting until "networkidle"
+
+2025-07-06 15:34:47.874 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/equine/stable-equipment/forks-tidees-and-shovels/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/equine/stable-equipment/forks-tidees-and-shovels/page-1.html", waiting until "networkidle"
+
+2025-07-06 15:35:53.077 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/large-breed-dog-food/page-1.html: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://www.farmandpetplace.co.uk/shop/products/pet/dog/dog-food/large-breed-dog-food/page-1.html", waiting until "networkidle"
+
+2025-07-06 15:38:44.248 | ERROR    | shops._bitiba_etl:transform:162 - Error scraping https://www.bitiba.co.uk/shop/dogs/dry_dog_food/hills_prescription/low_calorie/556477?activeVariant=556477.1: 'bool' object has no attribute 'select'
+2025-07-06 18:50:58.402 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-06 18:51:17.557 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bitiba.co.uk/shop/cats/dry_cat_food/purina_one/purina_one_adult/359793?activeVariant=359793.19: Page.content: Target page, context or browser has been closed
+2025-07-06 18:51:17.674 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-06 18:57:12.823 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
