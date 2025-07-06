@@ -15,7 +15,7 @@ class FishKeeperETL(PetProductsETL):
         super().__init__()
         self.SHOP = "FishKeeper"
         self.BASE_URL = "https://www.fishkeeper.co.uk"
-        self.SELECTOR_SCRAPE_PRODUCT_INFO = ''
+        self.SELECTOR_SCRAPE_PRODUCT_INFO = '#maincontent'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
 
