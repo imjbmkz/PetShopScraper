@@ -1,12 +1,12 @@
 CREATE TABLE IF NOT EXISTS {table_name} (
-    shop varchar(50) CHARACTER SET utf8mb4,
-    name varchar(255) CHARACTER SET utf8mb4,
-    rating varchar(50) CHARACTER SET utf8mb4,
-    description text CHARACTER SET utf8mb4,
-    url varchar(255) CHARACTER SET utf8mb4,
-    variant varchar(1000) CHARACTER SET utf8mb4,
-    image_urls text CHARACTER SET utf8mb4,
-    price decimal(10, 4),
-    discounted_price decimal(10, 4),
-    discount_percentage decimal(10, 4)
+    shop VARCHAR(50),
+    name VARCHAR(255),
+    rating VARCHAR(50),
+    description TEXT,
+    url VARCHAR(255),
+    variant TEXT,
+    image_urls TEXT,
+    price NUMERIC(10, 4),
+    discounted_price NUMERIC(10, 4),
+    discount_percentage NUMERIC(10, 4)
 );

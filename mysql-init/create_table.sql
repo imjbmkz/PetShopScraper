@@ -72,37 +72,40 @@ CREATE TABLE stg_pet_products (
 
 DROP TABLE IF EXISTS pet_product_variants;
 CREATE TABLE pet_product_variants (
-    id int NOT NULL AUTO_INCREMENT PRIMARY KEY
-    ,product_id int NOT NULL
-    ,shop_id int NOT NULL
-    ,inserted_date datetime DEFAULT now()
-    ,url varchar(255) CHARACTER SET utf8mb4
-    ,variant varchar(255) CHARACTER SET utf8mb4
-    ,image_urls varchar(1000) CHARACTER SET utf8mb4
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    product_id INT NOT NULL,
+    shop_id INT NOT NULL,
+    inserted_date DATETIME DEFAULT NOW(),
+    url VARCHAR(255) CHARACTER SET utf8mb4,
+    variant TEXT CHARACTER SET utf8mb4,
+    image_urls TEXT CHARACTER SET utf8mb4
 );
+
 
 DROP TABLE IF EXISTS pet_product_variant_prices;
 CREATE TABLE pet_product_variant_prices (
-    id int NOT NULL AUTO_INCREMENT PRIMARY KEY
-    ,product_variant_id int NOT NULL
-    ,shop_id int NOT NULL
-    ,inserted_date datetime DEFAULT now()
-    ,price decimal(10, 4)
-    ,discounted_price decimal(10, 4)
-    ,discount_percentage decimal(10, 4)
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    product_variant_id INT NOT NULL,
+    shop_id INT NOT NULL,
+    inserted_date DATETIME DEFAULT NOW(),
+    price DECIMAL(10, 4),
+    discounted_price DECIMAL(10, 4),
+    discount_percentage DECIMAL(10, 4)
 );
+
 
 DROP TABLE IF EXISTS pet_products;
 CREATE TABLE pet_products (
-    id int NOT NULL AUTO_INCREMENT PRIMARY KEY
-    ,inserted_date datetime DEFAULT now()
-    ,shop_id int NOT NULL
-    ,name varchar(255) CHARACTER SET utf8mb4
-    ,rating varchar(50) CHARACTER SET utf8mb4
-    ,description text CHARACTER SET utf8mb4
-    ,url varchar(255) CHARACTER SET utf8mb4
-    ,image_urls varchar(1000) CHARACTER SET utf8mb4
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    inserted_date DATETIME DEFAULT NOW(),
+    shop_id INT NOT NULL,
+    name VARCHAR(255) CHARACTER SET utf8mb4,
+    rating VARCHAR(50) CHARACTER SET utf8mb4,
+    description TEXT CHARACTER SET utf8mb4,
+    url VARCHAR(255) CHARACTER SET utf8mb4,
+    image_urls TEXT CHARACTER SET utf8mb4 
 );
+
 
 ALTER TABLE pet_products 
 ADD FOREIGN KEY (shop_id) REFERENCES shops(id);
