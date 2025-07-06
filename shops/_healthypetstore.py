@@ -1,4 +1,5 @@
 import json
+import asyncio
 import pandas as pd
 from functions.etl import PetProductsETL
 from bs4 import BeautifulSoup
@@ -10,16 +11,27 @@ class HealthyPetStoreETL(PetProductsETL):
         super().__init__()
         self.SHOP = "HealthyPetStore"
         self.BASE_URL = "https://healthypetstore.co.uk"
-        self.SELECTOR_SCRAPE_PRODUCT_INFO = ''
+        self.SELECTOR_SCRAPE_PRODUCT_INFO = '#wrapper'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
 
     def extract(self, category):
-        url = self.BASE_URL+category
-        soup = self.extract_from_url("GET", f"{url}?showall=1")
+        url = self.BASE_URL + category
+        soup = asyncio.run(self.scrape(
+            f"{url}?showall=1", '.thb-shop-content'))
 
-        urls = [product.find('a').get('href') for product in soup.find(
-            'ul', class_="products").find_all('li', class_="product")]
+        if not soup:
+            logger.error(f"[WARN] No content found for category: {category}")
+            return pd.DataFrame(columns=["shop", "url"])
+
+        try:
+            product_list = soup.find('ul', class_="products")
+            urls = [product.find('a').get(
+                'href') for product in product_list.find_all('li', class_="product")]
+        except AttributeError:
+            logger.error(f"[ERROR] Unexpected page structure for: {url}")
+            return pd.DataFrame(columns=["shop", "url"])
+
         df = pd.DataFrame({"url": urls})
         df.insert(0, "shop", self.SHOP)
 

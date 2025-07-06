@@ -11,13 +11,13 @@ class JollyesETL(PetProductsETL):
         super().__init__()
         self.SHOP = "Jollyes"
         self.BASE_URL = "https://www.jollyes.co.uk"
-        self.SELECTOR_SCRAPE_PRODUCT_INFO = ''
+        self.SELECTOR_SCRAPE_PRODUCT_INFO = '#viewport'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
 
     def extract(self, category):
         category_link = f"{self.BASE_URL}/{category}.html"
-        soup = self.extract_from_url("GET", category_link)
+        soup = asyncio.run(self.scrape(category_link, '#category'))
 
         if soup:
             subcategory_links = []
@@ -32,7 +32,7 @@ class JollyesETL(PetProductsETL):
                 n = start_index
                 while True:
                     url = f"{self.BASE_URL}{subcategory}?page={n}&perPage=100"
-                    soup = self.extract_from_url("GET", url)
+                    soup = asyncio.run(self.scrape(url, '.product-list'))
                     if soup:
                         product_tiles = soup.select(
                             "div[class*='product-tile']")
