@@ -33,7 +33,7 @@ class BitibaETL(PetProductsETL):
                 current_url = product_group_link
                 while True:
                     soup = asyncio.run(self.scrape(
-                        current_url, '#__next'))
+                        current_url, '#__next', min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO))
                     if soup:
                         products_list = soup.select(
                             "script[type*='application/ld+json']")
