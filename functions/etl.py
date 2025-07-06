@@ -89,7 +89,7 @@ class PetProductsETL(ABC):
 
     def get_links_by_category(self):
         self.connection.execute_query(
-            f"DELETE FROM url WHERE shop = {self.SHOP}")
+            f"DELETE FROM urls WHERE shop = '{self.SHOP}'")
         temp_table = f"stg_{self.SHOP.lower()}_temp"
         self.connection.execute_query(f"DROP TABLE IF EXISTS {temp_table};")
 

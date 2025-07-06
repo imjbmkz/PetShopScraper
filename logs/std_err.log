@@ -1508,3 +1508,14 @@ WHERE c.id IS NULL;
 ]
 (Background on this error at: https://sqlalche.me/e/14/9h9h)
 2025-07-06 20:17:39.488 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-06 20:27:26.383 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bitiba.co.uk/shop/dogs/dry_dog_food?p=8: HTTP 403 error for https://www.bitiba.co.uk/shop/dogs/dry_dog_food?p=8
+2025-07-06 20:27:30.728 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bitiba.co.uk/shop/dogs_accessories: HTTP 403 error for https://www.bitiba.co.uk/shop/dogs_accessories
+2025-07-06 20:27:44.472 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
+2025-07-06 20:28:09.668 | ERROR    | functions.connection:execute_query:60 - Error executing query: (pymysql.err.ProgrammingError) (1146, "Table 'PetScrape.url' doesn't exist")
+[SQL: DELETE FROM url WHERE shop = Bitiba]
+(Background on this error at: https://sqlalche.me/e/14/f405)
+2025-07-06 20:28:41.399 | ERROR    | functions.connection:execute_query:60 - Error executing query: (pymysql.err.OperationalError) (1054, "Unknown column 'Bitiba' in 'where clause'")
+[SQL: DELETE FROM urls WHERE shop = Bitiba]
+(Background on this error at: https://sqlalche.me/e/14/e3q8)
+2025-07-06 20:29:15.109 | ERROR    | functions.scraper:extract_scrape_content:189 - Error scraping https://www.bitiba.co.uk/shop/dogs: HTTP 403 error for https://www.bitiba.co.uk/shop/dogs
+2025-07-06 20:29:19.636 | ERROR    | functions.scraper:close:207 - Error closing browser: BrowserContext.close: Target page, context or browser has been closed
