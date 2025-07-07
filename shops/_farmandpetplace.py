@@ -54,7 +54,8 @@ class FarmAndPetPlaceETL(PetProductsETL):
                 )
 
                 if not soup_pagination or isinstance(soup_pagination, bool):
-                    print(f"[WARN] Skipped pagination page: {new_url}")
+                    logger.warning(
+                        f"[WARN] Skipped pagination page: {new_url}")
                     continue
 
                 shop_area = soup_pagination.find(

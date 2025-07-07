@@ -28,13 +28,13 @@ class NaturesMenuETL(PetProductsETL):
             'div', id="search-result-counter-sm").get_text(strip=True)
         match = re.search(r'\d+', counter_text)
         if not match:
-            logger.error(
+            logger.warning(
                 f"[WARN] Could not parse product count for {category}. Raw counter: '{counter_text}'")
             return pd.DataFrame(columns=["shop", "url"])
 
         n_product = int(match.group())
         if n_product == 0:
-            logger.error(f"[INFO] No products found for category: {category}")
+            logger.info(f"[INFO] No products found for category: {category}")
             return pd.DataFrame(columns=["shop", "url"])
 
         pagination_length = math.ceil(n_product / 12)

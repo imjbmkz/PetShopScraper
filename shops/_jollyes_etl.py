@@ -1,6 +1,8 @@
 import asyncio
 import pandas as pd
 import json
+import math
+import re
 from functions.etl import PetProductsETL
 from bs4 import BeautifulSoup
 from loguru import logger
@@ -13,43 +15,67 @@ class JollyesETL(PetProductsETL):
         self.BASE_URL = "https://www.jollyes.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '#viewport'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 4
 
     def extract(self, category):
         category_link = f"{self.BASE_URL}/{category}.html"
         soup = asyncio.run(self.scrape(category_link, '#category'))
 
-        if soup:
-            subcategory_links = []
-            ul_tags = soup.select("ul[class='second-category']")
-            for ul_tag in ul_tags:
-                links = ul_tag.select("a")
-                for link in links:
-                    subcategory_links.append(link["href"])
-            urls = []
-            start_index = 1
-            for subcategory in subcategory_links:
-                n = start_index
-                while True:
-                    url = f"{self.BASE_URL}{subcategory}?page={n}&perPage=100"
-                    soup = asyncio.run(self.scrape(url, '.product-list'))
-                    if soup:
-                        product_tiles = soup.select(
-                            "div[class*='product-tile']")
-                        for product_tile in product_tiles:
-                            urls.append(self.BASE_URL +
-                                        product_tile.select_one("a")["href"])
+        subcategory_links = [link["href"] for ul in soup.select(
+            "ul.second-category") for link in ul.select("a")]
 
-                        progress = soup.select_one(
-                            "div[class*='progress-row w-100']")
-                        if progress:
-                            n += 1
-                            continue
-                        break
-                    n += 1
-            df = pd.DataFrame({"url": urls})
-            df.insert(0, "shop", self.SHOP)
-            return df
+        urls = []
+
+        for subcategory in subcategory_links:
+            url = self.BASE_URL + subcategory
+            category_product_urls = []
+
+            category_soup = asyncio.run(self.scrape(
+                url, '.product-list', wait_for_network=True))
+
+            if not category_soup:
+                logger.error(f"[ERROR] Failed to fetch or parse: {url}")
+                continue
+
+            sorting_row = category_soup.find('div', class_="sorting-row")
+            if sorting_row:
+                p_tag = sorting_row.find('p')
+                if p_tag:
+                    n_products_results = p_tag.get_text(strip=True)
+                    n_products = int(re.findall(r'\d+', n_products_results)[0])
+                else:
+                    logger.warning(
+                        f"[WARN] No <p> tag found in sorting row for {url}")
+                    continue
+            else:
+                logger.warning(f"[WARN] No 'sorting-row' found for {url}")
+                continue
+
+            n_pagination = math.ceil(n_products / 100)
+
+            for n in range(1, n_pagination + 1):
+                product_soup = asyncio.run(self.scrape(
+                    f'{self.BASE_URL}{subcategory}?page={n}&perPage=100', '.product-list'))
+
+                if not product_soup:
+                    logger.error(
+                        f"[ERROR] Failed to fetch or parse: {self.BASE_URL}{subcategory}?page={n}&perPage=100")
+                    continue
+
+                product_tiles = product_soup.select(
+                    "div[class*='product-tile']")
+
+                for product_tile in product_tiles:
+                    product_url = product_tile.select_one("a")
+                    if product_url:
+                        category_product_urls.append(
+                            self.BASE_URL + product_url["href"])
+
+            urls.extend(category_product_urls)
+
+        df = pd.DataFrame({"url": urls})
+        df.insert(0, "shop", self.SHOP)
+        return df
 
     def transform(self, soup: BeautifulSoup, url: str):
         try:
