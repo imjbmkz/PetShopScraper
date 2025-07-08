@@ -1,11 +1,13 @@
 import asyncio
 import math
-import json
+import random
 import pandas as pd
 
 from functions.etl import PetProductsETL
 from bs4 import BeautifulSoup
 from loguru import logger
+from fake_useragent import UserAgent
+from playwright.async_api import async_playwright
 
 
 class TheRangeETL(PetProductsETL):
@@ -17,22 +19,74 @@ class TheRangeETL(PetProductsETL):
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 5
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 10
 
+    async def get_data_variant(self, url):
+        browser = None
+        data = None
+
+        try:
+            async with async_playwright() as p:
+                browser = await p.chromium.launch(
+                    headless=True,
+                    args=["--disable-blink-features=AutomationControlled"]
+                )
+
+                context = await browser.new_context(
+                    user_agent=UserAgent().random,
+                    viewport={"width": random.randint(
+                        1200, 1600), "height": random.randint(800, 1200)},
+                    locale="en-US"
+                )
+
+                page = await context.new_page()
+
+                # Capture first JSON response
+                async def handle_response(response):
+                    nonlocal data
+                    try:
+                        if "application/json" in response.headers.get("content-type", "") and response.status == 200:
+                            json_data = await response.json()
+                            logger.info(f"Captured JSON from: {response.url}")
+                            data = json_data
+                    except Exception as e:
+                        logger.error(f"Failed to parse JSON: {e}")
+
+                page.on("response", handle_response)
+
+                await page.set_extra_http_headers({
+                    "User-Agent": UserAgent().random,
+                    "Accept-Language": "en-US,en;q=0.9",
+                    "Origin": "https://www.therange.co.uk",
+                    "Referer": url,
+                })
+
+                await page.goto(url, wait_until="networkidle")
+
+                sleep_time = random.uniform(2, 5)
+                logger.info(f"Sleeping for {sleep_time:.2f} seconds...")
+                await asyncio.sleep(sleep_time)
+
+                return data
+
+        except Exception as e:
+            logger.error(f"An error occurred: {e}")
+        finally:
+            if browser:
+                await browser.close()
+
     def extract(self, category):
         category_link = f"https://www.therange.co.uk{category}"
         urls = []
         soup = asyncio.run(self.scrape(category_link,  '#root',
                            min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO))
-        n_product = int(soup.find('div', id="root")['data-total-results'])
-        n_pagination = math.ceil(n_product / 24)
+        n_product = soup.find('div', id="root")['data-total-results']
+        category_id = soup.find('div', id="root")['data-page-id']
 
-        for n in range(1, n_pagination + 1):
-            pagination_url = category_link + \
-                f"?sort=relevance&in_stock_f=true&page={n}"
-            pagination_soup = asyncio.run(
-                self.scrape(pagination_url, '#product-list', min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO))
+        product_data_list = asyncio.run(self.get_data_variant(
+            f'https://search.therange.co.uk/api/productlist?categoryId={category_id}&sort=relevance&limit={n_product}&filters=%7B"in_stock_f"%3A%5B"true"%5D%7D'))
 
-            urls.extend([product.get('href') for product in pagination_soup.find_all(
-                'a', class_="ProductCard-module__productTitle___fJH9Q")])
+        for url in product_data_list['products']:
+            if url.get('variantPath') is not None:
+                urls.append(self.BASE_URL + '/' + url.get('variantPath'))
 
         df = pd.DataFrame({"url": urls})
         df.insert(0, "shop", self.SHOP)
