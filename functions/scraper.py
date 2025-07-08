@@ -11,6 +11,7 @@ from tenacity import (
     retry_if_exception_type,
     stop_after_attempt,
     wait_exponential,
+    before_sleep_log
 )
 from loguru import logger
 nest_asyncio.apply()
@@ -24,6 +25,11 @@ PAGE_LOAD_TIMEOUT = 60000
 
 class SkipScrape(Exception):
     """Raised to indicate that scraping should be skipped (e.g. 404)."""
+    pass
+
+
+class ScrapingError(Exception):
+    """General scraping error that should trigger retries"""
     pass
 
 
@@ -84,18 +90,7 @@ class WebScraper:
 
             self.context = await self.browser.new_context(**context_options)
 
-            # Add stealth script to all pages
-            # await self.context.add_init_script("""
-            #     Object.defineProperty(navigator, 'webdriver', {get: () => undefined});
-            #     Object.defineProperty(navigator, 'plugins', {get: () => [1, 2, 3, 4, 5]});
-            #     Object.defineProperty(navigator, 'languages', {get: () => ['en-US', 'en']});
-            #     Object.defineProperty(navigator, 'permissions', {get: () => ({query: () => Promise.resolve({state: 'granted'})})});
-            #     window.chrome = {runtime: {}};
-            #     delete navigator.__proto__.webdriver;
-            # """)
-
     async def simulate_human_behavior(self, page: Page) -> None:
-        """Simulate realistic human browsing behavior"""
         try:
             # Random scrolling
             scroll_count = random.randint(3, 6)
@@ -120,16 +115,9 @@ class WebScraper:
                 await asyncio.sleep(random.uniform(0.5, 1))
 
         except Exception as e:
-            print(f"Error during behavior simulation: {e}")
+            logger.warning(f"Error during behavior simulation: {e}")
 
-    @retry(
-        wait=wait_exponential(
-            multiplier=1, min=MIN_WAIT_BETWEEN_REQ, max=MAX_WAIT_BETWEEN_REQ),
-        stop=stop_after_attempt(MAX_RETRIES),
-        retry=retry_if_exception_type((asyncio.TimeoutError, Exception)),
-        reraise=True,
-    )
-    async def extract_scrape_content(
+    async def _extract_scrape_content(
         self,
         url: str,
         selector: str,
@@ -137,15 +125,14 @@ class WebScraper:
         wait_for_network: bool = False,
         simulate_behavior: bool = True,
         headers: Optional[Dict[str, str]] = None,
-    ) -> Optional[BeautifulSoup]:
-        """Extract content with improved retry logic"""
+    ) -> BeautifulSoup:
 
         page = None
         try:
             await self.setup_browser()
 
             if not self.context:
-                raise Exception("Failed to initialize browser context")
+                raise ScrapingError("Failed to initialize browser context")
 
             page = await self.context.new_page()
 
@@ -160,7 +147,7 @@ class WebScraper:
             response = await page.goto(url, wait_until=wait_until, timeout=PAGE_LOAD_TIMEOUT)
 
             if not response:
-                raise Exception(f"No response received for {url}")
+                raise ScrapingError(f"No response received for {url}")
 
             if response.status >= 400:
                 raise SkipScrape(f"HTTP {response.status} error for {url}")
@@ -180,14 +167,17 @@ class WebScraper:
 
             return soup
 
+        except SkipScrape:
+            # Don't retry for SkipScrape exceptions (404, etc.)
+            raise
         except asyncio.TimeoutError as e:
             logger.error(
                 f"Timeout waiting for selector '{selector}' on {url}: {e}")
-            return False
-
+            raise ScrapingError(
+                f"Timeout waiting for selector '{selector}' on {url}: {e}")
         except Exception as e:
             logger.error(f"Error scraping {url}: {str(e)}")
-            return False
+            raise ScrapingError(f"Error scraping {url}: {str(e)}")
 
         finally:
             if page:
@@ -195,6 +185,26 @@ class WebScraper:
                     await page.close()
                 except Exception as e:
                     logger.error(f"Error closing page: {e}")
+
+    async def extract_scrape_content(
+        self,
+        url: str,
+        selector: str,
+        timeout: int = REQUEST_TIMEOUT,
+        wait_for_network: bool = False,
+        simulate_behavior: bool = True,
+        headers: Optional[Dict[str, str]] = None,
+    ) -> Optional[BeautifulSoup]:
+        try:
+            return await retry_extract_scrape_content(
+                self, url, selector, timeout, wait_for_network, simulate_behavior, headers
+            )
+        except SkipScrape as e:
+            logger.warning(f"Skipping scrape: {e}")
+            return None
+        except Exception as e:
+            logger.error(f"Failed to scrape after {MAX_RETRIES} attempts: {e}")
+            return None
 
     async def close(self) -> None:
         """Clean up browser resources"""
@@ -210,6 +220,18 @@ class WebScraper:
             self.context = None
 
 
+@retry(
+    wait=wait_exponential(
+        multiplier=1, min=MIN_WAIT_BETWEEN_REQ, max=MAX_WAIT_BETWEEN_REQ),
+    stop=stop_after_attempt(MAX_RETRIES),
+    retry=retry_if_exception_type(ScrapingError),
+    before_sleep=before_sleep_log(logger, "WARNING"),
+    reraise=True,
+)
+async def retry_extract_scrape_content(scraper, *args, **kwargs):
+    return await scraper._extract_scrape_content(*args, **kwargs)
+
+
 class AsyncWebScraper:
     def __init__(self):
         self.scraper = WebScraper()
@@ -221,7 +243,7 @@ class AsyncWebScraper:
         await self.scraper.close()
 
 
-async def scrape_url(url, selector, headers=None, wait_for_network=False, min_sec=2, max_sec=5) -> list:
+async def scrape_url(url, selector, headers=None, wait_for_network=False, min_sec=2, max_sec=5) -> Optional[BeautifulSoup]:
     async with AsyncWebScraper() as scraper:
         result = await scraper.extract_scrape_content(url, selector, headers=headers, wait_for_network=wait_for_network)
         delay = random.uniform(min_sec, max_sec)

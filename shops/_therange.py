@@ -78,15 +78,29 @@ class TheRangeETL(PetProductsETL):
         urls = []
         soup = asyncio.run(self.scrape(category_link,  '#root',
                            min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO))
-        n_product = soup.find('div', id="root")['data-total-results']
-        category_id = soup.find('div', id="root")['data-page-id']
+
+        if not soup or not isinstance(soup, BeautifulSoup):
+            logger.error(f"Failed to scrape category page: {category_link}")
+            return pd.DataFrame(columns=["shop", "url"])
+
+        root_div = soup.find('div', id="root")
+        if not root_div:
+            logger.error("Missing <div id='root'> in HTML")
+            return pd.DataFrame(columns=["shop", "url"])
+
+        try:
+            n_product = root_div['data-total-results']
+            category_id = root_div['data-page-id']
+        except KeyError as e:
+            logger.error(f"Missing expected attributes in root div: {e}")
+            return pd.DataFrame(columns=["shop", "url"])
 
         product_data_list = asyncio.run(self.get_data_variant(
             f'https://search.therange.co.uk/api/productlist?categoryId={category_id}&sort=relevance&limit={n_product}&filters=%7B"in_stock_f"%3A%5B"true"%5D%7D'))
 
-        for url in product_data_list['products']:
-            if url.get('variantPath') is not None:
-                urls.append(self.BASE_URL + '/' + url.get('variantPath'))
+        urls = [self.BASE_URL + '/' + p['variantPath']
+                for p in product_data_list.get('products', [])
+                if p.get('variantPath')]
 
         df = pd.DataFrame({"url": urls})
         df.insert(0, "shop", self.SHOP)
