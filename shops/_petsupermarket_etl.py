@@ -1,5 +1,7 @@
 import asyncio
 import json
+import re
+import math
 import pandas as pd
 from functions.etl import PetProductsETL
 from bs4 import BeautifulSoup
@@ -16,28 +18,41 @@ class PetSupermarketETL(PetProductsETL):
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
 
     def extract(self, category):
-        category_url = f"{self.BASE_URL}{category}"
-        current_url = category_url
+        current_url = f"{self.BASE_URL}{category}"
 
         urls = []
 
         while True:
             soup = asyncio.run(self.scrape(current_url, '.paws-content'))
-            product_item_links = soup.select("a[class*='product-item-link']")
-            if product_item_links:
-                product_urls = [product_item_link["href"]
-                                for product_item_link in product_item_links]
-                urls.extend(product_urls)
+            if not soup:
+                logger.warning(
+                    f"[WARNING] Failed to scrape: {current_url}. Ending pagination.")
+                break
 
-                pagination_arrows = soup.select("a[class*='pagination-arrow']")
-                if pagination_arrows:
-                    pagination_arrow = pagination_arrows[-1]
-                    if "next" in pagination_arrow["rel"]:
-                        pagination_arrow_link = pagination_arrow["href"]
-                        current_url = f"{self.BASE_URL}{pagination_arrow_link}"
-                        continue
+            try:
+                n_products_text = soup.find(
+                    'span', class_="total-results").get_text(strip=True)
+                match = re.search(r'[\d,]+', n_products_text)
+                n_products = int(match.group().replace(
+                    ',', '')) if match else 0
+                n_pagination = math.ceil(n_products / 24)
 
-            break
+                urls = [product.get('href') for product in soup.find_all(
+                    'a', class_="product-item-link")]
+
+                for n in range(1, n_pagination + 1):
+
+                    pagination_url = current_url + f'?page={n}'
+                    pagination_soup = asyncio.run(
+                        self.scrape(pagination_url, '.paws-content'))
+
+                    urls.extend([product.get('href') for product in pagination_soup.find_all(
+                        'a', class_="product-item-link")])
+
+            except Exception as e:
+                logger.error(
+                    f"[ERROR] Failed to process page {current_url}: {e}")
+                break
 
         df = pd.DataFrame({"url": urls})
         df.insert(0, "shop", self.SHOP)

@@ -1,3 +1,4 @@
+import math
 import asyncio
 import pandas as pd
 from functions.etl import PetProductsETL
@@ -10,32 +11,30 @@ class PurinaETL(PetProductsETL):
         super().__init__()
         self.SHOP = "Purina"
         self.BASE_URL = "https://www.purina.co.uk"
-        self.SELECTOR_SCRAPE_PRODUCT_INFO = ''
+        self.SELECTOR_SCRAPE_PRODUCT_INFO = '#main-layout'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
 
     def extract(self, category):
         current_url = f"{self.BASE_URL}{category}"
-        page = 0
         urls = []
 
-        while True:
-            soup = asyncio.run(self.scrape(current_url, '.main-view-content'))
+        soup = asyncio.run(self.scrape(current_url, '.main-view-content'))
 
-            if soup:
-                new_urls = soup.select("a[class*='product-tile_image']")
-                if new_urls:
-                    new_urls = [u["href"] for u in new_urls]
-                    new_urls = [self.BASE_URL+u for u in new_urls]
-                    urls.extend(new_urls)
+        if soup:
+            n_product = int(soup.find(
+                'div', class_="view-header").find('div', class_="header").get_text().split(' of ')[1])
+            n_pagination = math.ceil(n_product / 12)
 
-                    page += 1
-                    current_url = f"{current_url}?page={page}"
-                    continue
-                break
+            urls = [product.get('href') for product in soup.find_all(
+                'a', class_="product-tile_image")]
+            for n in range(1, n_pagination + 1):
+                pagination_url = current_url + f'?page={n}'
+                pagination_soup = asyncio.run(
+                    self.scrape(pagination_url, '.main-view-content'))
 
-            else:
-                break
+                urls.extend([product.get('href') for product in pagination_soup.find_all(
+                    'a', class_="product-tile_image")])
 
         df = pd.DataFrame({"url": urls})
         df.insert(0, "shop", self.SHOP)
