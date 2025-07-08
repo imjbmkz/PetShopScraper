@@ -29,17 +29,12 @@ class TheRangeETL(PetProductsETL):
             pagination_url = category_link + \
                 f"?sort=relevance&in_stock_f=true&page={n}"
             pagination_soup = asyncio.run(
-                self.scrape(pagination_url, '#root', min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO))
+                self.scrape(pagination_url, '#product-list', min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO))
 
-            products_data = pagination_soup.find(
-                'div', id="root").get('data-products')
-            products = json.loads(products_data)
-
-            urls.extend([self.BASE_URL + '/' + product.get('variantPath')
-                        for product in products])
+            urls.extend([product.get('href') for product in pagination_soup.find_all(
+                'a', class_="ProductCard-module__productTitle___fJH9Q")])
 
         df = pd.DataFrame({"url": urls})
-        df = df.drop_duplicates(subset=['url'], keep='first')
         df.insert(0, "shop", self.SHOP)
         return df
 

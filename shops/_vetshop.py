@@ -32,7 +32,8 @@ class VetShopETL(PetProductsETL):
             else:
                 category_link_page = f"{category_link}?page={p}"
 
-            soup_page = self.extract_from_url("GET", category_link_page)
+            soup_page = asyncio.run(self.scrape(
+                category_link_page, 'div.facets-facet-browse-results'))
             if soup_page:
                 product_links_a = soup_page.select(
                     "a[class='facets-item-cell-grid-link-image']")
