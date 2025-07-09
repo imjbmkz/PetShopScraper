@@ -70,7 +70,7 @@ class WebScraper:
             playwright = await async_playwright().start()
 
             browser_args = {
-                "headless": False,
+                "headless": True,
                 "args": [
                     "--disable-blink-features=AutomationControlled",
                     "--disable-web-security",
