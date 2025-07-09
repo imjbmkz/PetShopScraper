@@ -19,7 +19,7 @@ class VetUKETL(PetProductsETL):
     def extract(self, category):
         urls = []
         soup = asyncio.run(self.scrape(
-            category, '#advSearchResultsDefaultHeading'))
+            category, '.main-container'))
 
         heading = soup.find('h1', id="advSearchResultsDefaultHeading")
         if not heading:
