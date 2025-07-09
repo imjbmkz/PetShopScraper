@@ -1,4 +1,5 @@
 import asyncio
+import requests
 import re
 import random
 import json
@@ -23,8 +24,7 @@ class ZooplusETL(PetProductsETL):
     def get_product_links(self, url, headers):
         try:
             # Parse request response
-            response = self.session.request(
-                method="GET", url=url, headers=headers)
+            response = requests.get(url=url, headers=headers)
             response.raise_for_status()
 
             logger.info(
@@ -46,7 +46,7 @@ class ZooplusETL(PetProductsETL):
             'Accept-Language': 'en-US,en;q=0.9',
             'Cache-Control': 'max-age=0',
             "User-Agent": UserAgent().random,
-            'Referer': 'https://www.bitiba.co.uk/',
+            'Referer': 'https://www.zooplus.co.uk',
             'Priority': "u=0, i",
             "Upgrade-Insecure-Requests": "1",
             "Connection": "keep-alive",
@@ -65,7 +65,7 @@ class ZooplusETL(PetProductsETL):
         if list_prod_api.status_code == 200:
             if list_prod_api.json()['pagination'] == None:
                 for products in list_prod_api.json()['productList']['products']:
-                    urls.append(products["path"])
+                    urls.append(self.BASE_URL + products["path"])
 
             else:
                 n_page_pagination = int(list_prod_api.json()[
@@ -79,7 +79,7 @@ class ZooplusETL(PetProductsETL):
                     pagination_url, headers=headers)
                 if pagination_product_api.status_code == 200:
                     for products in pagination_product_api.json()['productList']['products']:
-                        urls.append(products["path"])
+                        urls.append(self.BASE_URL + products["path"])
 
         df = pd.DataFrame({"url": urls})
         df.insert(0, "shop", self.SHOP)

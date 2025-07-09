@@ -19,7 +19,12 @@ class ViovetETL(PetProductsETL):
         current_url = f"{self.BASE_URL}{category}"
         urls = []
 
-        soup = asyncio.run(self.scrape(current_url, '.family-listing-grid'))
+        additional_headers = {
+            "Accept-Language": "en-US,en;q=0.9,zh-TW;q=0.8,zh-CN;q=0.7,zh;q=0.6"
+        }
+
+        soup = asyncio.run(self.scrape(
+            current_url, '#full_search_form', headers=additional_headers))
 
         pagination_length = 0
         product_number = int(soup.select_one('div[class*="products-area"]').find_all('div')[0].find_all(

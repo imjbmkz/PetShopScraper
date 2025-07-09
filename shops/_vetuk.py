@@ -1,4 +1,6 @@
 import asyncio
+import re
+import math
 import pandas as pd
 from functions.etl import PetProductsETL
 from bs4 import BeautifulSoup
@@ -15,25 +17,38 @@ class VetUKETL(PetProductsETL):
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
 
     def extract(self, category):
-        url = f"{self.BASE_URL}{category}"
-        soup = asyncio.run(self.scrape(url, '#subcat-view'))
         urls = []
-        if (soup.find('div', class_='category-box')):
-            category_url = soup.find_all('div', class_="category-box")[1:]
-            for url in category_url:
-                product_links_soup = asyncio.run(
-                    url.find('a').get('href'), '#subcat-view')
+        soup = asyncio.run(self.scrape(
+            category, '#advSearchResultsDefaultHeading'))
 
-                for product_url in product_links_soup.find_all('h3', class_="itemTitle"):
-                    urls.append(product_url.find('a').get('href'))
-        else:
-            product_list = soup.find_all('h3', class_="itemTitle")
-            for url in product_list:
-                urls.append(url.find('a').get('href'))
+        heading = soup.find('h1', id="advSearchResultsDefaultHeading")
+        if not heading:
+            logger.error(
+                "Heading with id 'advSearchResultsDefaultHeading' not found.")
+            return pd.DataFrame(columns=["shop", "url"])
+
+        match = re.search(r'\((\d+)\s+results\)', heading.get_text())
+        if not match:
+            logger.error("Could not extract product count from heading text.")
+            return pd.DataFrame(columns=["shop", "url"])
+
+        n_product = int(match.group(1))
+        n_pagination = math.ceil(n_product / 20)
+
+        for n in range(1, n_pagination + 1):
+            pagination_url = f"{category}&page={n}"
+            pagination_soup = asyncio.run(self.scrape(
+                pagination_url, '.product-list-table'))
+
+            urls.extend([
+                link.find('a').get('href')
+                for link in pagination_soup.find_all('h3', class_="itemTitle")
+                if link.find('a') and link.find('a').get('href')
+            ])
 
         df = pd.DataFrame({"url": urls})
+        df = df.drop_duplicates(subset=['url'], keep='first')
         df.insert(0, "shop", self.SHOP)
-
         return df
 
     def transform(self, soup: BeautifulSoup, url: str):
