@@ -19,7 +19,7 @@ class VetUKETL(PetProductsETL):
     def extract(self, category):
         urls = []
         soup = asyncio.run(self.scrape(
-            category, '.main-container', min_sec=1, max_sec=3))
+            category, '.main-container', min_sec=1, max_sec=2))
 
         heading = soup.find('h1', id="advSearchResultsDefaultHeading")
         if not heading:
@@ -38,7 +38,7 @@ class VetUKETL(PetProductsETL):
         for n in range(1, n_pagination + 1):
             pagination_url = f"{category}&page={n}"
             pagination_soup = asyncio.run(self.scrape(
-                pagination_url, '.product-list-table', min_sec=1, max_sec=3))
+                pagination_url, '.product-list-table', min_sec=1, max_sec=2))
 
             urls.extend([
                 link.find('a').get('href')

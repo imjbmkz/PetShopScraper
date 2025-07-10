@@ -21,34 +21,69 @@ class BitibaETL(PetProductsETL):
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 400
 
     def extract(self, category):
+        urls = []
         scrape_url = f"https://www.bitiba.co.uk/api/discover/v1/products/list-faceted-partial?&path={category}&domain=bitiba.co.uk&language=en&page=1&size=24&ab=shop-10734_shop_product_catalog_api_enabled_targeted_delivery.enabled%2Bidpo-1141_article_based_product_cards_targeted_delivery.on%2Bshop-11393_disable_plp_spc_api_cache_targeted_delivery.on%2Bshop-11371_enable_sort_by_unit_price_targeted_delivery.on%2Bidpo-1390_rebranding_foundation_targeted_delivery.on%2Bexplore-3092-price-redesign_targeted_delivery.on"
         logger.info(f"Accessing in : {scrape_url}")
-        urls = []
-        response_data_product = requests.get(scrape_url)
-        product_data = response_data_product.json()
 
-        n_product = product_data['pagination']['count']
+        response = requests.get(scrape_url)
+        if response.status_code != 200:
+            logger.error(
+                f"Failed to fetch: {scrape_url} | Status: {response.status_code}")
+            return pd.DataFrame(columns=["shop", "url"])
+
+        try:
+            product_data = response.json()
+        except Exception as e:
+            logger.error(f"Failed to parse JSON from {scrape_url}: {e}")
+            return pd.DataFrame(columns=["shop", "url"])
+
+        pagination = product_data.get('pagination')
+        if not isinstance(pagination, dict):
+            logger.error(
+                f"'pagination' is missing or not a dict in response JSON.")
+            logger.warning(
+                f"Response JSON (partial): {json.dumps(product_data, indent=2)[:500]}")
+
+            urls.extend([
+                self.BASE_URL + product['path']
+                for product in product_data.get('productList', {}).get('products', [])
+                if product.get('path')
+            ])
+
+            df = pd.DataFrame({"url": urls})
+            df.insert(0, "shop", self.SHOP)
+            return df
+
+        n_product = pagination.get('count', 0)
         n_pagination = math.ceil(n_product / 24)
 
-        sleep_time = random.uniform(10, 15)
-        logger.info(f"Sleeping in : {sleep_time} seconds")
-        time.sleep(sleep_time)
+        time.sleep(random.uniform(10, 15))
 
         for n in range(1, n_pagination + 1):
             pagination_url = f"https://www.bitiba.co.uk/api/discover/v1/products/list-faceted-partial?&path={category}&domain=bitiba.co.uk&language=en&page={n}&size=24&ab=shop-10734_shop_product_catalog_api_enabled_targeted_delivery.enabled%2Bidpo-1141_article_based_product_cards_targeted_delivery.on%2Bshop-11393_disable_plp_spc_api_cache_targeted_delivery.on%2Bshop-11371_enable_sort_by_unit_price_targeted_delivery.on%2Bidpo-1390_rebranding_foundation_targeted_delivery.on%2Bexplore-3092-price-redesign_targeted_delivery.on"
             logger.info(f"Accessing in : {pagination_url}")
-            response_pagination_product = requests.get(pagination_url)
-            data_product = response_pagination_product.json()
-            urls.extend([self.BASE_URL + product['path']
-                        for product in data_product['productList']['products']])
 
-            logger.info(f"Sleeping in : {sleep_time} seconds")
+            response_page = requests.get(pagination_url)
+            if response_page.status_code != 200:
+                logger.warning(
+                    f"Skipping page {n}: HTTP {response_page.status_code}")
+                continue
+
+            try:
+                data_product = response_page.json()
+                urls.extend([
+                    self.BASE_URL + product['path']
+                    for product in data_product.get('productList', {}).get('products', [])
+                    if product.get('path')
+                ])
+            except Exception as e:
+                logger.error(f"Failed to process page {n}: {e}")
+                continue
 
             time.sleep(random.uniform(10, 15))
 
         df = pd.DataFrame({"url": urls})
         df.insert(0, "shop", self.SHOP)
-
         return df
 
     def transform(self, soup: BeautifulSoup, url: str):
