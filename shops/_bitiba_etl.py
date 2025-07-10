@@ -1,7 +1,10 @@
 import re
 import json
+import math
+import time
+import random
 import pandas as pd
-import asyncio
+import requests
 
 from functions.etl import PetProductsETL
 from bs4 import BeautifulSoup
@@ -18,47 +21,35 @@ class BitibaETL(PetProductsETL):
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 400
 
     def extract(self, category):
-        category_link = f"{self.BASE_URL}{category}"
+        scrape_url = f"https://www.bitiba.co.uk/api/discover/v1/products/list-faceted-partial?&path={category}&domain=bitiba.co.uk&language=en&page=1&size=24&ab=shop-10734_shop_product_catalog_api_enabled_targeted_delivery.enabled%2Bidpo-1141_article_based_product_cards_targeted_delivery.on%2Bshop-11393_disable_plp_spc_api_cache_targeted_delivery.on%2Bshop-11371_enable_sort_by_unit_price_targeted_delivery.on%2Bidpo-1390_rebranding_foundation_targeted_delivery.on%2Bexplore-3092-price-redesign_targeted_delivery.on"
+        logger.info(f"Accessing in : {scrape_url}")
         urls = []
+        response_data_product = requests.get(scrape_url)
+        product_data = response_data_product.json()
 
-        soup = asyncio.run(self.scrape(
-            category_link, '#page-content', min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO))
-        if soup:
-            product_group_cards = soup.select(
-                "a[class*='ProductGroupCard_productGroupLink']")
-            product_group_links = [self.BASE_URL + card["href"]
-                                   for card in product_group_cards]
+        n_product = product_data['pagination']['count']
+        n_pagination = math.ceil(n_product / 24)
 
-            for product_group_link in product_group_links:
-                current_url = product_group_link
-                while True:
-                    soup = asyncio.run(self.scrape(
-                        current_url, '#__next', min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO))
-                    if soup:
-                        products_list = soup.select(
-                            "script[type*='application/ld+json']")
-                        if products_list:
+        sleep_time = random.uniform(10, 15)
+        logger.info(f"Sleeping in : {sleep_time} seconds")
+        time.sleep(sleep_time)
 
-                            product_list_json = json.loads(
-                                products_list[-1].text)
-                            if "itemListElement" in product_list_json.keys():
-                                product_urls = pd.DataFrame(json.loads(
-                                    products_list[-1].text)["itemListElement"])["url"].to_list()
-                                urls.extend(product_urls)
+        for n in range(1, n_pagination + 1):
+            pagination_url = f"https://www.bitiba.co.uk/api/discover/v1/products/list-faceted-partial?&path={category}&domain=bitiba.co.uk&language=en&page={n}&size=24&ab=shop-10734_shop_product_catalog_api_enabled_targeted_delivery.enabled%2Bidpo-1141_article_based_product_cards_targeted_delivery.on%2Bshop-11393_disable_plp_spc_api_cache_targeted_delivery.on%2Bshop-11371_enable_sort_by_unit_price_targeted_delivery.on%2Bidpo-1390_rebranding_foundation_targeted_delivery.on%2Bexplore-3092-price-redesign_targeted_delivery.on"
+            logger.info(f"Accessing in : {pagination_url}")
+            response_pagination_product = requests.get(pagination_url)
+            data_product = response_pagination_product.json()
+            urls.extend([self.BASE_URL + product['path']
+                        for product in data_product['productList']['products']])
 
-                                # Repeat the process if there are new pages
-                                next_page_a = soup.find(
-                                    "a", attrs={"data-zta": "paginationNext"})
-                                if next_page_a:
-                                    current_url = next_page_a["href"]
-                                    continue
+            logger.info(f"Sleeping in : {sleep_time} seconds")
 
-                    break
+            time.sleep(random.uniform(10, 15))
 
-                df = pd.DataFrame({"url": urls})
-                df.insert(0, "shop", self.SHOP)
+        df = pd.DataFrame({"url": urls})
+        df.insert(0, "shop", self.SHOP)
 
-                return df
+        return df
 
     def transform(self, soup: BeautifulSoup, url: str):
         try:

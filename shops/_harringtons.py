@@ -12,7 +12,7 @@ class HarringtonsETL(PetProductsETL):
         super().__init__()
         self.SHOP = "Harringtons"
         self.BASE_URL = "https://www.harringtonspetfood.com"
-        self.SELECTOR_SCRAPE_PRODUCT_INFO = ''
+        self.SELECTOR_SCRAPE_PRODUCT_INFO = '#MainContent'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
 
