@@ -9,6 +9,14 @@ import requests
 from functions.etl import PetProductsETL
 from bs4 import BeautifulSoup
 from loguru import logger
+from tenacity import retry, wait_exponential, stop_after_attempt, retry_if_exception_type, before_sleep_log
+MIN_WAIT_BETWEEN_REQ = 10
+MAX_WAIT_BETWEEN_REQ = 15
+MAX_RETRIES = 5
+
+
+class ScrapingError(Exception):
+    pass
 
 
 class BitibaETL(PetProductsETL):
@@ -19,6 +27,24 @@ class BitibaETL(PetProductsETL):
         self.SELECTOR_SCRAPE_PRODUCT_INFO = 'main#page-content'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 350
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 400
+
+    @retry(
+        wait=wait_exponential(
+            multiplier=1, min=MIN_WAIT_BETWEEN_REQ, max=MAX_WAIT_BETWEEN_REQ),
+        stop=stop_after_attempt(MAX_RETRIES),
+        retry=retry_if_exception_type(ScrapingError),
+        before_sleep=before_sleep_log(logger, "WARNING"),
+        reraise=True,
+    )
+    def _fetch_json_with_retry(self, url):
+        response = requests.get(url)
+        if response.status_code != 200:
+            raise ScrapingError(
+                f"Failed to fetch: {url} | Status: {response.status_code}")
+        try:
+            return response.json()
+        except Exception as e:
+            raise ScrapingError(f"Failed to parse JSON from {url}: {e}")
 
     def extract(self, category):
         urls = []
@@ -38,17 +64,11 @@ class BitibaETL(PetProductsETL):
 
         first_url = build_url(1)
         logger.info(f"Accessing: {first_url}")
-        response = requests.get(first_url)
-
-        if response.status_code != 200:
-            logger.error(
-                f"Failed to fetch: {first_url} | Status: {response.status_code}")
-            return pd.DataFrame(columns=["shop", "url"])
 
         try:
-            product_data = response.json()
-        except Exception as e:
-            logger.error(f"Failed to parse JSON from {first_url}: {e}")
+            product_data = self._fetch_json_with_retry(first_url)
+        except ScrapingError as e:
+            logger.error(str(e))
             return pd.DataFrame(columns=["shop", "url"])
 
         pagination = product_data.get("pagination")
@@ -84,14 +104,8 @@ class BitibaETL(PetProductsETL):
             page_url = build_url(page)
             logger.info(f"Accessing page {page}: {page_url}")
 
-            response_page = requests.get(page_url)
-            if response_page.status_code != 200:
-                logger.warning(
-                    f"Skipping page {page}: HTTP {response_page.status_code}")
-                continue
-
             try:
-                data_product = response_page.json()
+                data_product = self._fetch_json_with_retry(page_url)
                 products = data_product.get(
                     'productList', {}).get('products', [])
                 urls.extend([
@@ -99,8 +113,8 @@ class BitibaETL(PetProductsETL):
                     for product in products
                     if product.get('path')
                 ])
-            except Exception as e:
-                logger.error(f"Failed to process page {page}: {e}")
+            except ScrapingError as e:
+                logger.warning(f"Skipping page {page}: {str(e)}")
                 continue
 
             time.sleep(random.uniform(10, 15))
