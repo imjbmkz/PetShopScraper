@@ -22,68 +22,92 @@ class BitibaETL(PetProductsETL):
 
     def extract(self, category):
         urls = []
-        scrape_url = f"https://www.bitiba.co.uk/api/discover/v1/products/list-faceted-partial?&path={category}&domain=bitiba.co.uk&language=en&page=1&size=24&ab=shop-10734_shop_product_catalog_api_enabled_targeted_delivery.enabled%2Bidpo-1141_article_based_product_cards_targeted_delivery.on%2Bshop-11393_disable_plp_spc_api_cache_targeted_delivery.on%2Bshop-11371_enable_sort_by_unit_price_targeted_delivery.on%2Bidpo-1390_rebranding_foundation_targeted_delivery.on%2Bexplore-3092-price-redesign_targeted_delivery.on"
-        logger.info(f"Accessing in : {scrape_url}")
+        base_api_url = (
+            "https://www.bitiba.co.uk/api/discover/v1/products/list-faceted-partial"
+            "?&path={category}&domain=bitiba.co.uk&language=en&page={page}&size=24"
+            "&ab=shop-10734_shop_product_catalog_api_enabled_targeted_delivery.enabled"
+            "%2Bidpo-1141_article_based_product_cards_targeted_delivery.on"
+            "%2Bshop-11393_disable_plp_spc_api_cache_targeted_delivery.on"
+            "%2Bshop-11371_enable_sort_by_unit_price_targeted_delivery.on"
+            "%2Bidpo-1390_rebranding_foundation_targeted_delivery.on"
+            "%2Bexplore-3092-price-redesign_targeted_delivery.on"
+        )
 
-        response = requests.get(scrape_url)
+        def build_url(page):
+            return base_api_url.format(category=category, page=page)
+
+        first_url = build_url(1)
+        logger.info(f"Accessing: {first_url}")
+        response = requests.get(first_url)
+
         if response.status_code != 200:
             logger.error(
-                f"Failed to fetch: {scrape_url} | Status: {response.status_code}")
+                f"Failed to fetch: {first_url} | Status: {response.status_code}")
             return pd.DataFrame(columns=["shop", "url"])
 
         try:
             product_data = response.json()
         except Exception as e:
-            logger.error(f"Failed to parse JSON from {scrape_url}: {e}")
+            logger.error(f"Failed to parse JSON from {first_url}: {e}")
             return pd.DataFrame(columns=["shop", "url"])
 
-        pagination = product_data.get('pagination')
+        pagination = product_data.get("pagination")
         if not isinstance(pagination, dict):
             logger.error(
-                f"'pagination' is missing or not a dict in response JSON.")
+                "'pagination' is missing or not a dict in response JSON.")
             logger.warning(
                 f"Response JSON (partial): {json.dumps(product_data, indent=2)[:500]}")
 
+            products = product_data.get('productList', {}).get('products', [])
             urls.extend([
-                self.BASE_URL + product['path']
-                for product in product_data.get('productList', {}).get('products', [])
+                self.BASE_URL.rstrip('/') + product['path']
+                for product in products
                 if product.get('path')
             ])
 
+            logger.info(
+                f"Extracted {len(urls)} product URLs from fallback (no pagination).")
             df = pd.DataFrame({"url": urls})
             df.insert(0, "shop", self.SHOP)
             return df
 
-        n_product = pagination.get('count', 0)
-        n_pagination = math.ceil(n_product / 24)
+        n_pagination = pagination.get('count', 0)
+        n_products_text = product_data['productList']["productListHeading"]["totalProductsText"]
+        n_products = int(re.search(r'of (\d+)', n_products_text).group(1))
+
+        logger.info(
+            f"Found {n_products} products across {n_pagination} pages.")
 
         time.sleep(random.uniform(10, 15))
 
-        for n in range(1, n_pagination + 1):
-            pagination_url = f"https://www.bitiba.co.uk/api/discover/v1/products/list-faceted-partial?&path={category}&domain=bitiba.co.uk&language=en&page={n}&size=24&ab=shop-10734_shop_product_catalog_api_enabled_targeted_delivery.enabled%2Bidpo-1141_article_based_product_cards_targeted_delivery.on%2Bshop-11393_disable_plp_spc_api_cache_targeted_delivery.on%2Bshop-11371_enable_sort_by_unit_price_targeted_delivery.on%2Bidpo-1390_rebranding_foundation_targeted_delivery.on%2Bexplore-3092-price-redesign_targeted_delivery.on"
-            logger.info(f"Accessing in : {pagination_url}")
+        for page in range(1, n_pagination + 1):
+            page_url = build_url(page)
+            logger.info(f"Accessing page {page}: {page_url}")
 
-            response_page = requests.get(pagination_url)
+            response_page = requests.get(page_url)
             if response_page.status_code != 200:
                 logger.warning(
-                    f"Skipping page {n}: HTTP {response_page.status_code}")
+                    f"Skipping page {page}: HTTP {response_page.status_code}")
                 continue
 
             try:
                 data_product = response_page.json()
+                products = data_product.get(
+                    'productList', {}).get('products', [])
                 urls.extend([
-                    self.BASE_URL + product['path']
-                    for product in data_product.get('productList', {}).get('products', [])
+                    self.BASE_URL.rstrip('/') + product['path']
+                    for product in products
                     if product.get('path')
                 ])
             except Exception as e:
-                logger.error(f"Failed to process page {n}: {e}")
+                logger.error(f"Failed to process page {page}: {e}")
                 continue
 
             time.sleep(random.uniform(10, 15))
 
         df = pd.DataFrame({"url": urls})
         df.insert(0, "shop", self.SHOP)
+        logger.info(f"Total extracted URLs: {len(df)}")
         return df
 
     def transform(self, soup: BeautifulSoup, url: str):
