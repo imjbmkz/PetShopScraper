@@ -21,8 +21,8 @@ class PetProductsETL(ABC):
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
 
-    async def scrape(self, url, selector, headers=None, wait_for_network=False, min_sec=2, max_sec=5):
-        soup = await scrape_url(url, selector, headers, wait_for_network, min_sec=min_sec, max_sec=max_sec)
+    async def scrape(self, url, selector, headers=None, wait_until="domcontentloaded", min_sec=2, max_sec=5):
+        soup = await scrape_url(url, selector, headers, wait_until, min_sec=min_sec, max_sec=max_sec)
         return soup if soup else False
 
     @abstractmethod

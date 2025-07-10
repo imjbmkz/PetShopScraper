@@ -27,8 +27,8 @@ class ViovetETL(PetProductsETL):
             current_url, '#full_search_form', headers=additional_headers))
 
         pagination_length = 0
-        product_number = int(soup.select_one('div[class*="products-area"]').find_all('div')[0].find_all(
-            'span')[3].find('span').get_text().replace('Sort all ', '').replace(' product ranges by:', ''))
+        product_number = int(soup.find('div', class_="pagination").find_all(
+            'a')[-2].get_text(strip=True))
         if (product_number <= 36):
             page_url = f"{current_url}?page=1"
 

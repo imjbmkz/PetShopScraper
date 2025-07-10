@@ -25,8 +25,8 @@ class BitibaETL(PetProductsETL):
         self.SHOP = "Bitiba"
         self.BASE_URL = "https://www.bitiba.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = 'main#page-content'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 350
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 400
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 310
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 350
 
     @retry(
         wait=wait_exponential(
@@ -75,8 +75,6 @@ class BitibaETL(PetProductsETL):
         if not isinstance(pagination, dict):
             logger.error(
                 "'pagination' is missing or not a dict in response JSON.")
-            logger.warning(
-                f"Response JSON (partial): {json.dumps(product_data, indent=2)[:500]}")
 
             products = product_data.get('productList', {}).get('products', [])
             urls.extend([

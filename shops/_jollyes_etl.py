@@ -31,7 +31,7 @@ class JollyesETL(PetProductsETL):
             category_product_urls = []
 
             category_soup = asyncio.run(self.scrape(
-                url, '.product-list', wait_for_network=True))
+                url, '.product-list', wait_until="networkidle"))
 
             if not category_soup:
                 logger.error(f"[ERROR] Failed to fetch or parse: {url}")

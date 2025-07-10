@@ -20,7 +20,7 @@ class FarmAndPetPlaceETL(PetProductsETL):
     def extract(self, category):
         url = self.BASE_URL + category
         soup = asyncio.run(self.scrape(
-            url, 'body.product-cats', wait_for_network=True))
+            url, 'body.product-cats', wait_until="networkidle"))
 
         if not soup or isinstance(soup, bool):
             print(f"[ERROR] Failed to scrape category page: {url}")

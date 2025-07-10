@@ -122,7 +122,7 @@ class WebScraper:
         url: str,
         selector: str,
         timeout: int = REQUEST_TIMEOUT,
-        wait_for_network: bool = False,
+        wait_until: str = "domcontentloaded",
         simulate_behavior: bool = True,
         headers: Optional[Dict[str, str]] = None,
     ) -> BeautifulSoup:
@@ -143,7 +143,13 @@ class WebScraper:
 
             logger.info(f"Navigating to: {url}")
 
-            wait_until = "networkidle" if wait_for_network else "domcontentloaded"
+            valid_wait_until = {
+                "load", "domcontentloaded", "networkidle", "commit"}
+            if wait_until not in valid_wait_until:
+                logger.warning(
+                    f"Invalid wait_until '{wait_until}', defaulting to 'domcontentloaded'")
+                wait_until = "domcontentloaded"
+
             response = await page.goto(url, wait_until=wait_until, timeout=PAGE_LOAD_TIMEOUT)
 
             if not response:
@@ -191,13 +197,13 @@ class WebScraper:
         url: str,
         selector: str,
         timeout: int = REQUEST_TIMEOUT,
-        wait_for_network: bool = False,
+        wait_until: str = "domcontentloaded",
         simulate_behavior: bool = True,
         headers: Optional[Dict[str, str]] = None,
     ) -> Optional[BeautifulSoup]:
         try:
             return await retry_extract_scrape_content(
-                self, url, selector, timeout, wait_for_network, simulate_behavior, headers
+                self, url, selector, timeout, wait_until, simulate_behavior, headers
             )
         except SkipScrape as e:
             logger.warning(f"Skipping scrape: {e}")
@@ -243,9 +249,9 @@ class AsyncWebScraper:
         await self.scraper.close()
 
 
-async def scrape_url(url, selector, headers=None, wait_for_network=False, min_sec=2, max_sec=5) -> Optional[BeautifulSoup]:
+async def scrape_url(url, selector, headers=None, wait_until="domcontentloaded", min_sec=2, max_sec=5) -> Optional[BeautifulSoup]:
     async with AsyncWebScraper() as scraper:
-        result = await scraper.extract_scrape_content(url, selector, headers=headers, wait_for_network=wait_for_network)
+        result = await scraper.extract_scrape_content(url, selector, headers=headers, wait_until=wait_until)
         delay = random.uniform(min_sec, max_sec)
         if delay >= 60:
             minutes = int(delay // 60)

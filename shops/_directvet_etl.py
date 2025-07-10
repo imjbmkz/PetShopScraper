@@ -22,7 +22,7 @@ class DirectVetETL(PetProductsETL):
         urls = []
 
         soup = asyncio.run(self.scrape(
-            current_url, self.SELECTOR_SCRAPE_PRODUCT_INFO, wait_for_network=True))
+            current_url, self.SELECTOR_SCRAPE_PRODUCT_INFO, wait_until="networkidle"))
 
         # Check soup is valid and not a boolean
         if not soup or isinstance(soup, bool):
@@ -51,7 +51,7 @@ class DirectVetETL(PetProductsETL):
             page_url = f"{current_url}?selected_filters=page-{i}"
 
             page_pagination_source = asyncio.run(
-                self.scrape(page_url, self.SELECTOR_SCRAPE_PRODUCT_INFO, wait_for_network=True))
+                self.scrape(page_url, self.SELECTOR_SCRAPE_PRODUCT_INFO, wait_until="networkidle"))
 
             if not page_pagination_source or isinstance(page_pagination_source, bool):
                 logger.warning(
