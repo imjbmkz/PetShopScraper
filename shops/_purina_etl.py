@@ -26,14 +26,14 @@ class PurinaETL(PetProductsETL):
                 'div', class_="view-header").find('div', class_="header").get_text().split(' of ')[1])
             n_pagination = math.ceil(n_product / 12)
 
-            urls = [product.get('href') for product in soup.find_all(
+            urls = [self.BASE_URL + product.get('href') for product in soup.find_all(
                 'a', class_="product-tile_image")]
             for n in range(1, n_pagination + 1):
                 pagination_url = current_url + f'?page={n}'
                 pagination_soup = asyncio.run(
                     self.scrape(pagination_url, '.main-view-content'))
 
-                urls.extend([product.get('href') for product in pagination_soup.find_all(
+                urls.extend([self.BASE_URL + product.get('href') for product in pagination_soup.find_all(
                     'a', class_="product-tile_image")])
 
         df = pd.DataFrame({"url": urls})

@@ -21,7 +21,8 @@ class PetsAtHomeETL(PetProductsETL):
         urls = []
         url = self.BASE_URL + f"/product/listing/{category}"
 
-        soup = asyncio.run(self.scrape(url, '.search-results_grid__rmdgH'))
+        soup = asyncio.run(self.scrape(
+            url, '.search-results_grid__rmdgH', wait_until='load'))
 
         if not soup:
             logger.error(f"[ERROR] Initial scrape failed for URL: {url}")
@@ -44,7 +45,7 @@ class PetsAtHomeETL(PetProductsETL):
         for n in range(1, n_pagination + 1):
             pagination_url = url + f'?page={n}'
             page_soup = asyncio.run(self.scrape(
-                pagination_url, '.search-results_grid__rmdgH'))
+                pagination_url, '.search-results_grid__rmdgH', wait_until='load'))
 
             if not page_soup:
                 logger.warning(
@@ -55,7 +56,7 @@ class PetsAtHomeETL(PetProductsETL):
                 items = page_soup.find_all(
                     'li', class_="results-grid_item__BuYWN")
                 urls.extend([
-                    link.find('a').get('href')
+                    self.BASE_URL + link.find('a').get('href')
                     for link in items
                     if link.find('a') and link.find('a').get('href')
                 ])
