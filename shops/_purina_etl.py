@@ -46,8 +46,18 @@ class PurinaETL(PetProductsETL):
             product_name = soup.find(
                 'h1', class_="dsu-product--title").get_text(strip=True)
             product_url = url.replace(self.BASE_URL, "")
-            product_description = soup.find(
-                'meta', attrs={'property': 'og:description'}).get('content')
+
+            product_description_meta = soup.find(
+                'meta', attrs={'property': 'og:description'})
+
+            if product_description_meta:
+                product_description = product_description_meta.get('content')
+            else:
+                fallback_meta = soup.find(
+                    'meta', attrs={'name': 'description'})
+                product_description = fallback_meta.get(
+                    'content') if fallback_meta else None
+
             product_rating = '0/5'
 
             rating_wrapper = soup.find(

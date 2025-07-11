@@ -93,14 +93,14 @@ class WebScraper:
     async def simulate_human_behavior(self, page: Page) -> None:
         try:
             # Random scrolling
-            scroll_count = random.randint(3, 6)
+            scroll_count = random.randint(3, 5)
             for _ in range(scroll_count):
                 scroll_distance = random.randint(300, 700)
                 await page.mouse.wheel(0, scroll_distance)
                 await asyncio.sleep(random.uniform(0.5, 1.5))
 
             # Random mouse movements
-            move_count = random.randint(5, 10)
+            move_count = random.randint(2, 5)
             for _ in range(move_count):
                 x = random.randint(0, 1920)
                 y = random.randint(0, 1080)
