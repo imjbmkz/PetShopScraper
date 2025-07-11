@@ -16,7 +16,7 @@ class ViovetETL(PetProductsETL):
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
 
     def extract(self, category):
-        current_url = f"{self.BASE_URL}{category}"
+        current_url = f"{self.BASE_URL}{category}?sort_by=_score+desc&items_per_page=124"
         urls = []
 
         additional_headers = {
@@ -24,39 +24,25 @@ class ViovetETL(PetProductsETL):
         }
 
         soup = asyncio.run(self.scrape(
-            current_url, '#full_search_form', headers=additional_headers))
+            current_url, '#full_search_form', headers=additional_headers, wait_until='load'))
 
-        pagination_length = 0
-        product_number = int(soup.find('div', class_="pagination").find_all(
-            'a')[-2].get_text(strip=True))
-        if (product_number <= 36):
-            page_url = f"{current_url}?page=1"
+        try:
+            pagination_length = int(soup.find('div', class_="pagination").find_all(
+                'a')[-2].get_text(strip=True))
+        except (AttributeError, IndexError, ValueError):
+            pagination_length = 1
 
+        for n in range(1, pagination_length + 1):
+            page_url = f"{self.BASE_URL}{category}?page={n}&sort_by=_score+desc&items_per_page=124"
             page_pagination_source = asyncio.run(
-                self.scrape(page_url, '.family-listing-grid'))
-            product_list = page_pagination_source.select(
-                'a[class*="ab_var_one grid-box _one-whole _no-padding _no-margin"][itemprop="url"]')
-
-            for product in product_list:
-                title_tag = product.find('h2', itemprop="name")
-                if title_tag:
-                    urls.append(self.BASE_URL + product.get('href'))
-
-        else:
-            pagination_length = math.ceil(product_number / 36)
-            for i in range(1, pagination_length + 1):
-                page_url = f"{current_url}?page={i}"
-                page_pagination_source = asyncio.run(
-                    self.scrape(page_url, '.family-listing-grid'))
-                product_list = page_pagination_source.select(
-                    'a[class*="ab_var_one grid-box _one-whole _no-padding _no-margin"][itemprop="url"]')
-
-                for product in product_list:
-                    title_tag = product.find('h2', itemprop="name")
-                    if title_tag:
-                        urls.append(self.BASE_URL + product.get('href'))
+                self.scrape(page_url, '#full_search_form',  wait_until='load'))
+            urls.extend([
+                self.BASE_URL + a['href']
+                for a in page_pagination_source.find_all('a', itemprop="url")
+            ])
 
         df = pd.DataFrame({"url": urls})
+        df = df.drop_duplicates(subset=['url'], keep="first")
         df.insert(0, "shop", self.SHOP)
         return df
 

@@ -19,35 +19,45 @@ class VetUKETL(PetProductsETL):
     def extract(self, category):
         urls = []
         soup = asyncio.run(self.scrape(
-            category, '.main-container', min_sec=1, max_sec=2))
+            category, '#productListing', min_sec=1, max_sec=2))
 
         heading = soup.find('h1', id="advSearchResultsDefaultHeading")
-        if not heading:
-            logger.error(
-                "Heading with id 'advSearchResultsDefaultHeading' not found.")
-            return pd.DataFrame(columns=["shop", "url"])
 
-        match = re.search(r'\((\d+)\s+results\)', heading.get_text())
-        if not match:
-            logger.error("Could not extract product count from heading text.")
-            return pd.DataFrame(columns=["shop", "url"])
+        if heading:
+            match = re.search(r'\((\d+)\s+results\)', heading.get_text())
 
-        n_product = int(match.group(1))
-        n_pagination = math.ceil(n_product / 20)
+            n_product = int(match.group(1))
+            n_pagination = math.ceil(n_product / 20)
 
-        for n in range(1, n_pagination + 1):
-            pagination_url = f"{category}&page={n}"
-            pagination_soup = asyncio.run(self.scrape(
-                pagination_url, '.product-list-table', min_sec=1, max_sec=2))
+            for n in range(1, n_pagination + 1):
+                pagination_url = f"{category}&page={n}"
+                pagination_soup = asyncio.run(self.scrape(
+                    pagination_url, '.product-list-table', min_sec=1, max_sec=2))
 
-            urls.extend([
-                link.find('a').get('href')
-                for link in pagination_soup.find_all('h3', class_="itemTitle")
-                if link.find('a') and link.find('a').get('href')
-            ])
+                urls.extend([
+                    link.find('a').get('href')
+                    for link in pagination_soup.find_all('h3', class_="itemTitle")
+                    if link.find('a') and link.find('a').get('href')
+                ])
+        else:
+            n_product = int(soup.find('div', id="pagination").find_all(
+                'strong')[2].get_text(strip=True))
+
+            n_pagination = math.ceil(n_product / 20)
+
+            for n in range(1, n_pagination + 1):
+                pagination_url = f"{category}&page={n}"
+                pagination_soup = asyncio.run(self.scrape(
+                    pagination_url, '.product-list-table', min_sec=1, max_sec=2))
+
+                urls.extend([
+                    link.find('a').get('href')
+                    for link in pagination_soup.find_all('h3', class_="itemTitle")
+                    if link.find('a') and link.find('a').get('href')
+                ])
 
         df = pd.DataFrame({"url": urls})
-        df = df.drop_duplicates(subset=['url'], keep='first')
+        df = df.drop_duplicates(subset=['url'], keep="first")
         df.insert(0, "shop", self.SHOP)
         return df
 
