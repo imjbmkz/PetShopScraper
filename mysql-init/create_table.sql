@@ -14,7 +14,7 @@ VALUES
     ,('PetSupermarket','https://www.pet-supermarket.co.uk/')
     ,('PetDrugsOnline','https://www.petdrugsonline.co.uk/')
     ,('Jollyes','https://www.jollyes.co.uk/')
-    ,('LilyKitchen','https://www.lilyskitchen.co.uk/')
+    ,('LilysKitchen','https://www.lilyskitchen.co.uk/')
     ,('Viovet','https://www.viovet.co.uk/')
     ,('Bitiba','https://www.bitiba.co.uk/')
     ,('DirectVet','https://www.direct-vet.co.uk/')
