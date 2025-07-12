@@ -10,7 +10,7 @@ class LilysKitchenETL(PetProductsETL):
         super().__init__()
         self.SHOP = "LilysKitchen"
         self.BASE_URL = "https://www.lilyskitchen.co.uk"
-        self.SELECTOR_SCRAPE_PRODUCT_INFO = ''
+        self.SELECTOR_SCRAPE_PRODUCT_INFO = 'div.l-pdp-product_primary_info'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
 
