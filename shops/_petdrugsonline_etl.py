@@ -14,8 +14,8 @@ class PetDrugsOnlineETL(PetProductsETL):
         self.SHOP = "PetDrugsOnline"
         self.BASE_URL = "https://www.petdrugsonline.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '.page-columns'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
     def extract(self, category):
         current_url = f"{self.BASE_URL}{category}"

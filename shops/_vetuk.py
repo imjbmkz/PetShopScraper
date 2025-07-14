@@ -13,8 +13,8 @@ class VetUKETL(PetProductsETL):
         self.SHOP = "VetUK"
         self.BASE_URL = "https://www.vetuk.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '#maincontent'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
     def extract(self, category):
         urls = []

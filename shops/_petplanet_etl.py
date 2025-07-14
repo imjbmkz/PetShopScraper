@@ -20,8 +20,8 @@ class PetPlanetETL(PetProductsETL):
         self.SHOP = "PetPlanet"
         self.BASE_URL = "https://www.petplanet.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '.products-panel'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
     async def product_list_scrolling(self, url, selector, click_times):
         soup = None

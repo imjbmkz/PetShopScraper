@@ -13,8 +13,8 @@ class PetsCornerETL(PetProductsETL):
         self.SHOP = "PetsCorner"
         self.BASE_URL = "https://www.petscorner.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '#content'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
     def extract(self, category):
         category_link = f"{self.BASE_URL}{category}"

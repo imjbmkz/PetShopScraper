@@ -16,8 +16,8 @@ class FishKeeperETL(PetProductsETL):
         self.SHOP = "FishKeeper"
         self.BASE_URL = "https://www.fishkeeper.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '#maincontent'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
     async def product_list_scroll(self, url, selector):
         soup = None

@@ -16,8 +16,8 @@ class OcadoETL(PetProductsETL):
         self.SHOP = "Ocado"
         self.BASE_URL = "https://www.ocado.com"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '.main-content'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
     async def product_list_scrolling(self, url, selector):
         soup = None

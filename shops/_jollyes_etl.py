@@ -14,7 +14,7 @@ class JollyesETL(PetProductsETL):
         self.SHOP = "Jollyes"
         self.BASE_URL = "https://www.jollyes.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '#viewport'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 4
 
     def extract(self, category):

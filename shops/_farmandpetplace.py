@@ -15,7 +15,7 @@ class FarmAndPetPlaceETL(PetProductsETL):
         self.BASE_URL = "https://www.farmandpetplace.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '.content-page'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 3
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
     def extract(self, category):
         url = self.BASE_URL + category

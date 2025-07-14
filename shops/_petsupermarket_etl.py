@@ -14,8 +14,8 @@ class PetSupermarketETL(PetProductsETL):
         self.SHOP = "PetSupermarket"
         self.BASE_URL = "https://www.pet-supermarket.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '.product-details'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
     def extract(self, category):
         current_url = f"{self.BASE_URL}{category}"
@@ -73,10 +73,15 @@ class PetSupermarketETL(PetProductsETL):
                 rating_total = json.loads(rating["data-rating"])["total"]
                 rating = f"{rating_rating}/{rating_total}"
 
-            description_list = soup.select(
-                "div[id*='product-details-tab']")[0].select("p")
-            description = " ".join(
-                [p.text for p in description_list]).strip()
+            if soup.select("div[id*='product-details-tab']"):
+                description_list = soup.select(
+                    "div[id*='product-details-tab']")[0].select("p")
+                description = " ".join(
+                    [p.text for p in description_list]).strip()
+            else:
+                description = soup.find(
+                    'meta', attrs={'name': 'description'}).get('content')
+
             product_url = url.replace(self.BASE_URL, "")
 
             # Placeholder for variant details

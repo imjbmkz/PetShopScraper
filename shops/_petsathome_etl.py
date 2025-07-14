@@ -14,8 +14,8 @@ class PetsAtHomeETL(PetProductsETL):
         self.SHOP = "PetsAtHome"
         self.BASE_URL = "https://www.petsathome.com"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = ''
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
     def extract(self, category):
         urls = []

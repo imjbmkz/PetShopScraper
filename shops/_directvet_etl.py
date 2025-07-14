@@ -14,8 +14,8 @@ class DirectVetETL(PetProductsETL):
         self.SHOP = "DirectVet"
         self.BASE_URL = "https://www.direct-vet.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '#center_column'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 2
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 5
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
     def extract(self, category):
         current_url = f"{self.BASE_URL}/{category}"
