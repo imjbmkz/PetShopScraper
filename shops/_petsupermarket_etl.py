@@ -107,12 +107,19 @@ class PetSupermarketETL(PetProductsETL):
                     discounted_price = None
                     discount_percentage = None
 
+                carousel_divs = soup.find_all(
+                    'div', attrs={'data-test': 'carousel-inner-wrapper'})
+                if carousel_divs:
+                    image_url = ', '.join(
+                        [img.get('src') for img in carousel_divs[0].find_all('img')])
+                else:
+                    image_url = None
+
                 variants.append(variant)
                 prices.append(price)
                 discounted_prices.append(discounted_price)
                 discount_percentages.append(discount_percentage)
-                image_urls.append(', '.join([img.get('src') for img in soup.find_all(
-                    'div', attrs={'data-test': 'carousel-inner-wrapper'})[0].find_all('img')]))
+                image_urls.append(image_url)
 
             df = pd.DataFrame(
                 {
