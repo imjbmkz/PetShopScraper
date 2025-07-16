@@ -18,12 +18,11 @@ class FarmAndPetPlaceETL(PetProductsETL):
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
     def extract(self, category):
-        url = self.BASE_URL + category
         soup = asyncio.run(self.scrape(
-            url, 'body.product-cats', wait_until="networkidle"))
+            category, 'body.product-cats', wait_until="load"))
 
         if not soup or isinstance(soup, bool):
-            print(f"[ERROR] Failed to scrape category page: {url}")
+            print(f"[ERROR] Failed to scrape category page: {category}")
             return pd.DataFrame(columns=["shop", "url"])
 
         result_count = soup.find('p', class_="woocommerce-result-count")
@@ -46,7 +45,7 @@ class FarmAndPetPlaceETL(PetProductsETL):
                 ])
         else:
             for i in range(1, n_pagination + 1):
-                base = url.split("page-")[0]
+                base = category.split("page-")[0]
                 new_url = f"{base}page-{i}.html"
 
                 soup_pagination = asyncio.run(
