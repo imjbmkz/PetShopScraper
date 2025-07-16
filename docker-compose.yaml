@@ -1,0 +1,82 @@
+services:
+  # MySQL Database
+  mysql:
+    image: mysql:8.0
+    container_name: mysql_db
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./mysql-init:/docker-entrypoint-initdb.d
+    networks:
+      - pet_scrape_network
+    command: --default-authentication-plugin=mysql_native_password
+
+  # PostgreSQL Database
+  postgresql:
+    image: postgres:16
+    container_name: postgres_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRESQL_DATABASE}
+      POSTGRES_USER: ${POSTGRESQL_USER}
+      POSTGRES_PASSWORD: ${POSTGRESQL_PASS}
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./postgres-init:/docker-entrypoint-initdb.d
+    networks:
+      - pet_scrape_network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U scratch_user -d question"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # pgAdmin for PostgreSQL
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: adminpass
+    ports:
+      - "5080:80"
+    networks:
+      - pet_scrape_network
+    depends_on:
+      - postgresql
+
+  # phpMyAdmin for MySQL
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: unless-stopped
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "5081:80"
+    networks:
+      - pet_scrape_network
+    depends_on:
+      - mysql
+
+volumes:
+  mysql_data:
+    driver: local
+  postgres_data:
+    driver: local
+
+networks:
+  pet_scrape_network:
+    driver: bridge
