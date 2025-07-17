@@ -17,7 +17,7 @@ class ZooplusETL(PetProductsETL):
         super().__init__()
         self.SHOP = "Zooplus"
         self.BASE_URL = "https://www.zooplus.co.uk"
-        self.SELECTOR_SCRAPE_PRODUCT_INFO = ''
+        self.SELECTOR_SCRAPE_PRODUCT_INFO = '#page-content'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
