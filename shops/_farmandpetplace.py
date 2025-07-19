@@ -54,7 +54,7 @@ class FarmAndPetPlaceETL(PetProductsETL):
 
         for url_category in list(set(self.category_urls)):
             soup = asyncio.run(self.scrape(
-                url_category, 'body.product-cats', wait_until="domcontentloaded"))
+                url_category, 'body.product-cats', min_sec=1, max_sec=3, wait_until="domcontentloaded"))
 
             if not soup or isinstance(soup, bool):
                 print(f"[ERROR] Failed to scrape category page: {category}")
@@ -83,7 +83,8 @@ class FarmAndPetPlaceETL(PetProductsETL):
                     new_url = f"{base}page-{i}.html"
 
                     soup_pagination = asyncio.run(
-                        self.scrape(new_url, 'div.shop-filters-area')
+                        self.scrape(new_url, 'div.shop-filters-area',
+                                    min_sec=1, max_sec=3)
                     )
 
                     if not soup_pagination or isinstance(soup_pagination, bool):
