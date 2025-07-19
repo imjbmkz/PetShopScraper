@@ -18,16 +18,19 @@ class FarmAndPetPlaceETL(PetProductsETL):
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
         self.category_urls = []
         self.scrape_url_again = []
+        self.scraped_urls = set()
 
-    def _process_soup(self, soup, source_url=None):
+    def _process_soup(self, soup, source_url):
         if soup.select_one("div.shop-filters-area"):
-            if source_url:
+            if source_url and source_url not in self.category_urls:
                 self.category_urls.append(source_url)
 
         if soup.find('div', class_="products-loop"):
             for div in soup.select("div.product-title a[href]"):
                 full_url = self.BASE_URL + div["href"]
-                self.scrape_url_again.append(full_url)
+                if full_url not in self.scraped_urls:
+                    self.scrape_url_again.append(full_url)
+                    self.scraped_urls.add(full_url)
 
     async def rescrape_urls(self):
         while self.scrape_url_again:
@@ -43,6 +46,9 @@ class FarmAndPetPlaceETL(PetProductsETL):
 
     def extract(self, category):
         urls = []
+        self.scraped_urls = set()
+        self.scraped_urls.add(category)
+
         soup = asyncio.run(self.scrape(
             category, '.main-products-loop', wait_until='load',
             min_sec=1, max_sec=3
