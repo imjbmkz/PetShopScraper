@@ -1,1 +1,1 @@
-SELECT DISTINCT id, url FROM urls WHERE scrape_status<>'DONE' AND shop='{shop}';
+SELECT DISTINCT id, url FROM {table_name} WHERE scrape_status<>'DONE' AND shop='{shop}';
