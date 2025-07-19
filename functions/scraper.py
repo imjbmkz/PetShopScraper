@@ -76,12 +76,17 @@ class WebScraper:
                     "--disable-web-security",
                     "--disable-features=VizDisplayCompositor",
                     "--no-sandbox",
-                    "--disable-dev-shm-usage"
+                    "--disable-dev-shm-usage",
+                    "--disable-background-timer-throttling",
+                    "--disable-renderer-backgrounding",
+                    "--disable-backgrounding-occluded-windows",
+                    "--disable-client-side-phishing-detection"
                 ]
             }
 
             self.browser = await playwright.chromium.launch(**browser_args)
 
+        if self.context is None:
             context_options = {
                 "locale": "en-US",
                 "user_agent": self.ua.random,
