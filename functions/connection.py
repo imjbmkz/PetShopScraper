@@ -1,6 +1,6 @@
 import os
 import pandas as pd
-from sqlalchemy import create_engine, text
+from sqlalchemy import create_engine, text, inspect
 from sqlalchemy.engine import Engine
 from sqlalchemy.exc import SQLAlchemyError
 from dotenv import load_dotenv
@@ -69,10 +69,10 @@ class Connection:
             logger.error(f"SQL file not found: {file_path}")
             raise
 
-    def update_url_scrape_status(self, pkey: int, status: str, timestamp: str) -> None:
+    def update_url_scrape_status(self, pkey: int, status: str, table: str, timestamp: str) -> None:
         sql = self.get_sql_from_file("update_url_scrape_status.sql")
         formatted_sql = sql.format(
-            status=status, timestamp=timestamp, pkey=pkey)
+            status=status, timestamp=timestamp, table_name=table, pkey=pkey)
         self.execute_query(formatted_sql)
 
     def extract_from_sql(self, sql: str) -> pd.DataFrame:
@@ -82,6 +82,10 @@ class Connection:
         except Exception as e:
             logger.error(e)
             raise e
+
+    def check_table_exists(self, table):
+        inspector = inspect(self.engine)
+        return inspector.has_table(table, schema=None)
 
     def df_to_sql(self, data: pd.DataFrame, table_name: str):
         try:
