@@ -126,10 +126,18 @@ class FarmAndPetPlaceETL(PetProductsETL):
             product_id = soup.find(
                 'div', class_="ruk_rating_snippet").get('data-sku')
 
-            rating_wrapper = requests.get(
-                f"https://api.feefo.com/api/10/reviews/summary/product?since_period=ALL&parent_product_sku={product_id}&merchant_identifier=farm-pet-place&origin=www.farmandpetplace.co.uk")
-            rating = float(rating_wrapper.json()['rating']['rating'])
-            product_rating = f'{rating}/5'
+            try:
+                rating_wrapper = requests.get(
+                    f"https://api.feefo.com/api/10/reviews/summary/product?since_period=ALL&parent_product_sku={product_id}&merchant_identifier=farm-pet-place&origin=www.farmandpetplace.co.uk")
+
+                if rating_wrapper.status_code == 200 and rating_wrapper.json().get('rating', {}).get('rating'):
+                    rating = float(rating_wrapper.json()['rating']['rating'])
+                    product_rating = f'{rating}/5'
+                else:
+                    product_rating = '0/5'
+
+            except (requests.RequestException, KeyError, ValueError, TypeError):
+                product_rating = '0/5'
 
             variants = []
             prices = []
