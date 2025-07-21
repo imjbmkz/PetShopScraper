@@ -72,25 +72,57 @@ class WebScraper:
             browser_args = {
                 "headless": True,
                 "args": [
-                    "--disable-blink-features=AutomationControlled",
-                    "--disable-web-security",
-                    "--disable-features=VizDisplayCompositor",
+                    # Basic security and sandbox
                     "--no-sandbox",
                     "--disable-dev-shm-usage",
+
+                    # Memory optimization
+                    "--memory-pressure-off",
+                    "--disable-gpu",
+                    "--disable-gpu-compositing",
+                    "--disable-gpu-rasterization",
+                    "--disable-gpu-sandbox",
+
+                    # Background process optimization
                     "--disable-background-timer-throttling",
-                    "--disable-renderer-backgrounding",
+                    "--disable-background-networking",
                     "--disable-backgrounding-occluded-windows",
-                    "--disable-client-side-phishing-detection"
+
+                    # Disable unnecessary features
+                    "--disable-extensions",
+                    "--disable-plugins",
+                    # Don't load images (major memory saver)
+                    "--disable-images",
+                    "--disable-javascript-harmony-shipping",
+                    "--disable-webgl",
+                    "--disable-webrtc",
+
+                    # Cache and storage optimization
+                    "--disk-cache-size=0",
+                    "--media-cache-size=0",
+                    "--disable-application-cache",
+                    "--disable-offline-load-stale-cache",
+
+                    # Audio/Video (not needed for scraping)
+                    "--disable-audio-output",
+                    "--mute-audio",
+                    "--disable-video",
+
+                    # Rendering optimization
+                    "--disable-smooth-scrolling",
+                    "--disable-animations",
                 ]
             }
 
-            self.browser = await playwright.chromium.launch(**browser_args)
+            self.browser = await playwright.firefox.launch(**browser_args)
 
         if self.context is None:
             context_options = {
                 "locale": "en-US",
                 "user_agent": self.ua.random,
-                "viewport": {"width": 1920, "height": 1080}
+                "viewport": {"width": 1920, "height": 1080},
+                "java_script_enabled": True,
+                "ignore_https_errors": True
             }
 
             self.context = await self.browser.new_context(**context_options)
