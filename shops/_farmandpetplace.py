@@ -46,8 +46,10 @@ class FarmAndPetPlaceETL(PetProductsETL):
 
     def extract(self, category):
         urls = []
+
+        self.category_urls = []
+        self.scrape_url_again = []
         self.scraped_urls = set()
-        self.scraped_urls.add(category)
 
         soup = asyncio.run(self.scrape(
             category, '.main-products-loop', wait_until='load',
@@ -88,17 +90,15 @@ class FarmAndPetPlaceETL(PetProductsETL):
                     base = url_category.split("page-")[0]
                     new_url = f"{base}page-{i}.html"
 
-                    soup_pagination = asyncio.run(
+                    soup_page = asyncio.run(
                         self.scrape(new_url, 'div.shop-filters-area',
                                     min_sec=1, max_sec=3)
                     )
 
-                    if not soup_pagination or isinstance(soup_pagination, bool):
-                        logger.warning(
-                            f"[WARN] Skipped pagination page: {new_url}")
+                    if not soup_page:
                         continue
 
-                    shop_area = soup_pagination.find(
+                    shop_area = soup_page.find(
                         'div', class_="shop-filters-area")
                     if shop_area:
                         urls.extend([
