@@ -229,11 +229,12 @@ class WebScraper:
             raise ScrapingError(f"Error scraping {url}: {str(e)}")
 
         finally:
-            try:
-                await self.close()
-                page = None
-            except Exception as e:
-                logger.error(f"Error closing page: {e}")
+            if page:
+                try:
+                    await page.close()
+                    page = None
+                except Exception as e:
+                    logger.error(f"Error closing page: {e}")
 
     async def extract_scrape_content(
         self,
