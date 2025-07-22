@@ -39,6 +39,10 @@ class WebScraper:
         self.browser: Optional[Browser] = None
         self.context: Optional[BrowserContext] = None
 
+        self.playwright_instance = None
+        self.pages_scraped = 0
+        self.restart_browser_every = 10
+
     def get_headers(self, headers=None) -> Dict[str, str]:
         """Generate realistic browser headers"""
 
@@ -67,54 +71,53 @@ class WebScraper:
     async def setup_browser(self) -> None:
         """Initialize browser and context"""
         if self.browser is None:
-            playwright = await async_playwright().start()
+            self.playwright_instance = await async_playwright().start()
 
             browser_args = {
                 "headless": True,
+                "firefox_user_prefs": {
+                    # === BIGGEST MEMORY SAVERS ===
+                    # Disable images - saves 50-80% memory
+                    "permissions.default.image": 2,
+
+                    # === CACHE COMPLETELY DISABLED ===
+                    "browser.cache.disk.enable": False,
+                    "browser.cache.memory.enable": False,
+                    "browser.cache.memory.capacity": 0,
+                    "browser.cache.offline.enable": False,
+                    "browser.cache.insecure_password_warning": False,
+
+                    # === MEMORY MANAGEMENT ===
+                    "memory.free_dirty_pages": True,
+                    "memory.ghost_window_timeout_seconds": 1,
+                    "dom.memory_reporter.enabled": False,
+
+
+                    # === MEDIA/AUDIO DISABLED ===
+                    "media.volume_scale": "0.0",
+                    "media.autoplay.enabled": False,
+                    "media.block-autoplay-until-in-foreground": True,
+                    "media.suspend-bkgnd-video.enabled": True,
+
+
+                    # === PERFORMANCE TWEAKS ===
+                    "layout.frame_rate": 5,
+                    "content.notify.interval": 750000,
+                    "content.notify.backoffcount": 5,
+                    "content.interrupt.parsing": True,
+                    "content.max.tokenizing.time": 2000000,
+                    "dom.max_script_run_time": 5,
+
+
+                },
                 "args": [
-                    # Basic security and sandbox
-                    "--no-sandbox",
-                    "--disable-dev-shm-usage",
-
-                    # Memory optimization
-                    "--memory-pressure-off",
+                    "--no-remote",
                     "--disable-gpu",
-                    "--disable-gpu-compositing",
-                    "--disable-gpu-rasterization",
-                    "--disable-gpu-sandbox",
 
-                    # Background process optimization
-                    "--disable-background-timer-throttling",
-                    "--disable-background-networking",
-                    "--disable-backgrounding-occluded-windows",
-
-                    # Disable unnecessary features
-                    "--disable-extensions",
-                    "--disable-plugins",
-                    # Don't load images (major memory saver)
-                    "--disable-images",
-                    "--disable-javascript-harmony-shipping",
-                    "--disable-webgl",
-                    "--disable-webrtc",
-
-                    # Cache and storage optimization
-                    "--disk-cache-size=0",
-                    "--media-cache-size=0",
-                    "--disable-application-cache",
-                    "--disable-offline-load-stale-cache",
-
-                    # Audio/Video (not needed for scraping)
-                    "--disable-audio-output",
-                    "--mute-audio",
-                    "--disable-video",
-
-                    # Rendering optimization
-                    "--disable-smooth-scrolling",
-                    "--disable-animations",
                 ]
             }
 
-            self.browser = await playwright.firefox.launch(**browser_args)
+            self.browser = await self.playwright_instance.firefox.launch(**browser_args)
 
         if self.context is None:
             context_options = {
@@ -126,6 +129,9 @@ class WebScraper:
             }
 
             self.context = await self.browser.new_context(**context_options)
+
+            await self.context.route("**/analytics**", lambda route: route.abort())
+            await self.context.route("**/ads**", lambda route: route.abort())
 
     async def simulate_human_behavior(self, page: Page) -> None:
         try:
@@ -223,11 +229,11 @@ class WebScraper:
             raise ScrapingError(f"Error scraping {url}: {str(e)}")
 
         finally:
-            if page:
-                try:
-                    await page.close()
-                except Exception as e:
-                    logger.error(f"Error closing page: {e}")
+            try:
+                await self.close()
+                page = None
+            except Exception as e:
+                logger.error(f"Error closing page: {e}")
 
     async def extract_scrape_content(
         self,
@@ -249,18 +255,26 @@ class WebScraper:
             logger.error(f"Failed to scrape after {MAX_RETRIES} attempts: {e}")
             return None
 
-    async def close(self) -> None:
-        """Clean up browser resources"""
+    async def close(self, force: bool = False):
+        """Clean up all browser resources."""
         try:
             if self.context:
                 await self.context.close()
+                self.context = None
+
             if self.browser:
+                logger.info("Closing browser...")
                 await self.browser.close()
+                self.browser = None
+
+            if self.playwright_instance:
+                await self.playwright_instance.stop()
+                self.playwright_instance = None
+
+            logger.info("Browser resources fully closed")
+
         except Exception as e:
-            logger.error(f"Error closing browser: {e}")
-        finally:
-            self.browser = None
-            self.context = None
+            logger.error(f"❌ Error during browser close: {e}")
 
 
 @retry(
