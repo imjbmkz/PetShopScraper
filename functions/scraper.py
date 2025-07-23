@@ -39,6 +39,10 @@ class WebScraper:
         self.browser: Optional[Browser] = None
         self.context: Optional[BrowserContext] = None
 
+        self.playwright_instance = None
+        self.pages_scraped = 0
+        self.restart_browser_every = 10
+
     def get_headers(self, headers=None) -> Dict[str, str]:
         """Generate realistic browser headers"""
 
@@ -67,54 +71,41 @@ class WebScraper:
     async def setup_browser(self) -> None:
         """Initialize browser and context"""
         if self.browser is None:
-            playwright = await async_playwright().start()
+            self.playwright_instance = await async_playwright().start()
 
             browser_args = {
                 "headless": True,
+                "firefox_user_prefs": {
+                    # === BIGGEST MEMORY SAVERS ===
+                    # Disable images - saves 50-80% memory
+                    "permissions.default.image": 2,
+
+                    # === CACHE COMPLETELY DISABLED ===
+                    "browser.cache.disk.enable": False,
+                    "browser.cache.memory.enable": False,
+                    "browser.cache.memory.capacity": 0,
+                    "browser.cache.offline.enable": False,
+                    "browser.cache.insecure_password_warning": False,
+
+                    # === MEMORY MANAGEMENT ===
+                    "memory.free_dirty_pages": True,
+                    "memory.ghost_window_timeout_seconds": 1,
+                    "dom.memory_reporter.enabled": False,
+
+                    # === MEDIA/AUDIO DISABLED ===
+                    "media.volume_scale": "0.0",
+                    "media.autoplay.enabled": False,
+                    "media.block-autoplay-until-in-foreground": True,
+                    "media.suspend-bkgnd-video.enabled": True,
+
+                },
                 "args": [
-                    # Basic security and sandbox
-                    "--no-sandbox",
-                    "--disable-dev-shm-usage",
-
-                    # Memory optimization
-                    "--memory-pressure-off",
+                    "--no-remote",
                     "--disable-gpu",
-                    "--disable-gpu-compositing",
-                    "--disable-gpu-rasterization",
-                    "--disable-gpu-sandbox",
-
-                    # Background process optimization
-                    "--disable-background-timer-throttling",
-                    "--disable-background-networking",
-                    "--disable-backgrounding-occluded-windows",
-
-                    # Disable unnecessary features
-                    "--disable-extensions",
-                    "--disable-plugins",
-                    # Don't load images (major memory saver)
-                    "--disable-images",
-                    "--disable-javascript-harmony-shipping",
-                    "--disable-webgl",
-                    "--disable-webrtc",
-
-                    # Cache and storage optimization
-                    "--disk-cache-size=0",
-                    "--media-cache-size=0",
-                    "--disable-application-cache",
-                    "--disable-offline-load-stale-cache",
-
-                    # Audio/Video (not needed for scraping)
-                    "--disable-audio-output",
-                    "--mute-audio",
-                    "--disable-video",
-
-                    # Rendering optimization
-                    "--disable-smooth-scrolling",
-                    "--disable-animations",
                 ]
             }
 
-            self.browser = await playwright.firefox.launch(**browser_args)
+            self.browser = await self.playwright_instance.firefox.launch(**browser_args)
 
         if self.context is None:
             context_options = {
@@ -127,32 +118,8 @@ class WebScraper:
 
             self.context = await self.browser.new_context(**context_options)
 
-    async def simulate_human_behavior(self, page: Page) -> None:
-        try:
-            # Random scrolling
-            scroll_count = random.randint(3, 5)
-            for _ in range(scroll_count):
-                scroll_distance = random.randint(300, 700)
-                await page.mouse.wheel(0, scroll_distance)
-                await asyncio.sleep(random.uniform(0.5, 1.5))
-
-            # Random mouse movements
-            move_count = random.randint(2, 5)
-            for _ in range(move_count):
-                x = random.randint(0, 1920)
-                y = random.randint(0, 1080)
-                await page.mouse.move(x, y)
-                await asyncio.sleep(random.uniform(0.3, 0.8))
-
-            # Occasional random click (not on links)
-            if random.random() < 0.3:  # 30% chance
-                safe_x = random.randint(100, 500)
-                safe_y = random.randint(100, 300)
-                await page.mouse.click(safe_x, safe_y)
-                await asyncio.sleep(random.uniform(0.5, 1))
-
-        except Exception as e:
-            logger.warning(f"Error during behavior simulation: {e}")
+            await self.context.route("**/analytics**", lambda route: route.abort())
+            await self.context.route("**/ads**", lambda route: route.abort())
 
     async def _extract_scrape_content(
         self,
@@ -198,10 +165,6 @@ class WebScraper:
             logger.info(f"Waiting for selector: {selector}")
             await page.wait_for_selector(selector, timeout=timeout)
 
-            if simulate_behavior:
-                logger.info("Simulating human behavior...")
-                await self.simulate_human_behavior(page)
-
             logger.info("Extracting page content...")
             rendered_html = await page.content()
 
@@ -226,6 +189,7 @@ class WebScraper:
             if page:
                 try:
                     await page.close()
+                    page = None
                 except Exception as e:
                     logger.error(f"Error closing page: {e}")
 
@@ -249,18 +213,26 @@ class WebScraper:
             logger.error(f"Failed to scrape after {MAX_RETRIES} attempts: {e}")
             return None
 
-    async def close(self) -> None:
-        """Clean up browser resources"""
+    async def close(self, force: bool = False):
+        """Clean up all browser resources."""
         try:
             if self.context:
                 await self.context.close()
+                self.context = None
+
             if self.browser:
+                logger.info("Closing browser...")
                 await self.browser.close()
+                self.browser = None
+
+            if self.playwright_instance:
+                await self.playwright_instance.stop()
+                self.playwright_instance = None
+
+            logger.info("Browser resources fully closed")
+
         except Exception as e:
-            logger.error(f"Error closing browser: {e}")
-        finally:
-            self.browser = None
-            self.context = None
+            logger.error(f"Error during browser close: {e}")
 
 
 @retry(
