@@ -1,5 +1,5 @@
 import asyncio
-import math
+import json
 import random
 import pandas as pd
 
@@ -16,8 +16,8 @@ class TheRangeETL(PetProductsETL):
         self.SHOP = "TheRange"
         self.BASE_URL = "https://www.therange.co.uk"
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '#variant_container'
-        self.MIN_SEC_SLEEP_PRODUCT_INFO = 5
-        self.MAX_SEC_SLEEP_PRODUCT_INFO = 10
+        self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
+        self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
     async def get_data_variant(self, url):
         browser = None
@@ -73,6 +73,16 @@ class TheRangeETL(PetProductsETL):
             if browser:
                 await browser.close()
 
+    async def get_json_product(self, url):
+        soup = await self.scrape(url, 'pre', wait_until='load', min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO)
+        pre_tag = soup.find('pre')
+
+        if pre_tag:
+            json_text = pre_tag.get_text()
+            return json.loads(json_text)
+        else:
+            return None
+
     def extract(self, category):
         category_link = f"https://www.therange.co.uk{category}"
         urls = []
@@ -117,7 +127,7 @@ class TheRangeETL(PetProductsETL):
             clean_url = url.split('#')[0]
 
             if not soup.find('div', class_="no_reviews_info"):
-                product_rating_soup = asyncio.run(self.extract_scrape_content(
+                product_rating_soup = asyncio.run(self.scrape(
                     f'{clean_url}?action=loadreviews&pid={product_id}&page=1', '#review-product-summary'))
 
                 if product_rating_soup.find('div', id="review-product-summary"):
