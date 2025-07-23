@@ -92,28 +92,16 @@ class WebScraper:
                     "memory.ghost_window_timeout_seconds": 1,
                     "dom.memory_reporter.enabled": False,
 
-
                     # === MEDIA/AUDIO DISABLED ===
                     "media.volume_scale": "0.0",
                     "media.autoplay.enabled": False,
                     "media.block-autoplay-until-in-foreground": True,
                     "media.suspend-bkgnd-video.enabled": True,
 
-
-                    # === PERFORMANCE TWEAKS ===
-                    "layout.frame_rate": 5,
-                    "content.notify.interval": 750000,
-                    "content.notify.backoffcount": 5,
-                    "content.interrupt.parsing": True,
-                    "content.max.tokenizing.time": 2000000,
-                    "dom.max_script_run_time": 5,
-
-
                 },
                 "args": [
                     "--no-remote",
                     "--disable-gpu",
-
                 ]
             }
 
@@ -275,7 +263,7 @@ class WebScraper:
             logger.info("Browser resources fully closed")
 
         except Exception as e:
-            logger.error(f"❌ Error during browser close: {e}")
+            logger.error(f"Error during browser close: {e}")
 
 
 @retry(
