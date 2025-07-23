@@ -121,33 +121,6 @@ class WebScraper:
             await self.context.route("**/analytics**", lambda route: route.abort())
             await self.context.route("**/ads**", lambda route: route.abort())
 
-    async def simulate_human_behavior(self, page: Page) -> None:
-        try:
-            # Random scrolling
-            scroll_count = random.randint(3, 5)
-            for _ in range(scroll_count):
-                scroll_distance = random.randint(300, 700)
-                await page.mouse.wheel(0, scroll_distance)
-                await asyncio.sleep(random.uniform(0.5, 1.5))
-
-            # Random mouse movements
-            move_count = random.randint(2, 5)
-            for _ in range(move_count):
-                x = random.randint(0, 1920)
-                y = random.randint(0, 1080)
-                await page.mouse.move(x, y)
-                await asyncio.sleep(random.uniform(0.3, 0.8))
-
-            # Occasional random click (not on links)
-            if random.random() < 0.3:  # 30% chance
-                safe_x = random.randint(100, 500)
-                safe_y = random.randint(100, 300)
-                await page.mouse.click(safe_x, safe_y)
-                await asyncio.sleep(random.uniform(0.5, 1))
-
-        except Exception as e:
-            logger.warning(f"Error during behavior simulation: {e}")
-
     async def _extract_scrape_content(
         self,
         url: str,
@@ -191,10 +164,6 @@ class WebScraper:
 
             logger.info(f"Waiting for selector: {selector}")
             await page.wait_for_selector(selector, timeout=timeout)
-
-            if simulate_behavior:
-                logger.info("Simulating human behavior...")
-                await self.simulate_human_behavior(page)
 
             logger.info("Extracting page content...")
             rendered_html = await page.content()
