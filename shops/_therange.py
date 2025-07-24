@@ -15,7 +15,7 @@ class TheRangeETL(PetProductsETL):
         super().__init__()
         self.SHOP = "TheRange"
         self.BASE_URL = "https://www.therange.co.uk"
-        self.SELECTOR_SCRAPE_PRODUCT_INFO = '#variant_container'
+        self.SELECTOR_SCRAPE_PRODUCT_INFO = 'body'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
@@ -126,9 +126,9 @@ class TheRangeETL(PetProductsETL):
             product_id = soup.find('input', id="product_id").get('value')
             clean_url = url.split('#')[0]
 
-            if not soup.find('div', class_="no_reviews_info"):
+            if not soup.select_one("div.no_reviews_info"):
                 product_rating_soup = asyncio.run(self.scrape(
-                    f'{clean_url}?action=loadreviews&pid={product_id}&page=1', '#review-product-summary'))
+                    f'{clean_url}?action=loadreviews&pid={product_id}&page=1', '#review-product-summary', wait_until='load'))
 
                 if product_rating_soup.find('div', id="review-product-summary"):
                     product_rating = str(round((int(product_rating_soup.find('div', id="review-product-summary").findAll(
