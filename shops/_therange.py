@@ -126,13 +126,12 @@ class TheRangeETL(PetProductsETL):
             product_id = soup.find('input', id="product_id").get('value')
             clean_url = url.split('#')[0]
 
-            if not soup.select_one("div.no_reviews_info"):
-                product_rating_soup = asyncio.run(self.scrape(
-                    f'{clean_url}?action=loadreviews&pid={product_id}&page=1', '#review-product-summary', wait_until='load'))
+            product_rating_soup = asyncio.run(self.scrape(
+                f'{clean_url}?action=loadreviews&pid={product_id}&page=1', 'body', wait_until='load', min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO))
 
-                if product_rating_soup.find('div', id="review-product-summary"):
-                    product_rating = str(round((int(product_rating_soup.find('div', id="review-product-summary").findAll(
-                        'div', class_="progress-bar")[0].get('aria-valuenow')) / 100) * 5, 2)) + '/5'
+            if product_rating_soup.find('div', id="review-product-summary"):
+                product_rating = str(round((int(product_rating_soup.find('div', id="review-product-summary").findAll(
+                    'div', class_="progress-bar")[0].get('aria-valuenow')) / 100) * 5, 2)) + '/5'
 
             variants = []
             prices = []
