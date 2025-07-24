@@ -73,65 +73,56 @@ class WebScraper:
         if self.browser is None:
             self.playwright_instance = await async_playwright().start()
 
-            browser_args = {
-                "headless": True,
-                "args": [
-                    # Core anti-detection
-                    "--disable-blink-features=AutomationControlled",
-                    "--disable-automation",
-                    "--no-first-run",
-                    "--no-service-autorun",
-                    "--password-store=basic",
-
-                    # Performance & stealth
-                    "--disable-dev-shm-usage",
-                    "--disable-extensions",
-                    "--disable-gpu",
-                    "--disable-features=VizDisplayCompositor",
-                    "--no-sandbox",
-                    "--disable-web-security",
-                    "--disable-features=site-per-process",
-
-                    # Additional stealth
-                    "--disable-background-timer-throttling",
-                    "--disable-backgrounding-occluded-windows",
-                    "--disable-renderer-backgrounding",
-                    "--disable-field-trial-config",
-                    "--disable-ipc-flooding-protection",
-                    "--disable-plugins-discovery",
-                    "--disable-preconnect",
-                    "--disable-sync",
-
-                    # Window management
-                    "--start-maximized",
-                    "--window-size=1920,1080",
-                ]
-            }
+            # Shared args across both browsers
+            common_args = [
+                "--no-first-run",
+                "--no-default-browser-check",
+                "--disable-sync",
+                "--disable-extensions",
+                "--disable-popup-blocking",
+                "--disable-background-timer-throttling",
+                "--disable-backgrounding-occluded-windows",
+                "--disable-renderer-backgrounding",
+            ]
 
             if browser_type == "firefox":
-                browser_args["firefox_user_prefs"] = {
-                    # Memory optimization
-                    "permissions.default.image": 2,
-                    "browser.cache.disk.enable": False,
-                    "browser.cache.memory.enable": False,
-                    "media.autoplay.enabled": False,
+                # Firefox-specific setup
+                self.browser = await self.playwright_instance.firefox.launch(
+                    headless=True,
+                    args=common_args + [
+                        "--no-remote"
+                    ],
+                    firefox_user_prefs={
+                        # Reduce memory + tracking
+                        "permissions.default.image": 2,
+                        "browser.cache.disk.enable": False,
+                        "browser.cache.memory.enable": False,
+                        "media.autoplay.enabled": False,
 
-                    # Enhanced anti-detection
-                    "dom.webdriver.enabled": False,
-                    "useAutomationExtension": False,
-                    "general.platform.override": "Win32",
-                    "general.appversion.override": "5.0 (Windows)",
-                    "general.oscpu.override": "Windows NT 10.0; Win64; x64",
-
-                    # Additional Firefox stealth
-                    "privacy.trackingprotection.enabled": True,
-                    "geo.enabled": False,
-                    "media.navigator.enabled": False,
-                    "webgl.disabled": True,
-                }
-                self.browser = await self.playwright_instance.firefox.launch(**browser_args)
+                        # Anti-detection
+                        "dom.webdriver.enabled": False,
+                        "media.navigator.enabled": False,
+                        "webgl.disabled": True,
+                        "privacy.trackingprotection.enabled": True,
+                        "geo.enabled": False,
+                        "general.platform.override": "Win32",
+                        "general.appversion.override": "5.0 (Windows)",
+                        "general.oscpu.override": "Windows NT 10.0; Win64; x64",
+                    }
+                )
             else:
-                self.browser = await self.playwright_instance.chromium.launch(**browser_args)
+                # Chromium-specific setup
+                self.browser = await self.playwright_instance.chromium.launch(
+                    headless=True,
+                    args=common_args + [
+                        "--disable-blink-features=AutomationControlled",
+                        "--disable-dev-shm-usage",
+                        "--disable-features=VizDisplayCompositor",
+                        "--no-sandbox",
+                        "--disable-web-security",
+                        "--disable-gpu",
+                    ]
+                )
 
         if self.context is None:
             context_options = {
@@ -309,7 +300,7 @@ class AsyncWebScraper:
         await self.scraper.close()
 
 
-async def scrape_url(url, selector, headers=None, wait_until="domcontentloaded", min_sec=2, max_sec=5, browser='browser') -> Optional[BeautifulSoup]:
+async def scrape_url(url, selector, headers=None, wait_until="domcontentloaded", min_sec=2, max_sec=5, browser='firefox') -> Optional[BeautifulSoup]:
     async with AsyncWebScraper() as scraper:
         result = await scraper.extract_scrape_content(url, selector, headers=headers, wait_until=wait_until, browser=browser)
         delay = random.uniform(min_sec, max_sec)
