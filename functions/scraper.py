@@ -68,44 +68,70 @@ class WebScraper:
 
         return default_headers
 
-    async def setup_browser(self) -> None:
+    async def setup_browser(self, browser_type) -> None:
         """Initialize browser and context"""
         if self.browser is None:
             self.playwright_instance = await async_playwright().start()
 
             browser_args = {
                 "headless": True,
-                "firefox_user_prefs": {
-                    # === BIGGEST MEMORY SAVERS ===
-                    # Disable images - saves 50-80% memory
-                    "permissions.default.image": 2,
-
-                    # === CACHE COMPLETELY DISABLED ===
-                    "browser.cache.disk.enable": False,
-                    "browser.cache.memory.enable": False,
-                    "browser.cache.memory.capacity": 0,
-                    "browser.cache.offline.enable": False,
-                    "browser.cache.insecure_password_warning": False,
-
-                    # === MEMORY MANAGEMENT ===
-                    "memory.free_dirty_pages": True,
-                    "memory.ghost_window_timeout_seconds": 1,
-                    "dom.memory_reporter.enabled": False,
-
-                    # === MEDIA/AUDIO DISABLED ===
-                    "media.volume_scale": "0.0",
-                    "media.autoplay.enabled": False,
-                    "media.block-autoplay-until-in-foreground": True,
-                    "media.suspend-bkgnd-video.enabled": True,
-
-                },
                 "args": [
-                    "--no-remote",
+                    # Core anti-detection
+                    "--disable-blink-features=AutomationControlled",
+                    "--disable-automation",
+                    "--no-first-run",
+                    "--no-service-autorun",
+                    "--password-store=basic",
+
+                    # Performance & stealth
+                    "--disable-dev-shm-usage",
+                    "--disable-extensions",
                     "--disable-gpu",
+                    "--disable-features=VizDisplayCompositor",
+                    "--no-sandbox",
+                    "--disable-web-security",
+                    "--disable-features=site-per-process",
+
+                    # Additional stealth
+                    "--disable-background-timer-throttling",
+                    "--disable-backgrounding-occluded-windows",
+                    "--disable-renderer-backgrounding",
+                    "--disable-field-trial-config",
+                    "--disable-ipc-flooding-protection",
+                    "--disable-plugins-discovery",
+                    "--disable-preconnect",
+                    "--disable-sync",
+
+                    # Window management
+                    "--start-maximized",
+                    "--window-size=1920,1080",
                 ]
             }
 
-            self.browser = await self.playwright_instance.firefox.launch(**browser_args)
+            if browser_type == "firefox":
+                browser_args["firefox_user_prefs"] = {
+                    # Memory optimization
+                    "permissions.default.image": 2,
+                    "browser.cache.disk.enable": False,
+                    "browser.cache.memory.enable": False,
+                    "media.autoplay.enabled": False,
+
+                    # Enhanced anti-detection
+                    "dom.webdriver.enabled": False,
+                    "useAutomationExtension": False,
+                    "general.platform.override": "Win32",
+                    "general.appversion.override": "5.0 (Windows)",
+                    "general.oscpu.override": "Windows NT 10.0; Win64; x64",
+
+                    # Additional Firefox stealth
+                    "privacy.trackingprotection.enabled": True,
+                    "geo.enabled": False,
+                    "media.navigator.enabled": False,
+                    "webgl.disabled": True,
+                }
+                self.browser = await self.playwright_instance.firefox.launch(**browser_args)
+            else:
+                self.browser = await self.playwright_instance.chromium.launch(**browser_args)
 
         if self.context is None:
             context_options = {
@@ -113,13 +139,33 @@ class WebScraper:
                 "user_agent": self.ua.random,
                 "viewport": {"width": 1920, "height": 1080},
                 "java_script_enabled": True,
-                "ignore_https_errors": True
+                "ignore_https_errors": True,
+                "extra_http_headers": self.get_headers(),
+                "timezone_id": "America/New_York",  # Consistent timezone
+                "permissions": ["geolocation"],
             }
 
             self.context = await self.browser.new_context(**context_options)
 
             await self.context.route("**/analytics**", lambda route: route.abort())
             await self.context.route("**/ads**", lambda route: route.abort())
+            await self.context.route("**/tracking**", lambda route: route.abort())
+
+    async def simulate_human_behavior(self, page, url: str):
+        """Simulate more realistic human browsing behavior"""
+        # Random delay before interaction
+        await asyncio.sleep(random.uniform(0.5, 1))
+
+        # Random mouse movement
+        await page.mouse.move(
+            random.randint(100, 800),
+            random.randint(100, 600)
+        )
+
+        # Occasional random scroll
+        if random.random() < 0.3:  # 30% chance
+            await page.mouse.wheel(0, random.randint(100, 500))
+            await asyncio.sleep(random.uniform(0.5, 1))
 
     async def _extract_scrape_content(
         self,
@@ -129,11 +175,12 @@ class WebScraper:
         wait_until: str = "domcontentloaded",
         simulate_behavior: bool = True,
         headers: Optional[Dict[str, str]] = None,
+        browser: str = 'firefox'
     ) -> BeautifulSoup:
 
         page = None
         try:
-            await self.setup_browser()
+            await self.setup_browser(browser)
 
             if not self.context:
                 raise ScrapingError("Failed to initialize browser context")
@@ -161,6 +208,9 @@ class WebScraper:
 
             if response.status >= 400:
                 raise SkipScrape(f"HTTP {response.status} error for {url}")
+
+            if simulate_behavior:
+                await self.simulate_human_behavior(page, url)
 
             logger.info(f"Waiting for selector: {selector}")
             await page.wait_for_selector(selector, timeout=timeout)
@@ -201,10 +251,11 @@ class WebScraper:
         wait_until: str = "domcontentloaded",
         simulate_behavior: bool = True,
         headers: Optional[Dict[str, str]] = None,
+        browser="firefox"
     ) -> Optional[BeautifulSoup]:
         try:
             return await retry_extract_scrape_content(
-                self, url, selector, timeout, wait_until, simulate_behavior, headers
+                self, url, selector, timeout, wait_until, simulate_behavior, headers, browser
             )
         except SkipScrape as e:
             logger.warning(f"Skipping scrape: {e}")
@@ -258,9 +309,9 @@ class AsyncWebScraper:
         await self.scraper.close()
 
 
-async def scrape_url(url, selector, headers=None, wait_until="domcontentloaded", min_sec=2, max_sec=5) -> Optional[BeautifulSoup]:
+async def scrape_url(url, selector, headers=None, wait_until="domcontentloaded", min_sec=2, max_sec=5, browser='browser') -> Optional[BeautifulSoup]:
     async with AsyncWebScraper() as scraper:
-        result = await scraper.extract_scrape_content(url, selector, headers=headers, wait_until=wait_until)
+        result = await scraper.extract_scrape_content(url, selector, headers=headers, wait_until=wait_until, browser=browser)
         delay = random.uniform(min_sec, max_sec)
         if delay >= 60:
             minutes = int(delay // 60)

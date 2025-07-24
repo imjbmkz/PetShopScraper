@@ -20,9 +20,10 @@ class PetProductsETL(ABC):
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
         self.connection = Connection()
+        self.browser_type = 'firefox'
 
-    async def scrape(self, url, selector, headers=None, wait_until="domcontentloaded", min_sec=2, max_sec=5):
-        soup = await scrape_url(url, selector, headers, wait_until, min_sec=min_sec, max_sec=max_sec)
+    async def scrape(self, url, selector, headers=None, wait_until="domcontentloaded", min_sec=2, max_sec=5, browser="firefox"):
+        soup = await scrape_url(url, selector, headers, wait_until, min_sec=min_sec, max_sec=max_sec, browser=browser)
         return soup if soup else False
 
     @abstractmethod
@@ -66,7 +67,7 @@ class PetProductsETL(ABC):
 
             now = dt.now().strftime("%Y-%m-%d %H:%M:%S")
             soup = asyncio.run(self.scrape(
-                url, self.SELECTOR_SCRAPE_PRODUCT_INFO, min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO, wait_until='load'))
+                url, self.SELECTOR_SCRAPE_PRODUCT_INFO, min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO, wait_until='load', browser=self.browser_type))
             df = self.transform(soup, url)
 
             if df is not None:

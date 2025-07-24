@@ -18,6 +18,7 @@ class TheRangeETL(PetProductsETL):
         self.SELECTOR_SCRAPE_PRODUCT_INFO = '#product_reviews_section'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
+        self.browser_type = "chromium"
 
     async def get_data_variant(self, url):
         browser = None
@@ -74,7 +75,7 @@ class TheRangeETL(PetProductsETL):
                 await browser.close()
 
     async def get_json_product(self, url):
-        soup = await self.scrape(url, 'pre', wait_until='load', min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO)
+        soup = await self.scrape(url, 'pre', wait_until='load', min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO, browser='chromium')
         pre_tag = soup.find('pre')
 
         if pre_tag:
@@ -87,7 +88,7 @@ class TheRangeETL(PetProductsETL):
         category_link = f"https://www.therange.co.uk{category}"
         urls = []
         soup = asyncio.run(self.scrape(category_link,  '#root',
-                           min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO))
+                           min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO, browser='chromium'))
 
         if not soup or not isinstance(soup, BeautifulSoup):
             logger.error(f"Failed to scrape category page: {category_link}")
