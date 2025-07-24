@@ -39,7 +39,12 @@ class HealthyPetStoreETL(PetProductsETL):
 
     def transform(self, soup: BeautifulSoup, url: str):
         try:
-            product_name = soup.find('h1', class_="product_title").get_text()
+            if soup.find('h1', class_="product_title"):
+                product_name = soup.find(
+                    'h1', class_="product_title").get_text()
+            else:
+                return pd.DataFrame({})
+
             product_description = None
 
             if soup.find('div', class_="woocommerce-product-details__short-description"):
