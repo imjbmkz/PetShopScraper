@@ -15,7 +15,7 @@ class TheRangeETL(PetProductsETL):
         super().__init__()
         self.SHOP = "TheRange"
         self.BASE_URL = "https://www.therange.co.uk"
-        self.SELECTOR_SCRAPE_PRODUCT_INFO = 'body'
+        self.SELECTOR_SCRAPE_PRODUCT_INFO = '#product_reviews_section'
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
 
