@@ -59,8 +59,9 @@ class HealthyPetStoreETL(PetProductsETL):
                 for price_data in json.loads(soup.find('form', class_="variations_form").get('data-product_variations')):
                     variants.append(price_data['attributes'].get(
                         'attribute_pa_variations-sizes') or price_data['attributes'].get('attribute_pa_size'))
-                    image_urls.append(
-                        soup.find('meta', attrs={'property': "og:image"}).get('content'))
+                    image_urls.append(soup.find('meta', {'property': 'og:image'}).get(
+                        'content') if soup.find('meta', {'property': 'og:image'}) else None)
+
                     if price_data.get('display_price') != price_data.get('display_regular_price'):
                         price = float(price_data.get('display_regular_price'))
                         discounted_price = float(
@@ -78,8 +79,9 @@ class HealthyPetStoreETL(PetProductsETL):
 
             else:
                 variants.append(None)
-                image_urls.append(
-                    soup.find('meta', attrs={'property': "og:image"}).get('content'))
+                image_urls.append(soup.find('meta', {'property': 'og:image'}).get(
+                    'content') if soup.find('meta', {'property': 'og:image'}) else None)
+
                 if soup.find('p', class_="price").find('del'):
                     price = float(soup.find('p', class_="price").find(
                         'del').find('bdi').get_text().replace('£', ''))
