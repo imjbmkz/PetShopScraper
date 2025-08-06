@@ -7,6 +7,7 @@ from abc import ABC, abstractmethod
 from sqlalchemy.engine import Engine
 from .connection import Connection
 from .scraper import scrape_url
+from .proxy import ProxyRotator
 from loguru import logger
 from datetime import datetime as dt
 from bs4 import BeautifulSoup
@@ -20,9 +21,12 @@ class PetProductsETL(ABC):
         self.MIN_SEC_SLEEP_PRODUCT_INFO = 1
         self.MAX_SEC_SLEEP_PRODUCT_INFO = 3
         self.connection = Connection()
+        self.wait_until = "load"
+        self.browser_type = 'chromium'
+        self.with_proxy = False
 
-    async def scrape(self, url, selector, headers=None, wait_until="domcontentloaded", min_sec=2, max_sec=5):
-        soup = await scrape_url(url, selector, headers, wait_until, min_sec=min_sec, max_sec=max_sec)
+    async def scrape(self, url, selector, proxy, headers=None, wait_until="load", min_sec=2, max_sec=5, browser="firefox"):
+        soup = await scrape_url(url, selector, proxy, headers, wait_until, min_sec=min_sec, max_sec=max_sec, browser=browser)
         return soup if soup else False
 
     @abstractmethod
@@ -45,9 +49,7 @@ class PetProductsETL(ABC):
             logger.error(e)
             raise e
 
-    def get_product_infos(self):
-        temp_table = f"stg_{self.SHOP.lower()}_temp_products"
-
+    def extract_unscraped_data(self, temp_table):
         create_temp_sql = self.connection.get_sql_from_file(
             'create_temp_table_product_info.sql')
         create_temp_sql = create_temp_sql.format(
@@ -58,27 +60,9 @@ class PetProductsETL(ABC):
         sql = self.connection.get_sql_from_file('select_unscraped_urls.sql')
         sql = sql.format(shop=self.SHOP, table_name="urls")
 
-        df_urls = self.connection.extract_from_sql(sql)
+        return self.connection.extract_from_sql(sql)
 
-        for i, row in df_urls.iterrows():
-            pkey = row["id"]
-            url = row["url"]
-
-            now = dt.now().strftime("%Y-%m-%d %H:%M:%S")
-            soup = asyncio.run(self.scrape(
-                url, self.SELECTOR_SCRAPE_PRODUCT_INFO, min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO, wait_until='load'))
-            df = self.transform(soup, url)
-
-            if df is not None:
-                self.load(df, temp_table)
-                self.connection.update_url_scrape_status(
-                    pkey, "DONE", 'urls', now)
-            else:
-                self.connection.update_url_scrape_status(
-                    pkey, "FAILED", 'urls', now)
-
-            logger.info(f"{i+1} out of {len(df_urls)} URL(s) Scraped")
-
+    def insert_scrape_in_database(self, temp_table):
         for sql_file, label in [
             ('insert_into_pet_products.sql', 'data product inserted'),
             ('insert_into_pet_product_variants.sql',
@@ -91,6 +75,32 @@ class PetProductsETL(ABC):
             self._temp_table(sql, temp_table, label)
 
         self._temp_table(f"DROP TABLE {temp_table};", temp_table, 'deleted')
+
+    def get_product_infos(self):
+        temp_table = f"stg_{self.SHOP.lower()}_temp_products"
+        df_urls = self.extract_unscraped_data(temp_table)
+
+        for i, row in df_urls.iterrows():
+            pkey = row["id"]
+            url = row["url"]
+
+            now = dt.now().strftime("%Y-%m-%d %H:%M:%S")
+            soup = asyncio.run(self.scrape(
+                url, self.SELECTOR_SCRAPE_PRODUCT_INFO, proxy=self.with_proxy, min_sec=self.MIN_SEC_SLEEP_PRODUCT_INFO, max_sec=self.MAX_SEC_SLEEP_PRODUCT_INFO, wait_until=self.wait_until, browser=self.browser_type))
+
+            df = self.transform(soup, url)
+
+            if df is not None:
+                self.load(df, temp_table)
+                self.connection.update_url_scrape_status(
+                    pkey, "DONE", 'urls', now)
+            else:
+                self.connection.update_url_scrape_status(
+                    pkey, "FAILED", 'urls', now)
+
+            logger.info(f"{i+1} out of {len(df_urls)} URL(s) Scraped")
+
+        self.insert_scrape_in_database(temp_table)
 
     def get_links_by_category(self):
         self.connection.execute_query(

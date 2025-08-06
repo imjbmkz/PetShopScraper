@@ -114,8 +114,12 @@ class FarmAndPetPlaceETL(PetProductsETL):
 
     def transform(self, soup: BeautifulSoup, url: str):
         try:
-            product_name = soup.find(
-                'h1', attrs={'itemprop': 'name'}).get_text()
+            product_name = soup.find('h1', attrs={'itemprop': 'name'})
+            if product_name:
+                product_name = product_name.get_text()
+            else:
+                return pd.DataFrame({})
+
             product_description = None
 
             if soup.find('div', class_="short-description"):
